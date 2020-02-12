@@ -9,27 +9,34 @@ const { Provider, Consumer } = createContext();
 class ConfigProvider extends Component {
 
     //sets the global state variables we need
-state = {
-   loggedIn: false,
-   currentUser: "someone",
-   marketplace_items: ["Paints", "Sandwich", "Bi-polar medication", "Van Goghs left ear", "Alcohol", "Gambling tokens"],
-   cart: [],
-   totalCoins: 50,
-   gameEarnings: 0,
-   bet: 0
+    state = {
+        loggedIn: false,
+        currentUser: "someone",
+        marketplace_items: ["Paints", "Sandwich", "Bi-polar medication", "Van Goghs left ear", "Alcohol", "Gambling tokens"],
+        cart: [],
+        totalCoins: 50,
+        gameEarnings: 0,
+        bet: 0
 
-}
+    }
 
-        
+
 
 
 
     render() {
         return (
             <Provider value={{
-// values to send down
+                // values to send down
+                loggedIn: this.state.loggedIn,
+                currentUser: this.state.currentUser,
+                marketplace_items: this.state.marketplace_items,
+                cart: this.state.cart,
+                totalCoins: this.state.totalCoins,
+                gameEarnings: this.state.gameEarnings,
+                bet: this.state.bet
             }}>
-            {/*lets us see our children components  */}
+                {/*lets us see our children components  */}
                 {this.props.children}
             </Provider>
 
