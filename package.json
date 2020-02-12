@@ -1,0 +1,19 @@
+{
+  "name": "liars-dice",
+  "version": "1.0.0",
+  "description": "Live life as your favorite artist!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ietoy/liars-dice.git"
+  },
+  "author": "Ian Toy, Carlos Toledo, Alexis Bounds",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ietoy/liars-dice/issues"
+  },
+  "homepage": "https://github.com/ietoy/liars-dice#readme"
+}
