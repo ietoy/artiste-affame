@@ -8,19 +8,38 @@ const Navbar = props => {
         <Consumer>
             {context => {
                 return (
-                    <div className="pos-f-t">
-                        <div className="collapse" id="navbarToggleExternalContent">
-                            <div className="bg-dark p-4">
-                                <h5 className="text-white h4">Collapsed content</h5>
-                                <span className="text-muted">Toggleable via the navbar brand.</span>
-                            </div>
-                        </div>
-                        <nav className="navbar navbar-dark bg-dark">
-                            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span className="navbar-toggler-icon"></span>
-                            </button>
-                        </nav>
-                    </div>
+                    <nav className="navbar navbar-light light-blue lighten-4">
+                      <a className="navbar-brand" href="#">Artiste Defammé</a>
+                    
+                      <button className="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+                        aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span className="dark-blue-text"><i
+                            className="fas fa-bars fa-1x"></i></span></button>
+                    
+                      <div className="collapse navbar-collapse" id="navbarSupportedContent1">
+                    
+                        <ul className="navbar-nav mr-auto">
+                          <li className="nav-item active">
+                            <a className="nav-link" href="#">Dashboard <span className="sr-only">(current)</span></a>
+                          </li>
+                          <li className="nav-item">
+                            <a className="nav-link" href="#">Inventory</a>
+                          </li>
+                          <li className="nav-item">
+                            <a className="nav-link" href="#">Shop</a>
+                          </li>
+                          <li className="nav-item">
+                            <a className="nav-link" href="#">Studio</a>
+                          </li><li className="nav-item">
+                            <a className="nav-link" href="#">Gallery</a>
+                          </li>
+                          <li className="nav-item">
+                            <button>Sign Out</button>
+                          </li>
+                        </ul>
+                    
+                      </div>
+                    
+                    </nav>
                 )
             }}
 
