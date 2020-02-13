@@ -5,6 +5,7 @@ import './App.css';
 import Navbar from "./components/NavBar";
 import Wrapper from "./components/Wrapper";
 import Homepage from "./pages/Homepage";
+import Studio from "./pages/Studio"
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <Router>
         <Navbar/>
         <Wrapper>
-        <Route exact path="/" component={Homepage}/>
+            <Route exact path="/" component={Homepage} />
+            <Route exact path="/studio" component={Studio}/>
         </Wrapper>
         </Router>
         </ConfigProvider>
