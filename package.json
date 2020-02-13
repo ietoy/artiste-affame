@@ -1,0 +1,23 @@
+{
+  "name": "liars-dice",
+  "version": "1.0.0",
+  "description": "A react app for the classic bidding and bluffing game, Liar's Dice!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ietoy/liars-dice.git"
+  },
+  "author": "Ian Toy, Alexis Bounds, Carlos Toledo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ietoy/liars-dice/issues"
+  },
+  "homepage": "https://github.com/ietoy/liars-dice#readme",
+  "dependencies": {
+    "roll": "^1.2.0",
+    "rpg-dice-roller": "^4.0.2"
+  }
+}
