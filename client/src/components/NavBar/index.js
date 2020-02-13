@@ -8,6 +8,7 @@ const Navbar = props => {
         <Consumer>
             {context => {
                 return (
+
                   <nav className="navbar navbar-light light-blue lighten-4">
                   <a className="navbar-brand" href="#">Artiste Defammé</a>
                 
@@ -40,6 +41,8 @@ const Navbar = props => {
                   </div>
                 
                 </nav>
+
+
                 )
             }}
 
