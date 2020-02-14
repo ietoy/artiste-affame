@@ -10,7 +10,10 @@ module.exports = {
     //Insert new Painting
     create: function (req, res) {
         db.Painting.create(req.body)
-            .then(painting => res.json(painting))
+            .then(painting => {
+                db.User.findOneAndUpdate({_id: painting.painter}, { $push: { portfolio: painting._id } });
+                res.json(painting)
+            })
             .catch(err => res.status(422).json(err));
     },
     //update Painting
@@ -25,5 +28,10 @@ module.exports = {
             .then(painting => painting.remove())
             .then(painting => res.json(painting))
             .catch(err => res.status(422).json(err));
+    },
+    findShown: function (req, res) {
+        db.Painting.find({galleryShowing: true})
+        .then(paintings => res.json(paintings))
+        .catch(err => console.log(err));
     }
 };

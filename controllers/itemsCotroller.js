@@ -25,5 +25,10 @@ module.exports = {
             .then(item => item.remove())
             .then(item => res.json(item))
             .catch(err => res.status(422).json(err));
+    },
+    findAll: function (req, res) {
+        db.Item.findAll()
+        .then(items => res.json(items))
+        .catch(err => console.log(err));
     }
 };
