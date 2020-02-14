@@ -28,3 +28,5 @@ const paintingSchema = new Schema({
 
 //models our collection
 const Painting = mongoose.model('Painting', paintingSchema);
+
+module.exports =Painting;
