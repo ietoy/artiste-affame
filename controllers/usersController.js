@@ -10,5 +10,7 @@ module.exports = {
         console.log(err);
         res.status(400).json(err);
       });
-    }
+    },
+  addItems: function(req, res) {
+    db.User.findOne( {_id: req.params.id}})
 };

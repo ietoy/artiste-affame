@@ -8,10 +8,10 @@ const paintingSchema = new Schema({
     paintingName: {
         type: String
     },
-    // painter: {
-    //     type:Schema.Types.ObjectId,
-    //     ref:"User"
-    // },
+    painter: {
+        type:Schema.Types.ObjectId,
+        ref:"User"
+    },
     likes: Number,
     value: Number,
     src: String,
