@@ -12,6 +12,7 @@ class ConfigProvider extends Component {
     state = {
         loggedIn: false,
         currentUser: "someone",
+        
         marketplace_items: ["Paints", "Sandwich", "Bi-polar medication", "Van Goghs left ear", "Alcohol", "Gambling tokens"],
         cart: [],
         totalCoins: 50,
