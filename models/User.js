@@ -36,13 +36,16 @@ const UserSchema = new Schema({
                 type: Schema.Types.ObjectId,
                 ref: "Item"
             },
-            amount: Number
+            amount: Number,
+            // default:[]
         }
     ],
     portfolio: [
         {
             type: Schema.Types.ObjectId,
-            ref: "Painting"
+            ref: "Painting",
+            // default: []
+
         }
     ],
     hungry: {
@@ -89,6 +92,6 @@ UserSchema.methods.verifyPassword = function (password, cb) {
     });
 };
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', UserSchema);
 
 module.exports = User;

@@ -13,3 +13,5 @@ const ItemSchema = new Schema({
 
 //models our collection
 const Item = mongoose.model('Item', ItemSchema);
+ 
+module.exports =Item;
