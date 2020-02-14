@@ -7,6 +7,8 @@ import Wrapper from "./components/Wrapper";
 import Homepage from "./pages/Homepage";
 import Studio from "./pages/Studio"
 
+// WRITE A handleLike FUNCTION TO INCREMENT THE LIKE COUNT OF PAINTING OBJS +1 WHEN A BUTTON IS LIKED
+
 function App() {
   return (
       <div className="div">
