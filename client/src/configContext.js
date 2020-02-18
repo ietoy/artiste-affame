@@ -1,6 +1,7 @@
 import React, { Component, createContext } from "react";
 //imports react dependencies
 
+import API from "../src/utils/API";
 //object destructing into a provider and consumer
 const { Provider, Consumer } = createContext();
 
@@ -12,12 +13,18 @@ class ConfigProvider extends Component {
     state = {
         loggedIn: false,
         currentUser: "someone",
-        
+
         marketplace_items: ["Paints", "Sandwich", "Bi-polar medication", "Van Goghs left ear", "Alcohol", "Gambling tokens"],
         cart: [],
         totalCoins: 50,
         gameEarnings: 0,
-        bet: 0
+        bet: 0,
+        login: (user) => {
+            this.setState({ loggedIn: true });
+            console.log(user);
+            API.signup(user);
+
+        }
 
     }
 
@@ -35,7 +42,8 @@ class ConfigProvider extends Component {
                 cart: this.state.cart,
                 totalCoins: this.state.totalCoins,
                 gameEarnings: this.state.gameEarnings,
-                bet: this.state.bet
+                bet: this.state.bet,
+                login: this.state.login
             }}>
                 {/*lets us see our children components  */}
                 {this.props.children}

@@ -8,7 +8,7 @@ import Homepage from "./pages/Homepage";
 import Studio from "./pages/Studio"
 import Store from "./pages/Store";
 import Gallery  from "./pages/Gallery";
-import Login from "./pages/Login";
+import Login from "./pages/LogIn";
 import Inventory from "./pages/Inventory";
 import Arcade from "./pages/Arcade";
 
