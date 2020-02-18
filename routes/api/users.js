@@ -5,6 +5,8 @@ const usersController = require("../../controllers/usersController");
 
 // LOGIN ROUTE
 router.route("/login").post((req, res) => {
+  console.log("LOGIN REQUEST");
+  console.log(req.body);
   auth
     .logUserIn(req.body.email, req.body.password)
     .then(dbUser => res.json(dbUser))
@@ -29,5 +31,13 @@ router.route("/:id").get(isAuthenticated, (req, res) => {
     })
     .catch(err => res.status(400).send(err));
 });
+
+//add items to user
+router.route("/checkout/:id")
+    .put(usersController.addItems)
+
+//use item
+router.route("/use/:id")
+    .put(usersController.useItem)
 
 module.exports = router;

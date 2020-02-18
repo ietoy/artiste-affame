@@ -14,7 +14,10 @@ const paintingSchema = new Schema({
     },
     likes: Number,
     value: Number,
-    src: String,
+    src: {
+        type: String,
+        default: ""
+    },
     timestamp: {
         type: Date,
         default: Date.now
