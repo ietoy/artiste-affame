@@ -9,12 +9,14 @@ module.exports = {
     },
     //Insert new Painting
     create: function (req, res) {
+        console.log("CREATE PAINTING REQ");
+        console.log(req.body);
         db.Painting.create(req.body)
             .then(painting => {
-                db.User.findOneAndUpdate({_id: painting.painter}, { $push: { portfolio: painting._id } });
                 res.json(painting)
-            })
-            .catch(err => res.status(422).json(err));
+                db.User.findOneAndUpdate({ _id: painting.painter }, { $push: { portfolio: painting._id } })
+                    .then(data => console.log(data));
+            }).catch(err => res.status(422).json(err));
     },
     //update Painting
     update: function (req, res) {
@@ -30,8 +32,8 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findShown: function (req, res) {
-        db.Painting.find({galleryShowing: true})
-        .then(paintings => res.json(paintings))
-        .catch(err => console.log(err));
+        db.Painting.find({ galleryShowing: true })
+            .then(paintings => res.json(paintings))
+            .catch(err => console.log(err));
     }
 };

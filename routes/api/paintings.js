@@ -4,7 +4,7 @@ const paintingsController = require("../../controllers/paintingsController")
 router.route("/gallery")
     .get(paintingsController.findShown)
 
-router.route("/add")
+router.route("/add/:id")
     .post(paintingsController.create)
         // get user id from global state
         // add this to new painting obj

@@ -7,8 +7,10 @@ const Schema = mongoose.Schema;
 const ItemSchema = new Schema({
     name: String,
     description: String,
-    src: String
-
+    src: {
+        type: String,
+        default: ""
+    }
 });
 
 //models our collection
