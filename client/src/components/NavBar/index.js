@@ -10,7 +10,7 @@ const Navbar = props => {
                 return (
 
                   <nav className="navbar navbar-light light-blue lighten-4">
-                  <a className="navbar-brand" href="#">Artiste Defammé</a>
+                  <a className="navbar-brand" href="#">Artiste Afammé</a>
                 
                   <button className="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
                     aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span className="dark-blue-text"><i
