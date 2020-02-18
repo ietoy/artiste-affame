@@ -99,7 +99,7 @@ const Game = props => {
 <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>
 <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>
 
-                        {/* <div className="card" >
+                        <div className="card" >
                             <img src="..." className="card-img-top" alt="..."></img>
                             <div className="card-header">
                                 {context.currentUser}
@@ -108,8 +108,8 @@ const Game = props => {
                                 <li className="list-group-item">Cras justo odio</li>
                                 <li className="list-group-item">Dapibus ac facilisis in</li>
                                 <li className="list-group-item">Vestibulum at eros</li>
-                            </ul> */}
-                        {/* </div> */}
+                            </ul> 
+                        </div>
 
 
 
