@@ -10,7 +10,8 @@ const Navbar = props => {
     if (loggedin) {
       return (
         <ul id="nav-mobile" className="right hide-on-med-and-down">
-
+          <li> <Link to="/arcade">Arcade</Link>
+          </li>
           <li> <Link to="/inventory">Inventory</Link>
           </li>
           <li>
@@ -19,7 +20,7 @@ const Navbar = props => {
           <li>
             <Link to="/studio">Studio</Link>
           </li><li>
-            <Link to="/Gallery">Gallery</Link>
+            <Link to="/gallery">Gallery</Link>
           </li>
           <li>
             {/* onclick */}
@@ -31,20 +32,21 @@ const Navbar = props => {
     else {
       return (
         <ul id="nav-mobile" className="right hide-on-med-and-down">
-
-        <li>
-          <Link to="/shop">Shop</Link>
-        </li>
-        <li>
-          <Link to="/studio">Studio</Link>
-        </li><li>
-          <Link to="/Gallery">Gallery</Link>
-        </li>
-        <li>
-          {/* onclick */}
-          <Link to="/login" >Sign In</Link>
-        </li>
-      </ul>
+          <li> <Link to="/arcade">Arcade</Link>
+          </li>
+          <li>
+            <Link to="/shop">Shop</Link>
+          </li>
+          <li>
+            <Link to="/studio">Studio</Link>
+          </li><li>
+            <Link to="/gallery">Gallery</Link>
+          </li>
+          <li>
+            {/* onclick */}
+            <Link to="/login" >Sign In</Link>
+          </li>
+        </ul>
       )
     }
   }
