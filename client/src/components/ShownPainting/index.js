@@ -12,13 +12,21 @@ function ShownPainting(props) {
 
     // This card/container will hold the painting image, title, and like button
     <div>
-        <img src={props.img}/>
+        <img src={props.src}/>
+
         <hr/>
-        <p>{props.title}</p>
+        
+        <p>{props.paintingName}</p>
+        
+        <p>by {props.painter}</p>
+
+        <p>{props.likes} likes!</p>
+        
         {/* WRITE THE handleLike FUNCTION, FIND OUT WHERE TO HOUSE IT */}
         <button onClick={() => props.handleLike(props.id)}>
             <i class="fas fa-thumbs-up">like button</i>
         </button>
+
     </div>
 
 }
