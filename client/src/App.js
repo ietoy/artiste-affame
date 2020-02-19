@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import Navbar from "./components/NavBar";
 import Wrapper from "./components/Wrapper";
+
+// PAGES
 import Homepage from "./pages/Homepage";
 import Studio from "./pages/Studio"
 import Store from "./pages/Store";
@@ -28,7 +30,7 @@ function App() {
         <Wrapper>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/studio" component={Studio}/>
-            <Route exact path="/shop" component={Store} />
+            <Route exact path="/store" component={Store} />
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/inventory" component={Inventory} />

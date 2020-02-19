@@ -67,7 +67,7 @@ const Game = props => {
             paintingName: "Painting #1",
             painter: "5e4b8c5d2ce57e068478af05",
             likes: 0,
-            value: 0 
+            value: 0
         }
 
         // API.addPainting(painting, "5e4b8c5d2ce57e068478af05").then(res => {
@@ -95,9 +95,9 @@ const Game = props => {
                     <div className="container">
 
 
-<a class="waves-effect waves-light btn">button</a>
-<a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>
-<a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>
+                        <a class="waves-effect waves-light btn">button</a>
+                        <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>
+                        <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>
 
                         <div className="card" >
                             <img src="..." className="card-img-top" alt="..."></img>
@@ -108,7 +108,7 @@ const Game = props => {
                                 <li className="list-group-item">Cras justo odio</li>
                                 <li className="list-group-item">Dapibus ac facilisis in</li>
                                 <li className="list-group-item">Vestibulum at eros</li>
-                            </ul> 
+                            </ul>
                         </div>
 
 
