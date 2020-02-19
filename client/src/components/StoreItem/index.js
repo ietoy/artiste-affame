@@ -5,9 +5,12 @@ const StoreItem = (props) => {
 
     return (
         <div>
-            <a class="btn-floating btn-large waves-effect waves-light red">
-                {/* <i class="material-icons">add</i> */}
-                <i class="fas fa-cheese">cheese</i>
+            <a class="waves-effect waves-light btn">
+                {/* figure out how to concat in item name when generating icon */}
+                <i class="fas fa-cheese left"></i>
+                    {props.itemName}
+                <i class="fas fa-dollar-sign right"></i>
+                    {props.itemCost}                
             </a>
         </div>
     )
