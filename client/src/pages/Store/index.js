@@ -1,11 +1,8 @@
-// IMPORT REACT
 import React from "react";
 import Consumer from "../../configContext.js";
 import StoreItem from "../../components/StoreItem/index.js"
 
-// This page displays all items available for sale in the store
-// The user can view these items, add them to their shopping cart, and view their cart
-// The user can "checkout" from the cart page
+// WRITE addToCart FX HERE, EMPOWER CHILD COMPONENTS
 
 const Store = () => {
 
@@ -23,6 +20,7 @@ const Store = () => {
                                 name={item.name}
                                 icon={item.icon}
                                 cost={item.cost}
+                                addToCart={this.addToCart}
                             />
                         ))
                     )

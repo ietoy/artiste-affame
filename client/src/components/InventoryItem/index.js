@@ -5,6 +5,7 @@ const InventoryItem = (props) => {
 
     return (
         <div>
+            {/* ONCE WRITTEN, ADD THE consumeItem FX TO AN onClick LISTENER TO THIS COMPONENT */}
             <a className="waves-effect waves-light btn">
                 <i className={props.icon}></i>
                     {props.name}
