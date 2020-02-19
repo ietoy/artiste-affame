@@ -5,10 +5,10 @@ const InventoryItem = (props) => {
 
     return (
         <div>
-            <a class="waves-effect waves-light btn">
-                <i class={props.icon}></i>
+            <a className="waves-effect waves-light btn">
+                <i className={props.icon}></i>
                     {props.name}
-                <i class="fas fa-hashtag"></i>
+                <i className="fas fa-hashtag"></i>
                     {props.amt}                
             </a>
         </div>

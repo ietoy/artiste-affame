@@ -7,8 +7,28 @@ import React from "react";
 // maybe add buttons to increment, decrement, or remove?
 // RETURN TO THIS
 
-const CartItem = () => {
+const CartItem = (props) => {
 
+    return(
+        <div>
+            
+            {/* ITEM ICON */}
+            <i className={props.icon}></i>
+            {/* ITEM NAME */}
+            <p> {props.name} </p>
+            {/* QTY IN CART */}
+            <p> {props.qtyInCart} </p>
+
+            {/* INCREASE QTY BTN */}
+            <button onClick={() => props.increaseQty} >+</button>
+            {/* DECREASE QTY BTN */}
+            <button onClick={() => props.decreaseQty} >-</button>
+            {/* REMOVE FROM CART BTN */}
+            <button onClick={() => props.removeFromCart}>X</button>
+            
+        </div>
+    
+    )
 }
 
 export default CartItem;
