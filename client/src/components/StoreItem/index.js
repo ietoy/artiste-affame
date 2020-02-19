@@ -6,10 +6,10 @@ const StoreItem = (props) => {
     return (
         <div>
             <a class="waves-effect waves-light btn">
-                <i class={props.itemIcon}></i>
-                    {props.itemName}
+                <i class={props.icon}></i>
+                    {props.name}
                 <i class="fas fa-dollar-sign right"></i>
-                    {props.itemCost}                
+                    {props.cost}                
             </a>
         </div>
     )

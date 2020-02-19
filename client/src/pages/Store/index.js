@@ -15,24 +15,21 @@ const Store = () => {
         <Consumer>
             {context =>
                 {
-                    // Return some JSX
                     return(
+                        // CONSIDER CHANGING marketplace_items
+                        // TO BE PULLED FROM DB
                         context.marketplace_items.map(item => (
                             <StoreItem
-                                // pass item name, icon if we have it
-                                // and the onclick function to add to cart
-                                // via passing props HERE
+                                name={item.name}
+                                icon={item.icon}
+                                cost={item.cost}
                             />
                         ))
                     )
                 }
-                
             }
-
         </Consumer>
-
     )
-
 }
 
 export default Store;

@@ -30,7 +30,7 @@ function App() {
         <Wrapper>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/studio" component={Studio}/>
-            <Route exact path="/shop" component={Store} />
+            <Route exact path="/store" component={Store} />
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/inventory" component={Inventory} />
