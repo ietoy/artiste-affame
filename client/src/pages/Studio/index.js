@@ -14,21 +14,21 @@ function Studio() {
 
     return (
 
-        <div className="my-5 p-4 container bg-light">
+        <div className="container grey lighten-2">
             <Fragment>
                 <h3 className="display-4" style={{ textAlign: 'center' }}> <i className="fas fa-brush"></i> Express yourself <i className="fas fa-brush"></i></h3>
 
 
                 <div className="my-5 row">
 
-                    <div className="col-2 color-guide">
+                    <div className="col s2 color-guide">
                         <div className="" ><i className="fas fa-palette"></i> Color Guide</div>
 
                         <ColorPalette changeColor={changeColor}/>
 
                     </div>
 
-                    <div className="col-10 d-flex justify-content-center">
+                    <div className="container col s10">
                         <Canvas strokeColor={studioState.strokeColor} />
                     </div>
 
