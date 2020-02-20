@@ -53,6 +53,8 @@ class ConfigProvider extends Component {
                 totalCoins: this.state.totalCoins,
                 gameEarnings: this.state.gameEarnings,
                 bet: this.state.bet,
+
+                // functions to send down
                 login: this.state.login,
                 logout: this.state.logout,
                 loadInventory: this.state.loadInventory
