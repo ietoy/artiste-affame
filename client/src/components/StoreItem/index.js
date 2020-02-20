@@ -6,7 +6,7 @@ const StoreItem = (props) => {
     return (
         <div>
             <a 
-                className="waves-effect waves-light btn"
+                className="waves-effect waves-light btn-large col 6"
                 onClick={() => props.addToCart(props.div)}    
             >
                 <i className={props.icon}></i>
