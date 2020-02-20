@@ -19,28 +19,13 @@ class ConfigProvider extends Component {
         gameEarnings: 0,
         bet: 0,
         login: (success, user) => {
-
-            // API.login(user).then(res => {
             console.log("LOGIN STATE", success, user);
-            //     if (res.data.success) {
             if (success) {
                 this.setState({ currentUser: user, loggedIn: true });
 
             } else {
                 this.setState(this.state);
-
             }
-            //     }
-            // });
-
-        },
-        signup: (user) => {
-
-            API.signup(user).then(res => {
-                console.log("SIGNUP RES", res);
-                this.setState({ loggedIn: true });
-            })
-
         }
 
     }
