@@ -21,18 +21,22 @@ password: "dancing",
 avatarSRC: "https://i.pinimg.com/originals/0d/0b/c4/0d0bc480cade30769a2d6c720b674110.gif"
 }
 ]
+
 let itemSeed=[
     {
        name:"Van gogh's ear",
        description:"A feshly sliced, bloody ear",
-       src:"https://ctl.s6img.com/society6/img/GAY7QDPY6taCdHxeftxewYI5Sf4/w_700/prints/~artwork/s6-original-art-uploads/society6/uploads/misc/318c2c39e0cf45009028437a8a36ce78/~~/vincent-van-goghs-ear-prints.jpg" 
+       icon: "fas fa-deaf left",
+       cost: 42
     },
     {
         name:"Monet's Water lilly",
-        description:"A feshly sliced, bloody ear",
-        src:"https://images-na.ssl-images-amazon.com/images/I/81rPRpM40qL.jpg" 
+        description:"A pretty picture!",
+        icon: "fas fa-paint-brush left",
+       cost: 100
      }
 ]
+
 let paintingSeed = [
     {
        paintingName:  "my room",
@@ -50,7 +54,16 @@ let paintingSeed = [
      }
 ]
 //adding our seed variable to our books collection/library db
- db.User.create(userSeed)
+//  db.User.create(userSeed)
+//   .then(data => {
+//   console.log("eggs",data)
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     process.exit(1);
+//   });
+
+  db.Item.create(itemSeed)
   .then(data => {
   console.log("eggs",data)
   })
@@ -58,15 +71,6 @@ let paintingSeed = [
     console.error(err);
     process.exit(1);
   });
-
-  // db.Item.create(itemSeed)
-  // .then(data => {
-  // console.log("eggs",data)
-  // })
-  // .catch(err => {
-  //   console.error(err);
-  //   process.exit(1);
-  // });
 
   // db.Painting.create(paintingSeed)
   // .then(data => {
