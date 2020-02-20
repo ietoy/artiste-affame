@@ -13,16 +13,33 @@ class ConfigProvider extends Component {
     state = {
         loggedIn: false,
         currentUser: "someone",
-
         marketplace_items: ["Paints", "Sandwich", "Bi-polar medication", "Van Goghs left ear", "Alcohol", "Gambling tokens"],
         cart: [],
         totalCoins: 50,
         gameEarnings: 0,
         bet: 0,
-        login: (user) => {
-            this.setState({ loggedIn: true });
-            console.log(user);
-            API.signup(user);
+        login: (success, user) => {
+
+            // API.login(user).then(res => {
+            console.log("LOGIN STATE", success, user);
+            //     if (res.data.success) {
+            if (success) {
+                this.setState({ currentUser: user, loggedIn: true });
+
+            } else {
+                this.setState(this.state);
+
+            }
+            //     }
+            // });
+
+        },
+        signup: (user) => {
+
+            API.signup(user).then(res => {
+                console.log("SIGNUP RES", res);
+                this.setState({ loggedIn: true });
+            })
 
         }
 
@@ -43,7 +60,7 @@ class ConfigProvider extends Component {
                 totalCoins: this.state.totalCoins,
                 gameEarnings: this.state.gameEarnings,
                 bet: this.state.bet,
-                login: this.state.login
+                login: this.state.login,
             }}>
                 {/*lets us see our children components  */}
                 {this.props.children}

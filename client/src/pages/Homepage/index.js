@@ -102,7 +102,7 @@ const Game = props => {
                         <div className="card" >
                             <img src="..." className="card-img-top" alt="..."></img>
                             <div className="card-header">
-                                {context.currentUser}
+                                {/* {context.currentUser} */}
                             </div>
                             <ul className="list-group list-group-flush">
                                 <li className="list-group-item">Cras justo odio</li>

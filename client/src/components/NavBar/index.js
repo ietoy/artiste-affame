@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = props => {
   const getNav = (loggedin) => {
-    console.log("here,", loggedin)
     if (loggedin) {
       return (
         <ul id="nav-mobile" className="right hide-on-med-and-down">
