@@ -8,9 +8,6 @@ import Wrapper from "../../components/Wrapper/index"
 // This page will use the ShownPainting Component
 
 // WRITE handleLike FX THAT DOES THE FOLLOWING:
-function handleLike() {
-
-};
 //      ON CLICK OF THE LIKE BUTTON, LOOK AT THE PAINTING THAT WAS LIKED
 //      IN THE GLOBAL STATE, UPDATE THE addedLike (or something like this)
 //      TO "TRUE". THEN, DISABLE THE LIKE BUTTON FOR THAT PAINTING.

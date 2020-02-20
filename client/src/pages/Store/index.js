@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Consumer from "../../configContext.js";
 import StoreItem from "../../components/StoreItem/index.js"
 import API from "../../utils/API.js";
+import Wrapper from "../../components/Wrapper/index.js"
 
 // WRITE addToCart FX HERE, EMPOWER CHILD COMPONENTS
 
@@ -26,6 +27,8 @@ const Store = () => {
 
 
                 return (
+
+                    <Wrapper>
                     <div>
                         {loadStore()}
                         {context.marketplace_items.map(item => (
@@ -38,6 +41,8 @@ const Store = () => {
                             />
                         ))}
                     </div>
+
+                    </Wrapper>
 
                 )
             }
