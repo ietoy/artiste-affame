@@ -2,11 +2,14 @@
 import React, { useRef } from "react";
 import API from "../../utils/API";
 import Consumer from "../../configContext.js";
+import { useHistory } from "react-router-dom";
+
 
 const LogIn = () => {
   const emailRef = useRef();
   const passRef = useRef();
   var loginSuccess = true;
+  const history = useHistory();
 
   return (
     <Consumer>
@@ -23,6 +26,7 @@ const LogIn = () => {
               loginSuccess = true;
               console.log("LOGIN RES", res);
               context.login(loginSuccess, res.data.user);
+              history.push("/");
             }
           }).catch(err => {
             //if credentials are not correct update the state and display invalid message
@@ -42,6 +46,7 @@ const LogIn = () => {
             console.log("SIGNUP RES", res);
             loginSuccess = true;
             context.login(true, res.data);
+            history.push("/");
           }).catch(err => {
             //if input is not valid, retry
             console.log("SIGUP ERROR", err);
@@ -72,7 +77,7 @@ const LogIn = () => {
                   <div className="input-field col s12">
                     <i className="material-icons prefix fas fa-at"></i>
                     <input id="inputEmail" className="validate" ref={emailRef} type="email"></input>
-                    <label for="inputEmail">Email</label>
+                    <label htmlFor="inputEmail">Email</label>
                     <span className="helper-text" data-error="Enter valid email"></span>
                   </div>
                 </div>
@@ -80,7 +85,7 @@ const LogIn = () => {
                   <div className="input-field col s12">
                     <i className="material-icons prefix fas fa-key"></i>
                     <input id="inputPass" key="pass" ref={passRef} type="password"></input>
-                    <label for="inputPass">Password</label>
+                    <label htmlFor="inputPass">Password</label>
                   </div>
                 </div>
                 <div className="row">

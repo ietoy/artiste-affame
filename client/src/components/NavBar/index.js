@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = props => {
-  const getNav = (loggedin) => {
+
+  const getNav = (loggedin, context) => {
     if (loggedin) {
       return (
         <ul id="nav-mobile" className="right hide-on-med-and-down">
@@ -22,8 +23,7 @@ const Navbar = props => {
             <Link to="/gallery">Gallery</Link>
           </li>
           <li>
-            {/* onclick */}
-            <Link to="/" >Sign Out</Link>
+            <Link to="/" onClick={() => context.logout()}>Sign Out</Link>
           </li>
         </ul>
       )
@@ -42,7 +42,6 @@ const Navbar = props => {
             <Link to="/gallery">Gallery</Link>
           </li>
           <li>
-            {/* onclick */}
             <Link to="/login" >Sign In</Link>
           </li>
         </ul>
@@ -52,12 +51,11 @@ const Navbar = props => {
   return (
     <Consumer>
       {context => {
-
         return (
           <nav>
             <div className="nav-wrapper">
-              <a href="#" className="brand-logo">Artiste Defammé</a>
-              {getNav(context.loggedIn)}
+              <Link to="/" className="brand-logo">Artiste Defammé</Link>
+              {getNav(context.loggedIn, context)}
 
 
             </div>

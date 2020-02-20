@@ -26,6 +26,10 @@ class ConfigProvider extends Component {
             } else {
                 this.setState(this.state);
             }
+        },
+        logout: () => {
+            console.log("LOGGIN OUT");
+            this.setState({ currentUser: "", loggedIn: false });
         }
 
     }
@@ -46,6 +50,7 @@ class ConfigProvider extends Component {
                 gameEarnings: this.state.gameEarnings,
                 bet: this.state.bet,
                 login: this.state.login,
+                logout: this.state.logout
             }}>
                 {/*lets us see our children components  */}
                 {this.props.children}
