@@ -9,8 +9,8 @@ const UserSchema = new Schema({
     username: {
         type: String,
         trim: true,
-        maxLength: 15,
-        minLength: 1
+        maxlength: 15,
+        minlength: 1
     },
     email: {
         type: String,
@@ -24,7 +24,8 @@ const UserSchema = new Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        minlength: 5
     },
     createdAt: {
         type: Date,

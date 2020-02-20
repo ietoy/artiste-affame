@@ -24,13 +24,14 @@ const Gallery = () => {
         //  MAP THE SHOWN PAINTINGS USING THE ShownPainting COMPONENT
         //  TO GENERATE THE PICTURES IN THE GALLERY
 
-        <ShownPainting
-            paintingName={painting.paintingName}
-            painter={painting.painter}
-            likes={painting.likes}
-            src={painting.src}
-            // handleLike={this.handleLike} // WE WILL EMPOWER THIS COMPONENT WITH THE handleLike FUNCTION ONCE WRITTEN
-        />
+        // <ShownPainting
+        //     paintingName={painting.paintingName}
+        //     painter={painting.painter}
+        //     likes={painting.likes}
+        //     src={painting.src}
+        //     // handleLike={this.handleLike} // WE WILL EMPOWER THIS COMPONENT WITH THE handleLike FUNCTION ONCE WRITTEN
+        // />
+        <h1> paintings</h1>
     )
 }
 
