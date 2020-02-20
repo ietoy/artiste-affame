@@ -30,7 +30,7 @@ const Inventory = () => {
                             name={item.name}
                             icon={item.icon}
                             amt={item.amt}
-                        // consumeItem={this.consumeItem} // WE WILL EMPOWER THIS COMPONENT WITH THE consumeItem FUNCTION ONCE WRITTEN
+                            consumeItem={this.consumeItem} // WE WILL EMPOWER THIS COMPONENT WITH THE consumeItem FUNCTION ONCE WRITTEN
                         />
                     ))
                 )

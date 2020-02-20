@@ -1,6 +1,7 @@
 // IMPORT REACT
 import React from "react";
-import ShownPainting from "../../components/ShownPainting";
+import ShownPainting from "../../components/ShownPainting/index";
+import Wrapper from "../../components/Wrapper/index"
 
 // This page shows all paintings currently on display in the Gallery.
 // Players can offer likes to paintings made by other players, but only once per painting
@@ -24,14 +25,21 @@ const Gallery = () => {
         //  MAP THE SHOWN PAINTINGS USING THE ShownPainting COMPONENT
         //  TO GENERATE THE PICTURES IN THE GALLERY
 
-        // <ShownPainting
-        //     paintingName={painting.paintingName}
-        //     painter={painting.painter}
-        //     likes={painting.likes}
-        //     src={painting.src}
-        //     // handleLike={this.handleLike} // WE WILL EMPOWER THIS COMPONENT WITH THE handleLike FUNCTION ONCE WRITTEN
-        // />
-        <h1> paintings</h1>
+        <Wrapper>
+
+            {/* <ShownPainting
+                paintingName={painting.paintingName}
+                painter={painting.painter}
+                likes={painting.likes}
+                src={painting.src}
+                handleLike={this.handleLike} // WE WILL EMPOWER THIS COMPONENT WITH THE handleLike FUNCTION ONCE WRITTEN
+            /> */}
+
+            <h1>this is the gallery</h1>
+
+        </Wrapper>
+
+
     )
 }
 

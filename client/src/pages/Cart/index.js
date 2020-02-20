@@ -1,9 +1,10 @@
 // IMPORT REACT
 import React from "react";
+import CartItem from "../../components/CartItem/index.js";
 
-import CartItem from "../../components/CartItem/index.js"
 
-const Cart = (props) => {
+
+const Cart = () => {
 
     return (
         
