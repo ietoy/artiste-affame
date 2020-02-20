@@ -13,7 +13,7 @@ class ConfigProvider extends Component {
     state = {
         loggedIn: false,
         currentUser: "someone",
-        marketplace_items: ["Paints", "Sandwich", "Bi-polar medication", "Van Goghs left ear", "Alcohol", "Gambling tokens"],
+        marketplace_items: [],
         cart: [],
         totalCoins: 50,
         gameEarnings: 0,
@@ -30,7 +30,11 @@ class ConfigProvider extends Component {
         logout: () => {
             console.log("LOGGIN OUT");
             this.setState({ currentUser: "", loggedIn: false });
+        },
+        loadInventory: (inventory) => {
+            this.setState({ marketplace_items: inventory })
         }
+
 
     }
 
@@ -50,7 +54,8 @@ class ConfigProvider extends Component {
                 gameEarnings: this.state.gameEarnings,
                 bet: this.state.bet,
                 login: this.state.login,
-                logout: this.state.logout
+                logout: this.state.logout,
+                loadInventory: this.state.loadInventory
             }}>
                 {/*lets us see our children components  */}
                 {this.props.children}
