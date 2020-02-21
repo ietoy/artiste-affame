@@ -1,8 +1,14 @@
 import React from "react";
+import ShownPainting from "../../components/ShownPainting/index";
+import Wrapper from "../../components/Wrapper/index";
+import axios from "axios";
+
+// import Cloudinary from "cloudinary";
+// This page shows all paintings currently on display in the Gallery.
+// Players can offer likes to paintings made by other players, but only once per painting
+// This page will use the ShownPainting Component
 import Consumer from "../../configContext.js";
-import ShownPainting from "../../components/ShownPainting/index.js";
-import Wrapper from "../../components/Wrapper/index.js";
-import API from "../../utils/API";
+///////aksdjfhl;awfdjhliadjwhf
 
 // WRITE handleLike FX THAT DOES THE FOLLOWING:
 //      ON CLICK OF THE LIKE BUTTON, LOOK AT THE PAINTING THAT WAS LIKED
@@ -14,8 +20,34 @@ import API from "../../utils/API";
 // A PAINTING HAD AN addedLike VALUE OF "TRUE", INCREMENT THE LIKE VALUE OF
 // THAT PAINTINGS DOC OBJ BY 1
 
+// const curl = new (require( 'curl-request' ))();
+// curl https://<API_KEY>:<API_SECRET>@api.cloudinary.com/v1_1/<cloud_name>/resources/image
+// // curl.setHeaders([
+// //     ''
+// // ])
+// // .get('https://www.google.com')
+// // .then(({statusCode, body, headers}) => {
+// //     console.log(statusCode, body, headers)
+// // })
+// // .catch((e) => {
+// //     console.log(e);
+// // });
+// // const header = { 
+// //     // cloud_name: "artiste-defamme",
+// //     api_key: "878159185894491",
+// //     api_secret: "FhJy3Dc_yVACl6gaPFwLALrLjkg"
+// //   };
+const cheesey = () => {
+axios.get("https://878159185894491:FhJy3Dc_yVACl6gaPFwLALrLjkg@api.cloudinary.com/v1_1/artiste-defamme/resources/image").then(res => {
+    console.log(res);
+    return res;
+})
+}
+// cheesey();
 const Gallery = () => {
+   
     return (
+
         <Consumer>
             {context => {
                 function loadGallery() {
@@ -29,6 +61,7 @@ const Gallery = () => {
                 }
                 return (
                     <Wrapper>
+                        {cheesey()}
                         {loadGallery()}
                         <div className="container section">
                             <div className="center">

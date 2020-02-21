@@ -35,7 +35,7 @@ const LogIn = () => {
             context.login(loginSuccess);
           });
         }
-
+        //function in this class
         function signup() {
           //call API to signup
           API.signup({
@@ -45,7 +45,9 @@ const LogIn = () => {
             //if input is valid, user is now signed up and logged in
             console.log("SIGNUP RES", res);
             loginSuccess = true;
+            //context login page
             context.login(true, res.data);
+            //sending us back to homepage
             history.push("/");
           }).catch(err => {
             //if input is not valid, retry
@@ -94,10 +96,12 @@ const LogIn = () => {
                 <div className="row">
                   <div
                     className="btn waves-effect waves-light col s2"
+                    // function in this class
                     onClick={() => signup()}>Signup<i className="material-icons right">send</i>
                   </div>
                   <div
                     className="btn waves-effect waves-light col s2 offset-s1"
+                    // function in this class
                     onClick={() => login()}>Login<i className="material-icons right">send</i>
                   </div>
 

@@ -12,8 +12,14 @@ const paintingSchema = new Schema({
         type:Schema.Types.ObjectId,
         ref:"User"
     },
-    likes: Number,
-    value: Number,
+    likes: {
+        type: Number,
+        default: 0
+    },
+    value: {
+        type: Number,
+        default: 0
+    },
     src: {
         type: String,
         default: ""

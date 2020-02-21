@@ -9,6 +9,9 @@ const Navbar = props => {
 
   return (
     <Consumer>
+
+
+      
       {context => {
 
         function getNav()  {
