@@ -1,5 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
 import ShownPainting from "../../components/ShownPainting/index";
 import Wrapper from "../../components/Wrapper/index";
 import axios from "axios";
@@ -8,12 +7,8 @@ import axios from "axios";
 // This page shows all paintings currently on display in the Gallery.
 // Players can offer likes to paintings made by other players, but only once per painting
 // This page will use the ShownPainting Component
-=======
 import Consumer from "../../configContext.js";
-import ShownPainting from "../../components/ShownPainting/index.js";
-import Wrapper from "../../components/Wrapper/index.js";
-import API from "../../utils/API";
->>>>>>> master
+
 
 // WRITE handleLike FX THAT DOES THE FOLLOWING:
 //      ON CLICK OF THE LIKE BUTTON, LOOK AT THE PAINTING THAT WAS LIKED
@@ -25,7 +20,6 @@ import API from "../../utils/API";
 // A PAINTING HAD AN addedLike VALUE OF "TRUE", INCREMENT THE LIKE VALUE OF
 // THAT PAINTINGS DOC OBJ BY 1
 
-<<<<<<< HEAD
 // const curl = new (require( 'curl-request' ))();
 // curl https://<API_KEY>:<API_SECRET>@api.cloudinary.com/v1_1/<cloud_name>/resources/image
 // // curl.setHeaders([
@@ -50,12 +44,9 @@ axios.get("https://878159185894491:FhJy3Dc_yVACl6gaPFwLALrLjkg@api.cloudinary.co
 })
 }
 // cheesey();
-=======
->>>>>>> master
 const Gallery = () => {
    
     return (
-<<<<<<< HEAD
 
         //  FROM THE GLOBAL STATE,
         //  MAP THE SHOWN PAINTINGS USING THE ShownPainting COMPONENT
@@ -76,42 +67,6 @@ const Gallery = () => {
         </Wrapper>
 
 
-=======
-        <Consumer>
-            {context => {
-                function loadGallery() {
-                    // console.log(context.gallery)
-                    if (context.gallery.length === 0) {
-                        API.getGallery()
-                            .then(res => {
-                                context.loadShownPaintings(res.data);
-                            })
-                    }
-                }
-                return (
-                    <Wrapper>
-                        {loadGallery()}
-                        <div className="container section">
-                            <div className="row">
-                                {context.gallery.map(painting => (
-                                    // console.log(painting);
-
-                                    // review this with team
-                                    <ShownPainting
-                                        id={painting._id}
-                                        src={painting.src}
-                                        paintingName={painting.paintingName}
-                                        likes={painting.likes}
-                                    />
-
-                                ))}
-                            </div>
-                        </div>
-                    </Wrapper>
-                )
-            }}
-        </Consumer>
->>>>>>> master
     )
 }
 
