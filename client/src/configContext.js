@@ -15,6 +15,7 @@ class ConfigProvider extends Component {
         currentUser: "someone",
         marketplace_items: [],
         cart: [],
+        gallery: [],
         totalCoins: 50,
         gameEarnings: 0,
         bet: 0,
@@ -22,7 +23,6 @@ class ConfigProvider extends Component {
             console.log("LOGIN STATE", success, user);
             if (success) {
                 this.setState({ currentUser: user, loggedIn: true });
-
             } else {
                 this.setState(this.state);
             }
@@ -33,14 +33,14 @@ class ConfigProvider extends Component {
         },
         loadInventory: (inventory) => {
             this.setState({ marketplace_items: inventory })
+        },
+        loadShownPaintings: (paintings) => {
+            console.log("Loading the gallery...")
+            this.setState({ gallery: paintings });
+            console.log(this.state.gallery)
         }
 
-
     }
-
-
-
-
 
     render() {
         return (
@@ -50,6 +50,7 @@ class ConfigProvider extends Component {
                 currentUser: this.state.currentUser,
                 marketplace_items: this.state.marketplace_items,
                 cart: this.state.cart,
+                gallery: this.state.gallery,
                 totalCoins: this.state.totalCoins,
                 gameEarnings: this.state.gameEarnings,
                 bet: this.state.bet,
@@ -57,12 +58,12 @@ class ConfigProvider extends Component {
                 // functions to send down
                 login: this.state.login,
                 logout: this.state.logout,
-                loadInventory: this.state.loadInventory
+                loadInventory: this.state.loadInventory,
+                loadShownPaintings: this.state.loadShownPaintings
             }}>
                 {/*lets us see our children components  */}
                 {this.props.children}
             </Provider>
-
         )
     }
 }
