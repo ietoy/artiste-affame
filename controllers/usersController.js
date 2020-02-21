@@ -112,5 +112,12 @@ module.exports = {
             });
 
 
+    },
+    update: function (req, res) {
+        console.log("UPDATE USER REQUEST");
+        console.log("ID", req.params.id);
+        console.log("USER", req.body);
+        db.User.findOneAndUpdate({ _id: req.params.id }, { coins: req.body.coins })
+            .then(user => res.json(user));
     }
 };

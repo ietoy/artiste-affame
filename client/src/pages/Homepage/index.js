@@ -24,10 +24,10 @@ const Game = props => {
         //     console.log("USER SIGNUP");
         //     console.log(res);
         // });
-        API.login(user).then(res => {
-            console.log("USER LOGIN AFTER SIGNUP");
-            console.log(res);
-        });
+        // API.login(user).then(res => {
+        //     console.log("USER LOGIN AFTER SIGNUP");
+        //     console.log(res);
+        // });
 
         //ITEMS TEST
         // var item = {
@@ -56,7 +56,7 @@ const Game = props => {
         //     console.log(res);
         // });
 
-        // var itemID = {_id: "5e4b78ccb42d7904c822a5fb"}
+        // var itemID = {_id: "5e4b6f0555340530a0a90162"}
         //   API.useItem(itemID, "5e4b8c5d2ce57e068478af05").then(res => {
         //     console.log("USING ITEMS");
         //     console.log(res);
@@ -84,44 +84,35 @@ const Game = props => {
 
     useEffect(() => {
         console.log("LOADED!");
-        // apiTest();
+        apiTest();
 
     }, []);
 
     return (
         <Consumer>
             {context => {
+
+
+                
                 return (
                     <div className="container">
 
 
-                        <a className="waves-effect waves-light btn">button</a>
+                        {/* <a className="waves-effect waves-light btn">button</a>
                         <a className="waves-effect waves-light btn"><i className="material-icons left">cloud</i>button</a>
                         <a className="waves-effect waves-light btn"><i className="material-icons right">cloud</i>button</a>
 
                         <div className="card" >
                             <img src="..." className="card-img-top" alt="..."></img>
                             <div className="card-header">
-                                {/* {context.currentUser} */}
+                                {context.currentUser}
                             </div>
                             <ul className="list-group list-group-flush">
                                 <li className="list-group-item">Cras justo odio</li>
                                 <li className="list-group-item">Dapibus ac facilisis in</li>
                                 <li className="list-group-item">Vestibulum at eros</li>
                             </ul>
-                        </div>
-
-
-
-
-
-
-
-
-
-
-
-
+                        </div> */}
 
 
 
