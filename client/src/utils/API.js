@@ -22,7 +22,7 @@ export default {
     },
     updateCoins: function (user) {
         console.log("API CALL TO UPDATE USER", user);
-        return axios.put("api/users/addcoins/" + user._id, user.coins);
+        return axios.put("/api/users/addcoins/" + user._id, user);
     },
     //@params => user : user object
     //@return => res.data.success returns true if login was succesful. res.data.user returns user object

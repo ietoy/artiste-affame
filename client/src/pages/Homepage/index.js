@@ -99,18 +99,18 @@ const Game = props => {
                         return (
 
                             <div>
-                                <div class="row">
-                                    <div class="col s12">
-                                        <div class="card">
-                                            <div class="card-image">
+                                <div className="row">
+                                    <div className="col s12">
+                                        <div className="card">
+                                            <div className="card-image">
                                                 <img src="https://cdn0.iconfinder.com/data/icons/avengers-end-game-1/256/iron_man-512.png" />
-                                                <span class="card-title">{context.currentUser.email}</span>
+                                                <span className="card-title">{context.currentUser.email}</span>
                                             </div>
-                                            <div class="card-content">
+                                            <div className="card-content">
                                                 <p>Member Since: {context.currentUser.createdAt}</p>
                                                 <p>Coins: {context.currentUser.coins}</p>
                                             </div>
-                                            {/* <div class="card-action">
+                                            {/* <div className="card-action">
                                                 <a href="#">This is a link</a>
                                             </div> */}
                                         </div>
@@ -143,7 +143,7 @@ const Game = props => {
                     <div className="container">
 
                         {getDashboard()}
-                        <div class="row">
+                        <div className="row">
 
                             <DashBtn link="/arcade" name={"Arcade"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
                             <DashBtn link="/studio" name={"Studio"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />

@@ -95,10 +95,13 @@ function App() {
                         // const coins = Object.keys(gameState.clicked).length;
                         console.log("COINS EARNED", gameState.coins);
                         context.currentUser.coins += gameState.coins;
+
                         resetState();
                         console.log(context.currentUser.coins);
                         API.updateCoins(context.currentUser)
-                            .then(res => console.log("UPDATE USER RES", res));
+                            .then(res => {
+                                console.log("UPDATE USER RES", res.data);
+                            });
                     }
                     resetState();
 
