@@ -14,7 +14,9 @@ class ConfigProvider extends Component {
         loggedIn: false,
         currentUser: {},
         marketplace_items: [],
-        cart: [],
+        cart: {
+            cartCost: 0
+        },
         gallery: [],
         bet: 0,
         login: (success, user) => {
@@ -30,14 +32,33 @@ class ConfigProvider extends Component {
             this.setState({ currentUser: "", loggedIn: false });
         },
         loadInventory: (inventory) => {
-            this.setState({ marketplace_items: inventory })
+            this.setState({ marketplace_items: inventory });
         },
         loadShownPaintings: (paintings) => {
-            console.log("Loading the gallery...")
+            console.log("Loading the gallery...");
             this.setState({ gallery: paintings });
-            console.log(this.state.gallery)
+            console.log(this.state.gallery);
+        },
+        addToCart: (item, cost) => {
+            if (!this.state.cart[item]) {
+                
+                this.setState(state => ({
+                    cart: {
+                        ...state.cart,
+                        [item]: 1,
+                        cartCost: state.cart.cartCost + cost
+                    },
+                }))
+            } else {
+                this.setState(state => ({
+                    cart: {
+                        ...state.cart,
+                        [item]: state.cart[item] + 1,
+                        cartCost: state.cart.cartCost + cost
+                    },
+                }))
+            }
         }
-
     }
 
     render() {
@@ -57,7 +78,8 @@ class ConfigProvider extends Component {
                 login: this.state.login,
                 logout: this.state.logout,
                 loadInventory: this.state.loadInventory,
-                loadShownPaintings: this.state.loadShownPaintings
+                loadShownPaintings: this.state.loadShownPaintings,
+                addToCart: this.state.addToCart
             }}>
                 {/*lets us see our children components  */}
                 {this.props.children}

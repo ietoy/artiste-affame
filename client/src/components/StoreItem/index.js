@@ -8,6 +8,13 @@ const StoreItem = (props) => {
                 <div className="card-image">
                     <img src={props.src} />
                     <span className="card-title">{props.name}</span>
+                    <a 
+                        className="btn-floating btn-large waves-effect waves-light red right"
+                        onClick={() => props.addToCart(props.id, props.cost)}
+                    >
+                        <i className="material-icons">add</i>
+                    </a>
+
                 </div>
                 <div className="card-content">
                     <div className="row">
