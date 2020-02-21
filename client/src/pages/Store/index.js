@@ -5,10 +5,6 @@ import Wrapper from "../../components/Wrapper/index.js";
 import API from "../../utils/API.js";
 import { Link } from "react-router-dom";
 
-// WRITE addToCart FX HERE, EMPOWER CHILD COMPONENTS
-
-
-
 const Store = () => {
     return (
         <Consumer>
@@ -22,6 +18,21 @@ const Store = () => {
                     }
                 }
 
+                // // this function adds items to the cart once the user clicks them
+                // function addToCart(item) {
+                //     // this function takes in the name or the id of the item being clicked
+
+                //     // check the cart in context
+
+                //         // if that item is already in the cart,
+                //         // increase the number of that item in the cart
+                //         // by one
+
+                //         // else, add that item to the cart with an amt of
+                //         // of one
+                //     context.addToCart(item)
+                // }
+
                 return (
                     <Wrapper>
                         {loadStore()}
@@ -29,26 +40,30 @@ const Store = () => {
                             <div className="center">
                                 <h1>
                                     Store
-                                    <a className="waves-effect waves-light btn-large right">
-                                        <i className="fas fa-shopping-cart center"></i>
-                                    </a>
+                                    <div className="right">
+                                        <a className="waves-effect waves-light btn-large">
+                                            <i className="fas fa-shopping-cart center"></i>
+                                        </a>
+                                        <a className="waves-effect waves-light btn-large">
+                                            <i className="fas fa-cash-register center"></i>
+                                        </a>
+                                    </div>
                                 </h1>
-                                <br/>
-                                <hr/>
+                                <br />
+                                <hr />
                             </div>
-                         
                             <div className="row">
-                            {context.marketplace_items.map(item => (
-                                <StoreItem
-                                    id={item._id}
-                                    name={item.name}
-                                    icon={item.icon}
-                                    src={item.src}
-                                    cost={item.cost}
-                                    description={item.description}
-                                // addToCart={this.addToCart} // WRITE THIS
-                                />
-                            ))}
+                                {context.marketplace_items.map(item => (
+                                    <StoreItem
+                                        id={item._id}
+                                        name={item.name}
+                                        icon={item.icon}
+                                        src={item.src}
+                                        cost={item.cost}
+                                        description={item.description}
+                                        addToCart={context.addToCart}
+                                    />
+                                ))}
                             </div>
                         </div>
                     </Wrapper>

@@ -48,25 +48,47 @@ const Gallery = () => {
    
     return (
 
-        //  FROM THE GLOBAL STATE,
-        //  MAP THE SHOWN PAINTINGS USING THE ShownPainting COMPONENT
-        //  TO GENERATE THE PICTURES IN THE GALLERY
+        <Consumer>
+            {context => {
+                function loadGallery() {
+                    // console.log(context.gallery)
+                    if (context.gallery.length === 0) {
+                        API.getGallery()
+                            .then(res => {
+                                context.loadShownPaintings(res.data);
+                            })
+                    }
+                }
+                return (
+                    <Wrapper>
+                        {cheesey()}
+                        {loadGallery()}
+                        <div className="container section">
+                            <div className="center">
+                                <h1>Gallery</h1>
+                                <br />
+                                <hr />
+                            </div>
 
-        <Wrapper>
-{cheesey()}
-            {/* <ShownPainting
-                paintingName={painting.paintingName}
-                painter={painting.painter}
-                likes={painting.likes}
-                src={painting.src}
-                handleLike={this.handleLike} // WE WILL EMPOWER THIS COMPONENT WITH THE handleLike FUNCTION ONCE WRITTEN
-            /> */}
+                            <div className="row">
+                                {context.gallery.map(painting => (
+                                    // console.log(painting);
 
-            <h1>this is the gallery</h1>
+                                    // review this with team
+                                    <ShownPainting
+                                        id={painting._id}
+                                        src={painting.src}
+                                        paintingName={painting.paintingName}
+                                        likes={painting.likes}
+                                    />
 
-        </Wrapper>
-
-
+                                ))}
+                            </div>
+                        </div>
+                    </Wrapper>
+                )
+            }}
+        </Consumer>
     )
 }
 
