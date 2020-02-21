@@ -99,28 +99,38 @@ const Game = props => {
                         return (
 
                             <div>
+
                                 <div className="row">
                                     <div className="col s12">
-                                        <div className="card">
-                                            <div className="card-image">
-                                                <img src="https://cdn0.iconfinder.com/data/icons/avengers-end-game-1/256/iron_man-512.png" />
-                                                <span className="card-title">{context.currentUser.email}</span>
-                                            </div>
+                                        <div className="card card-border z-depth-2">
                                             <div className="card-content">
+                                                <div className="row">
+                                                    <div className="col s2 pr-0 circle">
+                                                        <img className="responsive-img circle" src="https://cdn0.iconfinder.com/data/icons/avengers-end-game-1/256/iron_man-512.png" alt="" />
+                                                    </div>
+                                                    <div className="col s10">
+                                                        <h4>Welcome {context.currentUser.email}!</h4>
+                                                        <h6>Coins: {context.currentUser.coins}</h6>
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                                <p>Unique Items Count: {context.currentUser.inventory.length}</p>
+                                                <p>Paintings Count: {context.currentUser.portfolio.length}</p>
                                                 <p>Member Since: {context.currentUser.createdAt}</p>
-                                                <p>Coins: {context.currentUser.coins}</p>
+
                                             </div>
-                                            {/* <div className="card-action">
-                                                <a href="#">This is a link</a>
-                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="row">
-                                    <DashBtn link="/shop" name={"Store"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
 
-                                    <DashBtn link="/inventory" name={"Inventory"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
+                                <div className="row">
+                                    <div className="col s6">
+                                        <DashBtn link="/shop" name="Store" image="https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg" />
+                                    </div>
+                                    <div className="col s6">
+                                        <DashBtn link="/inventory" name="Inventory" image="https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg" />
+                                    </div>
                                 </div>
                             </div>
 
@@ -129,10 +139,10 @@ const Game = props => {
                     } else {
                         return (
 
-                            <div>
-
-                                <DashBtn link="/login" name={"Login"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
-
+                            <div className="row">
+                                <div className="col s12">
+                                    <DashBtn link="/login" name="Login" image="https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg" />
+                                </div>
 
                             </div>
                         )
@@ -143,12 +153,19 @@ const Game = props => {
                     <div className="container">
 
                         {getDashboard()}
+
                         <div className="row">
-
-                            <DashBtn link="/arcade" name={"Arcade"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
-                            <DashBtn link="/studio" name={"Studio"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
-                            <DashBtn link="/gallery" name={"Gallery"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
-
+                            <div className="col s6">
+                                <DashBtn link="/arcade" name={"Arcade"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
+                            </div>
+                            <div className="col s6">
+                                <DashBtn link="/studio" name={"Studio"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col s12">
+                                <DashBtn link="/gallery" name={"Gallery"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
+                            </div>
                         </div>
 
 
