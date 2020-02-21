@@ -1,30 +1,51 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Consumer from "../../configContext.js";
 import StoreItem from "../../components/StoreItem/index.js"
+import API from "../../utils/API.js";
+import Wrapper from "../../components/Wrapper/index.js"
 
 // WRITE addToCart FX HERE, EMPOWER CHILD COMPONENTS
+
+
 
 const Store = () => {
 
     // Return some JSX
-    return(
+    return (
         // Provides context to the data we intake here
         <Consumer>
-            {context =>
-                {
-                    return(
-                        // CONSIDER CHANGING marketplace_items
-                        // TO BE PULLED FROM DB
-                        context.marketplace_items.map(item => (
+            {context => {
+                function loadStore() {
+                    if (context.marketplace_items.length === 0) {
+                        API.getAllItems()
+                            .then(res => {
+                                // console.log(res)
+                                context.loadInventory(res.data);
+                            })
+                    }
+                }
+
+
+                return (
+
+                    <Wrapper>
+                    <div>
+                        {loadStore()}
+                        {context.marketplace_items.map(item => (
                             <StoreItem
+                                id={item._id}
                                 name={item.name}
                                 icon={item.icon}
                                 cost={item.cost}
-                                addToCart={this.addToCart}
+                            // addToCart={this.addToCart} // WRITE THIS
                             />
-                        ))
-                    )
-                }
+                        ))}
+                    </div>
+
+                    </Wrapper>
+
+                )
+            }
             }
         </Consumer>
     )
