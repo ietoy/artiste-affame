@@ -3,7 +3,7 @@ import React from "react";
 const StoreItem = (props) => {
 
     return (
-        <div className="col s6 m4 l3">
+        <div className="col s12 m6">
             <div className="card hoverable">
                 <div className="card-image">
                     <img src={props.src} />

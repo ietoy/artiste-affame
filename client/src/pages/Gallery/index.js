@@ -31,6 +31,12 @@ const Gallery = () => {
                     <Wrapper>
                         {loadGallery()}
                         <div className="container section">
+                            <div className="center">
+                                <h1>Gallery</h1>
+                                <br />
+                                <hr />
+                            </div>
+
                             <div className="row">
                                 {context.gallery.map(painting => (
                                     // console.log(painting);
