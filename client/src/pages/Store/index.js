@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import Consumer from "../../configContext.js";
 import StoreItem from "../../components/StoreItem/index.js"
-import API from "../../utils/API.js";
 import Wrapper from "../../components/Wrapper/index.js";
+import API from "../../utils/API.js";
 import { Link } from "react-router-dom";
 
 // WRITE addToCart FX HERE, EMPOWER CHILD COMPONENTS
@@ -10,17 +10,13 @@ import { Link } from "react-router-dom";
 
 
 const Store = () => {
-
-    // Return some JSX
     return (
-        // Provides context to the data we intake here
         <Consumer>
             {context => {
                 function loadStore() {
                     if (context.marketplace_items.length === 0) {
                         API.getAllItems()
                             .then(res => {
-                                // console.log(res)
                                 context.loadInventory(res.data);
                             })
                     }
@@ -54,7 +50,6 @@ const Store = () => {
                                 />
                             ))}
                             </div>
-
                         </div>
                     </Wrapper>
                 )

@@ -1,11 +1,8 @@
-// IMPORT REACT
 import React from "react";
-import ShownPainting from "../../components/ShownPainting/index";
-import Wrapper from "../../components/Wrapper/index"
-
-// This page shows all paintings currently on display in the Gallery.
-// Players can offer likes to paintings made by other players, but only once per painting
-// This page will use the ShownPainting Component
+import Consumer from "../../configContext.js";
+import ShownPainting from "../../components/ShownPainting/index.js";
+import Wrapper from "../../components/Wrapper/index.js";
+import API from "../../utils/API";
 
 // WRITE handleLike FX THAT DOES THE FOLLOWING:
 //      ON CLICK OF THE LIKE BUTTON, LOOK AT THE PAINTING THAT WAS LIKED
@@ -20,26 +17,39 @@ import Wrapper from "../../components/Wrapper/index"
 
 const Gallery = () => {
     return (
+        <Consumer>
+            {context => {
+                function loadGallery() {
+                    // console.log(context.gallery)
+                    if (context.gallery.length === 0) {
+                        API.getGallery()
+                            .then(res => {
+                                context.loadShownPaintings(res.data);
+                            })
+                    }
+                }
+                return (
+                    <Wrapper>
+                        {loadGallery()}
+                        <div className="container section">
+                            <div className="row">
+                                {context.gallery.map(painting => {
+                                    console.log(painting);
 
-        //  FROM THE GLOBAL STATE,
-        //  MAP THE SHOWN PAINTINGS USING THE ShownPainting COMPONENT
-        //  TO GENERATE THE PICTURES IN THE GALLERY
+                                    // review this with team
+                                    <ShownPainting 
+                                        src={painting.src}
+                                        paintingName={painting.name}
+                                        likes={painting.likes}
+                                    />
 
-        <Wrapper>
-
-            {/* <ShownPainting
-                paintingName={painting.paintingName}
-                painter={painting.painter}
-                likes={painting.likes}
-                src={painting.src}
-                handleLike={this.handleLike} // WE WILL EMPOWER THIS COMPONENT WITH THE handleLike FUNCTION ONCE WRITTEN
-            /> */}
-
-            <h1>this is the gallery</h1>
-
-        </Wrapper>
-
-
+                                })}
+                            </div>
+                        </div>
+                    </Wrapper>
+                )
+            }}
+        </Consumer>
     )
 }
 
