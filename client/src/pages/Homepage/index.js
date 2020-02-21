@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./style.css";
 import Consumer from "../../configContext";
 import API from "../../utils/API";
+import DashBtn from "../../components/DashBtn"
 
 const Game = props => {
 
@@ -24,10 +25,10 @@ const Game = props => {
         //     console.log("USER SIGNUP");
         //     console.log(res);
         // });
-        API.login(user).then(res => {
-            console.log("USER LOGIN AFTER SIGNUP");
-            console.log(res);
-        });
+        // API.login(user).then(res => {
+        //     console.log("USER LOGIN AFTER SIGNUP");
+        //     console.log(res);
+        // });
 
         //ITEMS TEST
         // var item = {
@@ -56,7 +57,7 @@ const Game = props => {
         //     console.log(res);
         // });
 
-        // var itemID = {_id: "5e4b78ccb42d7904c822a5fb"}
+        // var itemID = {_id: "5e4b6f0555340530a0a90162"}
         //   API.useItem(itemID, "5e4b8c5d2ce57e068478af05").then(res => {
         //     console.log("USING ITEMS");
         //     console.log(res);
@@ -84,48 +85,71 @@ const Game = props => {
 
     useEffect(() => {
         console.log("LOADED!");
-        // apiTest();
+        apiTest();
 
     }, []);
 
     return (
         <Consumer>
             {context => {
+
+
+                function getDashboard() {
+                    if (context.loggedIn) {
+                        return (
+
+                            <div>
+                                <div className="row">
+                                    <div className="col s12">
+                                        <div className="card">
+                                            <div className="card-image">
+                                                <img src="https://cdn0.iconfinder.com/data/icons/avengers-end-game-1/256/iron_man-512.png" />
+                                                <span className="card-title">{context.currentUser.email}</span>
+                                            </div>
+                                            <div className="card-content">
+                                                <p>Member Since: {context.currentUser.createdAt}</p>
+                                                <p>Coins: {context.currentUser.coins}</p>
+                                            </div>
+                                            {/* <div className="card-action">
+                                                <a href="#">This is a link</a>
+                                            </div> */}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <DashBtn link="/shop" name={"Store"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
+
+                                    <DashBtn link="/inventory" name={"Inventory"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
+                                </div>
+                            </div>
+
+
+                        )
+                    } else {
+                        return (
+
+                            <div>
+
+                                <DashBtn link="/login" name={"Login"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
+
+
+                            </div>
+                        )
+                    }
+                }
+
                 return (
                     <div className="container">
 
+                        {getDashboard()}
+                        <div className="row">
 
-                        <a className="waves-effect waves-light btn">button</a>
-                        <a className="waves-effect waves-light btn"><i className="material-icons left">cloud</i>button</a>
-                        <a className="waves-effect waves-light btn"><i className="material-icons right">cloud</i>button</a>
+                            <DashBtn link="/arcade" name={"Arcade"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
+                            <DashBtn link="/studio" name={"Studio"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
+                            <DashBtn link="/gallery" name={"Gallery"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
 
-                        <div className="card" >
-                            <img src="..." className="card-img-top" alt="..."></img>
-                            <div className="card-header">
-                                {/* {context.currentUser} */}
-                            </div>
-                            <ul className="list-group list-group-flush">
-                                <li className="list-group-item">Cras justo odio</li>
-                                <li className="list-group-item">Dapibus ac facilisis in</li>
-                                <li className="list-group-item">Vestibulum at eros</li>
-                            </ul>
                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                     </div>
@@ -133,7 +157,7 @@ const Game = props => {
             }}
 
 
-        </Consumer>
+        </Consumer >
 
     )
 

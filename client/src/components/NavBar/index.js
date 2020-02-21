@@ -18,21 +18,12 @@ const Navbar = props => {
           if (context.loggedIn) {
             return (
               <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li> <Link to="/arcade">Arcade</Link>
-                </li>
-                <li> <Link to="/inventory">Inventory</Link>
-                </li>
-                <li>
-                  <Link to="/shop">Shop</Link>
-                </li>
-                <li>
-                  <Link to="/studio">Studio</Link>
-                </li><li>
-                  <Link to="/gallery">Gallery</Link>
-                </li>
-                <li>
-                  <Link to="/" onClick={() => context.logout()}>Sign Out</Link>
-                </li>
+                <li><Link to="/arcade">Arcade</Link></li>
+                <li><Link to="/inventory">Inventory</Link></li>
+                <li><Link to="/store">Store</Link></li>
+                <li><Link to="/studio">Studio</Link></li>
+                <li><Link to="/gallery">Gallery</Link></li>
+                <li><Link to="/" onClick={() => context.logout()}>Sign Out</Link></li>
               </ul>
             )
           }
@@ -42,7 +33,7 @@ const Navbar = props => {
                 <li> <Link to="/arcade">Arcade</Link>
                 </li>
                 <li>
-                  <Link to="/shop">Shop</Link>
+                  <Link to="/store">Store</Link>
                 </li>
                 <li>
                   <Link to="/studio">Studio</Link>
