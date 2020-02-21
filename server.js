@@ -6,6 +6,24 @@ const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 3001;
 
+
+//cloudinary
+var cloudinary = require('cloudinary').v2;
+
+var api_secret = process.env.CLOUDAPISECRET;
+var api_key = process.env.CLOUDAPIKEY;
+var cloud_name = process.env.CLOUDNAME;
+
+console.log("\n\n\n\n", api_secret, api_key, cloud_name)
+
+cloudinary.config({ 
+  cloud_name: cloud_name,
+  api_key: api_key,
+  api_secret: api_secret
+});
+
+
+
 // Define middleware here
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
