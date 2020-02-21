@@ -37,7 +37,7 @@ class ConfigProvider extends Component {
         loadShownPaintings: (paintings) => {
             console.log("Loading the gallery...")
             this.setState({ gallery: paintings });
-            // console.log(this.dstate.gallery)
+            console.log(this.state.gallery)
         }
 
     }

@@ -2,6 +2,13 @@ import React from "react";
 
 const ShownPainting = (props) => {
 
+    console.log(props)
+    console.log(props.src);
+    console.log(props.paintingName);
+    console.log(props.likes);
+
+
+
     return (
         <div>
             <img src={props.src} />

@@ -14,7 +14,6 @@ import API from "../../utils/API";
 // A PAINTING HAD AN addedLike VALUE OF "TRUE", INCREMENT THE LIKE VALUE OF
 // THAT PAINTINGS DOC OBJ BY 1
 
-
 const Gallery = () => {
     return (
         <Consumer>
@@ -33,17 +32,18 @@ const Gallery = () => {
                         {loadGallery()}
                         <div className="container section">
                             <div className="row">
-                                {context.gallery.map(painting => {
-                                    console.log(painting);
+                                {context.gallery.map(painting => (
+                                    // console.log(painting);
 
                                     // review this with team
-                                    <ShownPainting 
+                                    <ShownPainting
+                                        id={painting._id}
                                         src={painting.src}
-                                        paintingName={painting.name}
+                                        paintingName={painting.paintingName}
                                         likes={painting.likes}
                                     />
 
-                                })}
+                                ))}
                             </div>
                         </div>
                     </Wrapper>
