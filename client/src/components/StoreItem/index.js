@@ -10,7 +10,7 @@ const StoreItem = (props) => {
                     <span className="card-title">{props.name}</span>
                     <a 
                         className="btn-floating btn-large waves-effect waves-light red right"
-                        onClick={() => props.addToCart(props.id)}
+                        onClick={() => props.addToCart(props.id, props.cost)}
                     >
                         <i className="material-icons">add</i>
                     </a>

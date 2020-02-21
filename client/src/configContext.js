@@ -14,7 +14,9 @@ class ConfigProvider extends Component {
         loggedIn: false,
         currentUser: "someone",
         marketplace_items: [],
-        cart: {},
+        cart: {
+            cartCost: 0
+        },
         gallery: [],
         totalCoins: 50,
         gameEarnings: 0,
@@ -39,24 +41,26 @@ class ConfigProvider extends Component {
             this.setState({ gallery: paintings });
             console.log(this.state.gallery);
         },
-        addToCart: (item) => {
-            // console.log("adding this " + item + " to your cart!");
-
-            console.log(this.state.cart)
-
-            // This function will update our contextual state
-            // it will either add one of a new item
-            // or increase the number of an item in the cart 
-            // already present
-            // validate, if/else case here or in page?
-
-            // Maybe parse this into a few functions?
-                // addNewItem
-                // increaseItemAmt (can also use this in cart page)
-                // decreaseItemAmt (cart specific)
-                // removeItem (cart specific)
+        addToCart: (item, cost) => {
+            if (!this.state.cart[item]) {
+                
+                this.setState(state => ({
+                    cart: {
+                        ...state.cart,
+                        [item]: 1,
+                        cartCost: state.cart.cartCost + cost
+                    },
+                }))
+            } else {
+                this.setState(state => ({
+                    cart: {
+                        ...state.cart,
+                        [item]: state.cart[item] + 1,
+                        cartCost: state.cart.cartCost + cost
+                    },
+                }))
+            }
         }
-
     }
 
     render() {

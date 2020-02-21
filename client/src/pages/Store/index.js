@@ -61,7 +61,7 @@ const Store = () => {
                                         src={item.src}
                                         cost={item.cost}
                                         description={item.description}
-                                        addToCart={context.addToCart} // WRITE THIS
+                                        addToCart={context.addToCart}
                                     />
                                 ))}
                             </div>
