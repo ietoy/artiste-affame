@@ -14,7 +14,7 @@ class ConfigProvider extends Component {
         loggedIn: false,
         currentUser: "someone",
         marketplace_items: [],
-        cart: [],
+        cart: {},
         gallery: [],
         totalCoins: 50,
         gameEarnings: 0,
@@ -32,12 +32,29 @@ class ConfigProvider extends Component {
             this.setState({ currentUser: "", loggedIn: false });
         },
         loadInventory: (inventory) => {
-            this.setState({ marketplace_items: inventory })
+            this.setState({ marketplace_items: inventory });
         },
         loadShownPaintings: (paintings) => {
-            console.log("Loading the gallery...")
+            console.log("Loading the gallery...");
             this.setState({ gallery: paintings });
-            console.log(this.state.gallery)
+            console.log(this.state.gallery);
+        },
+        addToCart: (item) => {
+            // console.log("adding this " + item + " to your cart!");
+
+            console.log(this.state.cart)
+
+            // This function will update our contextual state
+            // it will either add one of a new item
+            // or increase the number of an item in the cart 
+            // already present
+            // validate, if/else case here or in page?
+
+            // Maybe parse this into a few functions?
+                // addNewItem
+                // increaseItemAmt (can also use this in cart page)
+                // decreaseItemAmt (cart specific)
+                // removeItem (cart specific)
         }
 
     }
@@ -59,7 +76,8 @@ class ConfigProvider extends Component {
                 login: this.state.login,
                 logout: this.state.logout,
                 loadInventory: this.state.loadInventory,
-                loadShownPaintings: this.state.loadShownPaintings
+                loadShownPaintings: this.state.loadShownPaintings,
+                addToCart: this.state.addToCart
             }}>
                 {/*lets us see our children components  */}
                 {this.props.children}
