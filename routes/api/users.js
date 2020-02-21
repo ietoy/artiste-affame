@@ -34,10 +34,13 @@ router.route("/:id").get(isAuthenticated, (req, res) => {
 
 //add items to user
 router.route("/checkout/:id")
-    .put(usersController.addItems)
+  .put(usersController.addItems);
 
 //use item
 router.route("/use/:id")
-    .put(usersController.useItem)
+  .put(usersController.useItem);
+
+router.route("/addcoins/:id")
+  .put(usersController.update);
 
 module.exports = router;

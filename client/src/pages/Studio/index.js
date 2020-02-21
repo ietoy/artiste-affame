@@ -21,14 +21,14 @@ function Studio() {
 
                 <div className="my-5 row">
 
-                    <div className="col s2 color-guide">
+                    <div className="col s3 color-guide">
                         <div className="" ><i className="fas fa-palette"></i> Color Guide</div>
 
                         <ColorPalette changeColor={changeColor}/>
 
                     </div>
 
-                    <div className="container col s10">
+                    <div className="container col s9">
                         <Canvas strokeColor={studioState.strokeColor} />
                     </div>
 

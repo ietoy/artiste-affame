@@ -12,12 +12,10 @@ class ConfigProvider extends Component {
     //sets the global state variables we need
     state = {
         loggedIn: false,
-        currentUser: "someone",
+        currentUser: {},
         marketplace_items: [],
         cart: [],
         gallery: [],
-        totalCoins: 50,
-        gameEarnings: 0,
         bet: 0,
         login: (success, user) => {
             console.log("LOGIN STATE", success, user);
