@@ -50,6 +50,9 @@ const Navbar = props => {
   }
   return (
     <Consumer>
+
+
+      
       {context => {
         return (
           <nav>

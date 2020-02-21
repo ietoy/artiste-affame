@@ -59,14 +59,7 @@ let paintingSeed = [
     process.exit(1);
   });
 
-  // db.Item.create(itemSeed)
-  // .then(data => {
-  // console.log("eggs",data)
-  // })
-  // .catch(err => {
-  //   console.error(err);
-  //   process.exit(1);
-  // });
+app
 
   // db.Painting.create(paintingSeed)
   // .then(data => {
