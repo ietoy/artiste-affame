@@ -1,21 +1,20 @@
 import React from "react";
 
-// This component generates paintings for the user to view in the gallery
+const ShownPainting = (props) => {
 
-function ShownPainting(props) {
+    console.log(props)
+    console.log(props.src);
+    console.log(props.paintingName);
+    console.log(props.likes);
+
+
 
     return (
-        // This card/container will hold the painting image, title, and like button
         <div>
             <img src={props.src} />
-            <hr />
+            <hr/>
             <p>{props.paintingName}</p>
-            <p>by {props.painter}</p>
-            <p>has {props.likes} likes!</p>
-            {/* WRITE THE handleLike FUNCTION, FIND OUT WHERE TO HOUSE IT */}
-            <button onClick={() => props.handleLike(props.id)}>
-                <i className="fas fa-thumbs-up">like button</i>
-            </button>
+            <p>{props.likes}</p>
         </div>
     )
 }
