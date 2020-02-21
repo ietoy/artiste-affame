@@ -20,7 +20,7 @@ const Navbar = props => {
                 <li> <Link to="/inventory">Inventory</Link>
                 </li>
                 <li>
-                  <Link to="/shop">Shop</Link>
+                  <Link to="/store">Store</Link>
                 </li>
                 <li>
                   <Link to="/studio">Studio</Link>
@@ -39,7 +39,7 @@ const Navbar = props => {
                 <li> <Link to="/arcade">Arcade</Link>
                 </li>
                 <li>
-                  <Link to="/shop">Shop</Link>
+                  <Link to="/store">Store</Link>
                 </li>
                 <li>
                   <Link to="/studio">Studio</Link>

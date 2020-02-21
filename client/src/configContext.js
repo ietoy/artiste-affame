@@ -35,6 +35,7 @@ class ConfigProvider extends Component {
             this.setState({ marketplace_items: inventory })
         }
 
+        
 
     }
 

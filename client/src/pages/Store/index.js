@@ -28,7 +28,7 @@ const Store = () => {
 
                 return (
 
-                    <Wrapper>
+                    // <Wrapper>
                     <div>
                         {loadStore()}
                         {context.marketplace_items.map(item => (
@@ -42,7 +42,7 @@ const Store = () => {
                         ))}
                     </div>
 
-                    </Wrapper>
+                    // </Wrapper>
 
                 )
             }
