@@ -32,18 +32,26 @@ const Inventory = () => {
                         });
                 }
 
+                function getItems() {
+                    return (
+                        context.userInventory.map(item => (
+                            <InventoryItem
+                                key={item.item._id}
+                                item={item.item}
+                                amount={item.amount}
+                                useItem={useItem} 
+                            />
+                        ))
+                    )
+                }
+
                 return (
                     // "inventory" CURRENTLY UNDEFINED
                     // ADD THIS TO CONTEXT STATE
                     // ON LOGIN OR FROM DB WHEN OPENING INVENTORY PAGE
-                    context.userInventory.map(item => (
-                        <InventoryItem
-                            key={item.item._id}
-                            item={item.item}
-                            amount={item.amount}
-                            useItem={useItem} // WE WILL EMPOWER THIS COMPONENT WITH THE consumeItem FUNCTION ONCE WRITTEN
-                        />
-                    ))
+                    <div className="row">
+                        {getItems()}
+                    </div>
                 )
             }
             }
