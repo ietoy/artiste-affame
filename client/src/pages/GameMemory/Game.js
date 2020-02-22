@@ -11,7 +11,7 @@ function Game({ gameState, click, resetGame, loggedIn }) {
                 // addCoins();
                 return (
                     <div>
-                        <h1 className="display-4 mb-3">GAME OVER!! You Earned ${gameState.coins}!</h1>
+                        <h2 className="display-4 mb-3">GAME OVER!! You Earned ${gameState.coins}!</h2>
                         <div className="row">
 
                             <button onClick={resetGame} className="btn btn-warning btn-lg" role="button">
@@ -23,7 +23,7 @@ function Game({ gameState, click, resetGame, loggedIn }) {
             } else {
                 return (
                     <div>
-                        <h1 className="display-4 mb-3">GAME OVER!! You Scored {gameState.coins} points!</h1>
+                        <h2 className="display-4 mb-3">GAME OVER!! You Scored {gameState.coins} points!</h2>
                         <div className="row">
 
                             <button onClick={resetGame} className="btn btn-warning btn-lg" role="button">
@@ -37,7 +37,7 @@ function Game({ gameState, click, resetGame, loggedIn }) {
             return (
 
                 <div>
-                    <h1 className="display-4 mb-3">Click each image only once... Go!</h1>
+                    <h2 className="display-4 mb-3">Click each image only once... Go!</h2>
                     <div className="row">
                         {gameState.result.map((gif, i) => (
                             <Tile key={i} click={click} image={gif.images.original.url} />

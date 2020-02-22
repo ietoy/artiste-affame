@@ -2,6 +2,7 @@ import React from "react";
 import ShownPainting from "../../components/ShownPainting/index";
 import Wrapper from "../../components/Wrapper/index";
 import axios from "axios";
+import API from "../../utils/API";
 
 // import Cloudinary from "cloudinary";
 // This page shows all paintings currently on display in the Gallery.

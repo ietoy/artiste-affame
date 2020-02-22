@@ -1,7 +1,8 @@
 // IMPORT REACT
 import React from "react";
 import Consumer from "../../configContext.js";
-import InventoryItem from "../../components/InventoryItem/index.js"
+import InventoryItem from "../../components/InventoryItem/index.js";
+import API from "../../utils/API";
 
 // This page will display items currently in the users inventory
 // When the user clicks on a USABLE item, they will consume 1 of that item
@@ -21,16 +22,26 @@ const Inventory = () => {
         // Provides context to the data we intake here
         <Consumer>
             {context => {
+
+                function useItem(itemID) {
+                    console.log("ITEM ID", itemID);
+                    console.log("USER ID", context.currentUser._id);
+                    API.useItem({ _id: itemID }, context.currentUser._id)
+                        .then(res => {
+                            context.useItem(itemID);
+                        });
+                }
+
                 return (
                     // "inventory" CURRENTLY UNDEFINED
                     // ADD THIS TO CONTEXT STATE
                     // ON LOGIN OR FROM DB WHEN OPENING INVENTORY PAGE
-                    context.inventory.map(item => (
+                    context.userInventory.map(item => (
                         <InventoryItem
-                            name={item.name}
-                            icon={item.icon}
-                            amt={item.amt}
-                            consumeItem={this.consumeItem} // WE WILL EMPOWER THIS COMPONENT WITH THE consumeItem FUNCTION ONCE WRITTEN
+                            key={item.item._id}
+                            item={item.item}
+                            amount={item.amount}
+                            useItem={useItem} // WE WILL EMPOWER THIS COMPONENT WITH THE consumeItem FUNCTION ONCE WRITTEN
                         />
                     ))
                 )
