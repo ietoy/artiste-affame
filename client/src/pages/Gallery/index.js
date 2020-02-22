@@ -22,13 +22,8 @@ import Consumer from "../../configContext.js";
 // A PAINTING HAD AN addedLike VALUE OF "TRUE", INCREMENT THE LIKE VALUE OF
 // THAT PAINTINGS DOC OBJ BY 1
 
-const cheesey = () => {
-axios.get("https://878159185894491:FhJy3Dc_yVACl6gaPFwLALrLjkg@api.cloudinary.com/v1_1/artiste-defamme/resources/image").then(res => {
-    console.log(res);
-    return res;
-})
-}
-// cheesey();
+
+
 const Gallery = () => {
   
    
@@ -36,6 +31,12 @@ const Gallery = () => {
 
         <Consumer>
             {context => {
+                // const cloudinaryGallery = () => {
+                //     axios.get("https://878159185894491:FhJy3Dc_yVACl6gaPFwLALrLjkg@api.cloudinary.com/v1_1/artiste-defamme/resources/image").then(res => {
+                //         console.log(res);
+                //         return res;
+                //     })
+                //     }
                 function loadGallery() {
                     // console.log(context.gallery)
                     if (context.gallery.length === 0) {
@@ -47,7 +48,7 @@ const Gallery = () => {
                 }
                 return (
                     <Wrapper>
-                        {cheesey()}
+                        {/* {cloudinaryGallery()} */}
                         {loadGallery()}
                         <div className="container section">
                             <div className="center">
