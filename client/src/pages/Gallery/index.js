@@ -1,11 +1,10 @@
-// import React from "react";
+import React from "react";
 
 import ShownPainting from "../../components/ShownPainting/index";
 import Wrapper from "../../components/Wrapper/index";
 import axios from "axios";
 import API from "../../utils/API";
-import {Dropzone ,React} from 'react-dropzone';
-import {useDropzone} from 'react-dropzone'
+
 // import Cloudinary from "cloudinary";
 // This page shows all paintings currently on display in the Gallery.
 // Players can offer likes to paintings made by other players, but only once per painting

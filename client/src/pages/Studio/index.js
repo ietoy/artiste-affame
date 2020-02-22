@@ -10,42 +10,48 @@ function Studio() {
         strokeColor: '#EE92C2'
     });
 
+
     function changeColor(color){
         setStudioState({ strokeColor: color });
     }
 
+    function changeHandler(event){
+
+        console.log(event.target.files[0])
+    
+    }
     return (
 <Consumer>
 {context => {
-    let widget =window.cloudinary.createUploadWidget({
+    // let widget =window.cloudinary.createUploadWidget({
     
-        cloudName: "artiste-defamme",
-        uploadPreset: "f2ahbjhi"},
-        (error, result)=>{
-           console.log(context.loggedIn);
-            if (result.info.files != undefined && context.loggedIn ===true){
-                // console.log(result.info.files[0]);
-                let painting = {
-                    painter: context.currentUser._id,
-                    name: result.info.files[0].name,
-                    src: result.info.files[0].uploadInfo.url,
-                }
-                console.log(painting);
-                API.addPainting(painting, context.currentUser._id).then( res => {
-                    console.log("\n\n", res);
-                })
+    //     cloudName: "artiste-defamme",
+    //     uploadPreset: "f2ahbjhi"},
+    //     (error, result)=>{
+    //         if (result.info.files != undefined && context.loggedIn ===true){
+    //             // console.log(result.info.files[0]);
+    //             let painting = {
+    //                 painter: context.currentUser._id,
+    //                 name: result.info.files[0].name,
+    //                 src: result.info.files[0].uploadInfo.url,
+    //             }
+    //             console.log(painting);
+    //             API.addPainting(painting, context.currentUser._id).then( res => {
+    //                 // console.log("\n\n", res);
+    //             })
 
-            }
-            else if (error){
-                console.log("I AM AN ERROR", error)
-            }
+    //         }
+    //         else if (error){
+    //             // console.log("I AM AN ERROR", error)
+    //         }
            
-        }
-    )
+    //     }
+    // )
 
-    function showWidget(widget){
-        widget.open()
-    }
+    // function showWidget(widget){
+    //     widget.open()
+    // }
+  
 
 return(
 
@@ -73,7 +79,8 @@ return(
 
     </Fragment>
     <div>
-    <button onClick={showWidget(widget)}>Upload Photo</button>
+    <input name="file" type="file" class="cloudinary-fileupload" data-cloudinary-field="image_id" 
+   data-form-data="&quot;upload_preset&quot;:&quot;user_upload1&quot;" onChange={changeHandler}></input>
     </div>
 </div>
 
