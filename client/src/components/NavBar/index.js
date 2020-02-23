@@ -1,49 +1,46 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.css";
 import Consumer from "../../configContext.js";
 import { Link } from "react-router-dom";
+import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = props => {
 
+  useEffect(() => {
+    var elems = document.querySelectorAll('.sidenav');
+    M.Sidenav.init(elems, {});
+  }, []);
 
   return (
     <Consumer>
 
 
-      
       {context => {
 
-        function getNav()  {
+        function getNav() {
           if (context.loggedIn) {
             return (
-              <ul id="nav-mobile" className="right">
+              <div>
                 <li><Link to="/arcade">Arcade</Link></li>
                 <li><Link to="/inventory">Inventory</Link></li>
                 <li><Link to="/store">Store</Link></li>
                 <li><Link to="/studio">Studio</Link></li>
                 <li><Link to="/gallery">Gallery</Link></li>
                 <li><Link to="/" onClick={() => context.logout()}>Sign Out</Link></li>
-              </ul>
+              </div>
             )
           }
           else {
             return (
-              <ul id="nav-mobile" className="right">
-                <li> <Link to="/arcade">Arcade</Link>
-                </li>
-                <li>
-                  <Link to="/store">Store</Link>
-                </li>
-                <li>
-                  <Link to="/studio">Studio</Link>
-                </li><li>
-                  <Link to="/gallery">Gallery</Link>
-                </li>
-                <li>
-                  <Link to="/login" >Sign In</Link>
-                </li>
-              </ul>
+              <div>
+                <li> <Link to="/arcade">Arcade</Link></li>
+                <li><Link to="/store">Store</Link></li>
+                <li><Link to="/studio">Studio</Link></li>
+                <li><Link to="/gallery">Gallery</Link></li>
+                <li><Link to="/login" >Sign In</Link></li>
+              </div>
             )
           }
         }
@@ -51,12 +48,21 @@ const Navbar = props => {
 
         return (
           <nav>
-            <div className="nav-wrapper">
-              <Link to="/" className="brand-logo">Artiste Defammé</Link>
+
+            <nav>
+              <div class="nav-wrapper">
+                <Link to="/" className="brand-logo">Artiste Defammé</Link>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                  {getNav()}
+                </ul>
+              </div>
+            </nav>
+
+            <ul class="sidenav" id="mobile-demo">
               {getNav()}
+            </ul>
 
-
-            </div>
           </nav>
         )
       }}
