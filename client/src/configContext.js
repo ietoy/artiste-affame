@@ -17,6 +17,9 @@ class ConfigProvider extends Component {
         cart: {
             cartCost: 0
         },
+
+        // cartCost: 0,
+
         gallery: [],
         bet: 0,
         userInventory: [],
@@ -61,6 +64,9 @@ class ConfigProvider extends Component {
                 }))
             }
         },
+
+        // REFACTOR addToCart TO HANDLE CART AS ARRAY
+
         increaseCartAmt: () => {},
         decreaseCartAmt: () => {},
         removeItem: () => {},

@@ -5,7 +5,6 @@ import Consumer from "../../configContext.js";
 // LINK for CART/STORE btn
 import { Link } from "react-router-dom";
 import CartItem from "../../components/CartItem/index.js";
-import Wrapper from "../../components/Wrapper/index.js";
 
 const Cart = () => {
     return (
@@ -22,12 +21,10 @@ const Cart = () => {
                                             <i className="fas fa-store center"></i>
                                         </a>
                                     </Link>
-
                                     <a
                                         className="waves-effect waves-light btn-large"
                                         onClick={() => context.checkout()}
                                     >
-                                        
                                         <i className="fas fa-cash-register center"></i>
                                     </a>
                                 </div>
@@ -35,6 +32,22 @@ const Cart = () => {
                             <br />
                             <hr />
                         </div>
+
+                        <div className="row itemholder">
+                            {context.cart.map(item => (
+                                <CartItem 
+                                    // id={item._id}
+                                    name={item.name}
+                                    src={item.src}
+                                    cost={item.cost}
+                                    qty={item.qty}
+                                    increaseCartAmt={context.increaseCartAmt}
+                                    decreaseCartAmt={context.decreaseCartAmt}
+                                    removeItem={context.removeItem}
+                                />
+                            ))}
+                        </div>
+
                     </div>
                 )
             }}
