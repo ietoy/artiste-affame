@@ -38,6 +38,7 @@ const Gallery = () => {
                     })
                     }
                 function loadGallery() {
+                    console.log(context.gallery)
                     // console.log(context.gallery)
                     if (context.gallery.length === 0) {
                         API.getGallery()
@@ -47,32 +48,34 @@ const Gallery = () => {
                     }
                 }
                 return (
-                    <Wrapper>
-                        {cloudinaryGallery()}
-                        {loadGallery()}
-                        {/* <div className="container section"> */}
-                            <div className="center">
-                                <h1>Gallery</h1>
-                                <br />
-                                <hr />
-                            </div>
+                    // <Wrapper>
+                 <div>
 
-                            <div className="row galleryHolder">
-                                {context.gallery.map(painting => (
-                                    // console.log(painting);
+        {cloudinaryGallery()}
+                    {loadGallery()}
+                    {/* <div className="container section"> */}
+                        <div className="center">
+                            <h1>Gallery</h1>
+                            <br />
+                            <hr />
+                        </div>
 
-                                    <ShownPainting
-                                        id={painting._id}
-                                        src={painting.src}
-                                        paintingName={painting.paintingName}
-                                        likes={painting.likes}
-                                    />
+                        <div className="row galleryHolder">
+                            {context.gallery.map(painting => (
+                                // console.log(painting);
 
-                                ))}
-                            </div>
-                        {/* </div> */}
+                                <ShownPainting
+                                    id={painting._id}
+                                    src={painting.src}
+                                    paintingName={painting.paintingName}
+                                    likes={painting.likes}
+                                />
+
+                            ))}
+                        </div>
+                         </div> 
                       
-                    </Wrapper>
+                    // </Wrapper>
                 )
             }}
         </Consumer>

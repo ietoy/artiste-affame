@@ -26,7 +26,7 @@ const ShownPainting = (props) => {
                     <br />
                 </div>
             </div>
-        // </div>
+      // </div>
     )
 }
 

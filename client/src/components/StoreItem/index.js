@@ -1,9 +1,9 @@
 import React from "react";
-
+import Style from "./style.css";
 const StoreItem = (props) => {
 
     return (
-        <div className="col s6 m4 l3">
+        // <div className="col s6 m4 l3">
             <div className="card hoverable">
                 <div className="card-image">
                     <img src={props.src} />
@@ -29,7 +29,7 @@ const StoreItem = (props) => {
                     </div>
                 </div>
             </div>
-        </div>
+        // </div>
     )
 
 }
