@@ -70,7 +70,7 @@ module.exports = {
         console.log("USE ITEM REQUEST");
         console.log("PARAMS / USERID");
         console.log(req.params);
-        console.log("BODY / CART");
+        console.log("BODY");
         console.log(req.body);
         db.User.findOne({ _id: req.params.id })
             .then(user => {

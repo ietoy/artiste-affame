@@ -19,6 +19,7 @@ class ConfigProvider extends Component {
         },
         gallery: [],
         bet: 0,
+        userInventory: [],
         login: (success, user) => {
             console.log("LOGIN STATE", success, user);
             if (success) {
@@ -41,7 +42,7 @@ class ConfigProvider extends Component {
         },
         addToCart: (item, cost) => {
             if (!this.state.cart[item]) {
-                
+
                 this.setState(state => ({
                     cart: {
                         ...state.cart,
@@ -58,6 +59,22 @@ class ConfigProvider extends Component {
                     },
                 }))
             }
+        },
+        addCoins: (coins) => {
+            this.state.currentUser.coins += coins;
+        },
+        useItem: (itemID) => {
+            this.state.userInventory.forEach(item => {
+                if (item.item._id === itemID) {
+                    item.amount--;
+                }
+            });
+            this.setState(this.state);
+            console.log("STATE", this.state);
+
+        },
+        loadUserInventory: (itemObj, amt) => {
+            this.state.userInventory.push({ item: itemObj, amount: amt })
         }
     }
 
@@ -73,13 +90,17 @@ class ConfigProvider extends Component {
                 totalCoins: this.state.totalCoins,
                 gameEarnings: this.state.gameEarnings,
                 bet: this.state.bet,
+                userInventory: this.state.userInventory,
 
                 // functions to send down
                 login: this.state.login,
                 logout: this.state.logout,
                 loadInventory: this.state.loadInventory,
                 loadShownPaintings: this.state.loadShownPaintings,
-                addToCart: this.state.addToCart
+                addToCart: this.state.addToCart,
+                addCoins: this.state.addCoins,
+                useItem: this.state.useItem,
+                loadUserInventory: this.state.loadUserInventory
             }}>
                 {/*lets us see our children components  */}
                 {this.props.children}

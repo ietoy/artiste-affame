@@ -10,12 +10,17 @@ export default {
     getAllItems: function () {
         return axios.get("api/items/store");
     },
+    //@return => res.data returns item object
+    getItem: function (itemId) {
+        return axios.get("api/items/" + itemId);
+    },
     //user requests
     //@params => cart : [{itemID, amount}, ...] 
     //@return => res.data user object with updated inventory
     addItems: function (cart, userID) {
         return axios.put("api/users/checkout/" + userID, cart);
     },
+    //@params => itemID => {_id: itemID}
     //@return => res.data user object with updated inventory
     useItem: function (itemID, userID) {
         return axios.put("api/users/use/" + userID, itemID);
