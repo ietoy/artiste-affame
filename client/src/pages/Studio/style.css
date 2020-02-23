@@ -1,3 +1,30 @@
-.container{
-    width: fit-content;
+.color-guide{
+/* background-color: aqua; */
+ padding-left: 5% !important;
 }
+/* .canvas{
+    height:100px;
+    width:100px;
+} */
+h3{
+padding-top: 2.5%;
+padding-bottom: 2.5%;
+}
+
+@media only screen and (max-width: 700px) {
+    .display-4{
+        font-size: 1.5rem!important;
+
+    }
+    .color-guide{
+        /* background-color: aqua; */
+        padding-left: 15% !important;        }
+  }
+  @media only screen and (max-width: 450px) {
+ 
+    .color-guide{
+        padding-left: 15% !important;
+        /* background-color:orange ; */
+    }
+    
+  }

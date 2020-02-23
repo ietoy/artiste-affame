@@ -5,7 +5,7 @@ import Consumer from '../../configContext';
 import API from '../../utils/API';
 import axios from 'axios';
 import Modal from "../../components/Modal";
-
+import Style from "./style.css";
 function Studio() {
 
     const [studioState, setStudioState] = useState({
@@ -69,7 +69,7 @@ function Studio() {
 
 
 
-                    <div className="container grey lighten-2">
+                    <div className="grey lighten-2">
                         <Fragment>
                             <h3 className="display-4" style={{ textAlign: 'center' }}> <i className="fas fa-brush"></i> Express yourself <i className="fas fa-brush"></i></h3>
 
@@ -83,7 +83,7 @@ function Studio() {
 
                                 </div>
 {/* className="container col" */}
-                                <div >
+                                <div  >
                                     <Canvas strokeColor={studioState.strokeColor} />
                                 </div>
 
@@ -99,7 +99,7 @@ function Studio() {
                   
                         <div>
                             <input name="file" type="file" class="cloudinary-fileupload" data-cloudinary-field="image_id"
-                                data-form-data="&quot;upload_preset&quot;:&quot;user_upload1&quot;" onChange={changeHandler}></input>
+                                onChange={changeHandler}></input>
                         </div>
                     </div>
 

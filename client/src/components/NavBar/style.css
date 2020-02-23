@@ -1,0 +1,19 @@
+.nav-wrapper{
+  margin-left: 15%;
+  margin-right: 15%;
+
+
+}
+@media only screen and (max-width: 800px) {
+    .nav-mobile{
+        margin-left: 100px;
+        display: inline-block !important;
+    }
+    .nav-wrapper{
+        margin-left: 5%;
+        margin-right: 5%;
+        display: inline-block !important;
+      }
+   
+    
+  }
