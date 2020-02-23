@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Style from "./style.css";
 class Modal extends React.Component {
   render() {
       console.log(this.props);
@@ -9,7 +9,7 @@ if( !this.props.show){
     return null;
 }
     return (
-        <div >
+        <div className="modelito" >
     
        {this.props.children}
             <button onClick={this.props.onClose}>

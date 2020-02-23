@@ -23,19 +23,7 @@ input{
 /* .grey{
     z-index: 0;
 } */
-.modelito{
-    /* background-color: aqua; */
-    text-align: center;
-    /* color:red; */
-    margin:0 auto;
-    width: fit-content;
-    border-radius: 20px;
-    padding:20px;
-}
-button{
-   background-color: coral;
-   padding:10px;
-}
+
 
 @media only screen and (max-width: 700px) {
     .display-4{

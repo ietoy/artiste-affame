@@ -4,7 +4,7 @@ import ShownPainting from "../../components/ShownPainting/index";
 import Wrapper from "../../components/Wrapper/index";
 import axios from "axios";
 import API from "../../utils/API";
-
+import Style from "./style.css";
 // import Cloudinary from "cloudinary";
 // This page shows all paintings currently on display in the Gallery.
 // Players can offer likes to paintings made by other players, but only once per painting
@@ -50,18 +50,17 @@ const Gallery = () => {
                     <Wrapper>
                         {cloudinaryGallery()}
                         {loadGallery()}
-                        <div className="container section">
+                        {/* <div className="container section"> */}
                             <div className="center">
                                 <h1>Gallery</h1>
                                 <br />
                                 <hr />
                             </div>
 
-                            <div className="row">
+                            <div className="row galleryHolder">
                                 {context.gallery.map(painting => (
                                     // console.log(painting);
 
-                                    // review this with team
                                     <ShownPainting
                                         id={painting._id}
                                         src={painting.src}
@@ -71,7 +70,7 @@ const Gallery = () => {
 
                                 ))}
                             </div>
-                        </div>
+                        {/* </div> */}
                       
                     </Wrapper>
                 )

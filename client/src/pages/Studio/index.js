@@ -89,10 +89,10 @@ function Studio() {
 
                             </div>
                             {/* must pass these two props or it wont work, the children can make it unique, must go in fragment i think... */}
-                            <div className="modelito">
+                            <div >
                             <Modal show={modalState.isOpen}
                             onClose={toggleModalOff}>
-                           <h1>You must be logged in to submit your art!</h1>
+                           <h1>Log in to upload!</h1>
                              </Modal>
                             </div>
                             {/* <Modal show={modalState.isOpen}

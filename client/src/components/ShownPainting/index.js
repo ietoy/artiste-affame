@@ -1,5 +1,5 @@
 import React from "react";
-
+import Style from "./style.css"
 const ShownPainting = (props) => {
 
     // console.log(props)
@@ -11,7 +11,7 @@ const ShownPainting = (props) => {
 
     return (
 
-        <div className="col s12 m6 l4">
+        // <div className="col">
             <div className="card">
                 <div className="card-image">
                     <img src={props.src} />
@@ -26,7 +26,7 @@ const ShownPainting = (props) => {
                     <br />
                 </div>
             </div>
-        </div>
+        // </div>
     )
 }
 
