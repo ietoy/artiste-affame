@@ -89,15 +89,22 @@ function Studio() {
 
                             </div>
                             {/* must pass these two props or it wont work, the children can make it unique, must go in fragment i think... */}
+                            <div className="modelito">
                             <Modal show={modalState.isOpen}
                             onClose={toggleModalOff}>
-                           <h1>what the heck</h1>
+                           <h1>You must be logged in to submit your art!</h1>
                              </Modal>
+                            </div>
+                            {/* <Modal show={modalState.isOpen}
+                            onClose={toggleModalOff}>
+                           <h1>what the heck</h1>
+                             </Modal> */}
                      
                            
                         </Fragment>
                   
-                        <div>
+                        <div class="inputdiv">
+                            <h2>Upload your art here!</h2>
                             <input name="file" type="file" class="cloudinary-fileupload" data-cloudinary-field="image_id"
                                 onChange={changeHandler}></input>
                         </div>

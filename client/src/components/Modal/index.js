@@ -9,8 +9,8 @@ if( !this.props.show){
     return null;
 }
     return (
-        <div>
-       <h1>Log In</h1>
+        <div >
+    
        {this.props.children}
             <button onClick={this.props.onClose}>
               Close
