@@ -31,12 +31,12 @@ const Gallery = () => {
 
         <Consumer>
             {context => {
-                // const cloudinaryGallery = () => {
-                //     axios.get("https://878159185894491:FhJy3Dc_yVACl6gaPFwLALrLjkg@api.cloudinary.com/v1_1/artiste-defamme/resources/image").then(res => {
-                //         console.log(res);
-                //         return res;
-                //     })
-                //     }
+                const cloudinaryGallery = () => {
+                    axios.get("https://878159185894491:FhJy3Dc_yVACl6gaPFwLALrLjkg@api.cloudinary.com/v1_1/artiste-defamme/resources/image").then(res => {
+                        console.log("\n\n\n\n\n",res);
+                        return res;
+                    })
+                    }
                 function loadGallery() {
                     // console.log(context.gallery)
                     if (context.gallery.length === 0) {
@@ -48,7 +48,7 @@ const Gallery = () => {
                 }
                 return (
                     <Wrapper>
-                        {/* {cloudinaryGallery()} */}
+                        {cloudinaryGallery()}
                         {loadGallery()}
                         <div className="container section">
                             <div className="center">

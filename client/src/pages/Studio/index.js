@@ -74,16 +74,16 @@ function Studio() {
                             <h3 className="display-4" style={{ textAlign: 'center' }}> <i className="fas fa-brush"></i> Express yourself <i className="fas fa-brush"></i></h3>
 
 
-                            <div className="my-5 row">
+                            <div className="row">
 
-                                <div className="col s2 color-guide">
+                                <div className="col color-guide">
                                     <div className="" ><i className="fas fa-palette"></i> Color Guide</div>
 
                                     <ColorPalette changeColor={changeColor} />
 
                                 </div>
-
-                                <div className="container col s10">
+{/* className="container col" */}
+                                <div >
                                     <Canvas strokeColor={studioState.strokeColor} />
                                 </div>
 

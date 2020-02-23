@@ -1,0 +1,19 @@
+/* .btn-group{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+} */
+.btn-toolbar{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+ 
+}
+@media only screen and (max-width: 600px) {
+ 
+    .btn-toolbar{
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        background-color: aqua;
+    }
+    
+  }
