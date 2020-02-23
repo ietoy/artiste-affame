@@ -39,7 +39,6 @@ const Gallery = () => {
                     }
                 function loadGallery() {
                     console.log(context.gallery)
-                    // console.log(context.gallery)
                     if (context.gallery.length === 0) {
                         API.getGallery()
                             .then(res => {
@@ -48,12 +47,10 @@ const Gallery = () => {
                     }
                 }
                 return (
-                    // <Wrapper>
                  <div>
 
         {cloudinaryGallery()}
                     {loadGallery()}
-                    {/* <div className="container section"> */}
                         <div className="center">
                             <h1>Gallery</h1>
                             <br />
@@ -62,7 +59,6 @@ const Gallery = () => {
 
                         <div className="row galleryHolder">
                             {context.gallery.map(painting => (
-                                // console.log(painting);
 
                                 <ShownPainting
                                     id={painting._id}
@@ -75,7 +71,6 @@ const Gallery = () => {
                         </div>
                          </div> 
                       
-                    // </Wrapper>
                 )
             }}
         </Consumer>

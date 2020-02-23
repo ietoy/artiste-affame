@@ -34,9 +34,8 @@ const Store = () => {
                 // }
 
                 return (
-                    <Wrapper>
+                    <div>
                         {loadStore()}
-                        <div className="container section">
                             <div className="center">
                                 <h1>
                                     Store
@@ -65,8 +64,8 @@ const Store = () => {
                                     />
                                 ))}
                             </div>
-                        </div>
-                    </Wrapper>
+
+                    </div>
                 )
             }}
         </Consumer>
