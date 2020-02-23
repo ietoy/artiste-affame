@@ -1,52 +1,41 @@
 // IMPORT REACT
 import React from "react";
-import CartItem from "../../components/CartItem/index.js";
 import Consumer from "../../configContext.js";
+
+// LINK for CART/STORE btn
+import { Link } from "react-router-dom";
+import CartItem from "../../components/CartItem/index.js";
 import Wrapper from "../../components/Wrapper/index.js";
-
-
 
 const Cart = () => {
     return (
         <Consumer>
             {context => {
-
-
-
                 return (
-                    <Wrapper>
-                        <div className="container section">
-                            <div className="center">
-                                <h1>
-                                    Your Cart
+                    <div>
+                        <div className="center">
+                            <h1>
+                                Your Cart
                                 <div className="right">
+                                    <Link to="/store">
                                         <a className="waves-effect waves-light btn-large">
-                                            <i className="fas fa-shopping-cart center"></i>
+                                            <i className="fas fa-store center"></i>
                                         </a>
-                                        <a className="waves-effect waves-light btn-large">
-                                            <i className="fas fa-cash-register center"></i>
-                                        </a>
-                                    </div>
-                                </h1>
-                                <br />
-                                <hr />
-                            </div>
+                                    </Link>
+
+                                    <a
+                                        className="waves-effect waves-light btn-large"
+                                        onClick={() => context.checkout()}
+                                    >
+                                        
+                                        <i className="fas fa-cash-register center"></i>
+                                    </a>
+                                </div>
+                            </h1>
+                            <br />
+                            <hr />
                         </div>
-                        {/* not sure map works anymore since we changed cart from an array to an object. Look up how to accomplish this for objects */}
-                        {context.cart.map(item => (
-                            <CartItem
-                                id={item.id}
-                                name={item.name}
-                                src={item.src}
-                                costPer={item.cost}
-
-                                increaseAmt={context.increaseAmt}
-                                decreaseAmt={context.decreaseAmt}
-                                removeItem={context.removeItem}
-
-                            />
-                        ))}
-                    </Wrapper>
+                    </div>
                 )
             }}
         </Consumer>
@@ -55,6 +44,20 @@ const Cart = () => {
 
         // FROM THE CART ARRAY IN THE CURRENT STATE,
         // MAP THE ITEMS IN THE USERS CART TO THIS PAGE 
+
+        // {context.cart.map(item => (
+        //     <CartItem
+        //         id={item.id}
+        //         name={item.name}
+        //         src={item.src}
+        //         costPer={item.cost}
+
+        //         increaseAmt={context.increaseAmt}
+        //         decreaseAmt={context.decreaseAmt}
+        //         removeItem={context.removeItem}
+
+        //     />
+        // ))}
 
 
 

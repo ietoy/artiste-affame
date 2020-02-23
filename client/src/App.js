@@ -9,18 +9,16 @@ import Wrapper from "./components/Wrapper";
 import Homepage from "./pages/Homepage";
 import Studio from "./pages/Studio"
 import Store from "./pages/Store";
+
+// CART
+import Cart from "./pages/Cart";
+
 import Gallery from "./pages/Gallery";
 import Login from "./pages/LogIn";
 import Inventory from "./pages/Inventory";
 import Arcade from "./pages/Arcade";
 import GameMemory from "./pages/GameMemory";
 
-
-
-
-
-
-// WRITE A handleLike FUNCTION TO INCREMENT THE LIKE COUNT OF PAINTING OBJS +1 WHEN A BUTTON IS LIKED
 
 function App() {
   return (
@@ -32,6 +30,10 @@ function App() {
             <Route exact path="/" component={Homepage} />
             <Route exact path="/studio" component={Studio} />
             <Route exact path="/store" component={Store} />
+
+            {/* CART */}
+            <Route exact path="/cart" component={Cart} />
+
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/inventory" component={Inventory} />

@@ -30,19 +30,11 @@ const Navbar = props => {
           else {
             return (
               <ul id="nav-mobile" className="right">
-                <li> <Link to="/arcade">Arcade</Link>
-                </li>
-                <li>
-                  <Link to="/store">Store</Link>
-                </li>
-                <li>
-                  <Link to="/studio">Studio</Link>
-                </li><li>
-                  <Link to="/gallery">Gallery</Link>
-                </li>
-                <li>
-                  <Link to="/login" >Sign In</Link>
-                </li>
+                <li><Link to="/arcade">Arcade</Link></li>
+                <li><Link to="/store">Store</Link></li>
+                <li><Link to="/studio">Studio</Link></li>
+                <li><Link to="/gallery">Gallery</Link></li>
+                <li><Link to="/login" >Sign In</Link></li>
               </ul>
             )
           }
