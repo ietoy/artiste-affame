@@ -10,7 +10,6 @@ import API from "../../utils/API"
 
 function App() {
     const [gameState, setGameState] = useState({
-        theme: "",
         result: [],
         gameOver: false,
         clicked: {},
@@ -19,34 +18,33 @@ function App() {
     });
 
     function search(e) {
-        gameState.theme = e.target.value;
-        GAMEAPI.searchTiles(gameState.theme)
+        console.log("SEARCHING FOR", e.target.value);
+        GAMEAPI.searchTiles(e.target.value)
             .then(res => {
-                gameState.result = res.data.data;
-                setGameState(
-                    { ...gameState }
-                );
-                console.log("GAME STATE AFTER API SEARCH")
-                console.log(gameState);
+                console.log("API SEARCH RESULTS", res.data.data);
+                setGameState(state => ({
+                    ...state,
+                    result: res.data.data
+                }));
             });
     }
 
     function click(index) {
-        console.log("GAME STATE BEFORE CLICK", gameState);
         if (gameState.clicked[index]) {
             console.log("GAME OVER");
-            gameState.gameOver = true;
-            setGameState(
-                { ...gameState }
-            );
+            setGameState(state => ({
+                ...state,
+                gameOver: true
+            }));
         } else {
             console.log("KEEP PLAYING");
-            gameState.coins++;
             gameState.clicked[index] = true;
-            gameState.result = shuffle(gameState.result);
-            setGameState(
-                { ...gameState }
-            );
+            setGameState(state => ({
+                ...state,
+                coins: state.coins+1,
+                clicked: state.clicked,
+                result: shuffle(gameState.result)
+            }));
         }
         console.log("GAME STATE AFTER CLICK", gameState);
     }
@@ -60,27 +58,24 @@ function App() {
     }
 
     function startGame() {
-        console.log("RESULT", gameState.result);
         if (gameState.result.length > 0) {
-            gameState.playing = true;
-            setGameState(
-                { ...gameState }
-            );
+            setGameState(state => ({
+                ...state,
+                playing: true
+            }));
             console.log("GAME STATE AFTER START GAME", gameState);
         }
     }
 
     function resetState() {
-        gameState.theme = "";
-        gameState.gameOver = false;
-        gameState.playing = false;
-        gameState.coins = 0;
-        gameState.clicked = {};
-        gameState.result = [];
-
-        setGameState(
-            { ...gameState }
-        );
+        setGameState(state => ({
+            ...state,
+            result: [],
+            gameOver: false,
+            clicked: {},
+            playing: false,
+            coins: 0
+        }));
         console.log("GAME STATE AFTER RESETING GAME", gameState);
     }
 
@@ -92,19 +87,14 @@ function App() {
 
                 function resetGame() {
                     if (gameState.gameOver && context.loggedIn) {
-                        // const coins = Object.keys(gameState.clicked).length;
                         console.log("COINS EARNED", gameState.coins);
-                        context.currentUser.coins += gameState.coins;
-
-                        resetState();
-                        console.log(context.currentUser.coins);
+                        context.addCoins(gameState.coins);
                         API.updateCoins(context.currentUser)
                             .then(res => {
                                 console.log("UPDATE USER RES", res.data);
                             });
                     }
                     resetState();
-
                 }
 
                 function home() {
@@ -112,7 +102,7 @@ function App() {
                         return (
 
                             <div>
-                                <h1>Test your memory skills with this game</h1>
+                                <h2>Test your memory skills</h2>
                                 <div className="row">
 
                                     <label>Select you theme</label>

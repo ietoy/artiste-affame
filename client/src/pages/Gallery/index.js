@@ -1,8 +1,13 @@
 import React from "react";
-import Consumer from "../../configContext.js";
-import ShownPainting from "../../components/ShownPainting/index.js";
-import Wrapper from "../../components/Wrapper/index.js";
+import ShownPainting from "../../components/ShownPainting/index";
+import axios from "axios";
 import API from "../../utils/API";
+import Style from "./style.css";
+// import Cloudinary from "cloudinary";
+// This page shows all paintings currently on display in the Gallery.
+// Players can offer likes to paintings made by other players, but only once per painting
+// This page will use the ShownPainting Component
+import Consumer from "../../configContext.js";
 
 // WRITE handleLike FX THAT DOES THE FOLLOWING:
 //      ON CLICK OF THE LIKE BUTTON, LOOK AT THE PAINTING THAT WAS LIKED
@@ -14,12 +19,23 @@ import API from "../../utils/API";
 // A PAINTING HAD AN addedLike VALUE OF "TRUE", INCREMENT THE LIKE VALUE OF
 // THAT PAINTINGS DOC OBJ BY 1
 
+
+
 const Gallery = () => {
+  
+   
     return (
+
         <Consumer>
             {context => {
+                const cloudinaryGallery = () => {
+                    axios.get("https://878159185894491:FhJy3Dc_yVACl6gaPFwLALrLjkg@api.cloudinary.com/v1_1/artiste-defamme/resources/image").then(res => {
+                        console.log("\n\n\n\n\n",res);
+                        return res;
+                    })
+                    }
                 function loadGallery() {
-                    // console.log(context.gallery)
+                    console.log(context.gallery)
                     if (context.gallery.length === 0) {
                         API.getGallery()
                             .then(res => {
@@ -28,31 +44,30 @@ const Gallery = () => {
                     }
                 }
                 return (
-                    <Wrapper>
-                        {loadGallery()}
-                        <div className="container section">
-                            <div className="center">
-                                <h1>Gallery</h1>
-                                <br />
-                                <hr />
-                            </div>
+                 <div>
 
-                            <div className="row">
-                                {context.gallery.map(painting => (
-                                    // console.log(painting);
-
-                                    // review this with team
-                                    <ShownPainting
-                                        id={painting._id}
-                                        src={painting.src}
-                                        paintingName={painting.paintingName}
-                                        likes={painting.likes}
-                                    />
-
-                                ))}
-                            </div>
+        {cloudinaryGallery()}
+                    {loadGallery()}
+                        <div className="center">
+                            <h1>Gallery</h1>
+                            <br />
+                            <hr />
                         </div>
-                    </Wrapper>
+
+                        <div className="row galleryHolder">
+                            {context.gallery.map(painting => (
+
+                                <ShownPainting
+                                    id={painting._id}
+                                    src={painting.src}
+                                    paintingName={painting.paintingName}
+                                    likes={painting.likes}
+                                />
+
+                            ))}
+                        </div>
+                         </div> 
+                      
                 )
             }}
         </Consumer>

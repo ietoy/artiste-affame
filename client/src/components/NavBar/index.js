@@ -9,12 +9,15 @@ const Navbar = props => {
 
   return (
     <Consumer>
+
+
+      
       {context => {
 
         function getNav()  {
           if (context.loggedIn) {
             return (
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
+              <ul id="nav-mobile" className="right">
                 <li><Link to="/arcade">Arcade</Link></li>
                 <li><Link to="/inventory">Inventory</Link></li>
                 <li><Link to="/store">Store</Link></li>
@@ -26,7 +29,7 @@ const Navbar = props => {
           }
           else {
             return (
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
+              <ul id="nav-mobile" className="right">
                 <li> <Link to="/arcade">Arcade</Link>
                 </li>
                 <li>

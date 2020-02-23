@@ -8,5 +8,10 @@ router.route("/store")
 router.route("/add")
     .post(itemsController.create)
 
+router.route("/:id")
+    .get(itemsController.findById)
+
+
+
 module.exports = router;
 
