@@ -9,11 +9,11 @@ const Game = props => {
     const apiTest = () => {
         console.log("BEGGINING API TEST");
         //LOGIN USERNAME TEST
-        var user = {
-            username: "kqarlos",
-            email: "kqarlos@hotmail.com",
-            password: "password",
-        }
+        // var user = {
+        //     username: "kqarlos",
+        //     email: "kqarlos@hotmail.com",
+        //     password: "password",
+        // }
         // API.login(user).then(res => {
         //     console.log("USER LOGIN NO SIGNUP");
         //     console.log(user);
@@ -32,27 +32,30 @@ const Game = props => {
 
         //ITEMS TEST
         // var item = {
-        //     name: "item#5",
+        //     name: "item#1",
         //     description: "item#5 description",
+        //     src: "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/28/0/FNK_Apple-Pie_s4x3.jpg.rend.hgtvcom.826.620.suffix/1382545039107.jpeg",
+        //     cost: 100,
+        //     icon: "fas fa-pizza-slice"
         // };
         // API.insertItem(item).then(res => {
         //     console.log("ADDING ITEM");
         //     console.log(res);
         // });
 
-        API.getAllItems().then(res => {
-            console.log("GETTING ALL ITEMS");
-            console.log(res);
-        })
+        // API.getAllItems().then(res => {
+        //     console.log("GETTING ALL ITEMS");
+        //     console.log(res);
+        // });
 
         //item#1, item#3, item#5
-        var cart = [
-            { _id: "5e4b6f0555340530a0a90162", amount: 1 },
-            { _id: "5e4b70276a02525e10b8650e", amount: 1 },
-            { _id: "5e4b8ad9853a1821dcd0e130", amount: 1 }
-        ];
+        // var cart = [
+        //     { _id: "5e5096da7a19e25f6449a812", amount: 5 },
+        //     { _id: "5e5097077ae1b35898896e74", amount: 4 },
+        //     { _id: "5e50972ffd9d5a397c9a864b", amount: 3 }
+        // ];
 
-        // API.addItems(cart, "5e4b8c5d2ce57e068478af05").then(res => {
+        // API.addItems(cart, "5e4f96ed28ff601d549e0609").then(res => {
         //     console.log("ADDING ITEMS");
         //     console.log(res);
         // });
@@ -64,27 +67,28 @@ const Game = props => {
         // });
 
         //PAINTING TEST
-        var painting = {
-            paintingName: "Painting #1",
-            painter: "5e4b8c5d2ce57e068478af05",
-            likes: 0,
-            value: 0
-        }
+        // var painting = {
+        //     paintingName: "Painting #1",
+        //     painter: "5e4b8c5d2ce57e068478af05",
+        //     likes: 0,
+        //     value: 0
+        // }
 
         // API.addPainting(painting, "5e4b8c5d2ce57e068478af05").then(res => {
         //     console.log("ADDING PAINTING");
         //     console.log(res);
         // });
 
-        API.getGallery().then(res => {
-            console.log("GETTING GALLERY");
-            console.log(res);
-        });
+        // API.getGallery().then(res => {
+        //     console.log("GETTING GALLERY");
+        //     console.log(res);
+        // });
 
     }
 
     useEffect(() => {
         console.log("LOADED!");
+        //load user inventory
         apiTest();
 
     }, []);
@@ -93,6 +97,18 @@ const Game = props => {
         <Consumer>
             {context => {
 
+                function loadUser() {
+                    //Load user Inventory to state upon login
+                    if (!context.inventory && context.loggedIn) {
+                        context.currentUser.inventory.forEach(item => {
+                            API.getItem(item._id)
+                                .then(res => {
+                                    console.log("ITEM RECEIVED", res);
+                                    context.loadUserInventory(res.data, item.amount);
+                                });
+                        });
+                    }
+                }
 
                 function getDashboard() {
                     if (context.loggedIn) {
@@ -151,7 +167,7 @@ const Game = props => {
 
                 return (
                     <div className="container">
-
+                        {loadUser()}
                         {getDashboard()}
 
                         <div className="row">
