@@ -8,11 +8,10 @@ function DashBtn(props) {
     return (
             <div className="card hoverable">
                 <div className="card-image">
-                    <img className="dashboardImg" src={props.image} />
-                    <span className="card-title">{props.name}</span>
+                    <img src={props.image} alt={props.name}/>
                 </div>
-                <div className="card-content">
-                    <p>{props.name}</p>
+                <div className="card-title">
+                {props.name}
                 </div>
                 <div className="card-action">
                     <Link to={props.link}>Go to {props.name}</Link>
@@ -23,3 +22,5 @@ function DashBtn(props) {
 }
 
 export default DashBtn;
+
+          
