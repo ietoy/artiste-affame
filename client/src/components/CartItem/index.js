@@ -9,25 +9,36 @@ import React from "react";
 
 const CartItem = (props) => {
 
-    return(
-        <div>
-            
-            {/* ITEM ICON */}
-            <i className={props.icon}></i>
-            {/* ITEM NAME */}
-            <p> {props.name} </p>
-            {/* QTY IN CART */}
-            <p> {props.qtyInCart} </p>
-
-            {/* INCREASE QTY BTN */}
-            <button onClick={() => props.increaseQty} >+</button>
-            {/* DECREASE QTY BTN */}
-            <button onClick={() => props.decreaseQty} >-</button>
-            {/* REMOVE FROM CART BTN */}
-            <button onClick={() => props.removeFromCart}>X</button>
-            
+    return (
+        <div className="col s6 m4 l3">
+            <div className="card hoverable">
+                <div className="card-image">
+                    <img src={props.src} />
+                    <span className="card-title">{props.name}</span>
+                    <a
+                        className="waves-effect waves-light btn right"
+                        onClick={() => props.removeItem()}
+                    >
+                        <i class="fas fa-times-circle"></i>
+                    </a>
+                </div>
+                <div className="card-content">
+                    <a
+                        className="waves-effect waves-light btn"
+                        onClick={() => props.increaseAmt()}
+                    >
+                        <i class="fas fa-plus-square"></i>                    </a>
+                        #here
+                    <a
+                        className="waves-effect waves-light btn"
+                        onClick={() => props.decreaseAmt()}
+                    >
+                        <i class="fas fa-minus-square"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-    
+
     )
 }
 

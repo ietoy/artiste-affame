@@ -1,29 +1,63 @@
 // IMPORT REACT
 import React from "react";
 import CartItem from "../../components/CartItem/index.js";
+import Consumer from "../../configContext.js";
+import Wrapper from "../../components/Wrapper/index.js";
 
 
 
 const Cart = () => {
-
     return (
-        
+        <Consumer>
+            {context => {
+
+
+
+                return (
+                    <Wrapper>
+                        <div className="container section">
+                            <div className="center">
+                                <h1>
+                                    Your Cart
+                                <div className="right">
+                                        <a className="waves-effect waves-light btn-large">
+                                            <i className="fas fa-shopping-cart center"></i>
+                                        </a>
+                                        <a className="waves-effect waves-light btn-large">
+                                            <i className="fas fa-cash-register center"></i>
+                                        </a>
+                                    </div>
+                                </h1>
+                                <br />
+                                <hr />
+                            </div>
+                        </div>
+                        {/* not sure map works anymore since we changed cart from an array to an object. Look up how to accomplish this for objects */}
+                        {context.cart.map(item => (
+                            <CartItem
+                                id={item.id}
+                                name={item.name}
+                                src={item.src}
+                                costPer={item.cost}
+
+                                increaseAmt={context.increaseAmt}
+                                decreaseAmt={context.decreaseAmt}
+                                removeItem={context.removeItem}
+
+                            />
+                        ))}
+                    </Wrapper>
+                )
+            }}
+        </Consumer>
+
+
+
         // FROM THE CART ARRAY IN THE CURRENT STATE,
         // MAP THE ITEMS IN THE USERS CART TO THIS PAGE 
 
-        // PLACEHOLDER REFERENCE DOT NOTATION
-        something.somethingelse.map(item => (
-            <CartItem
-                icon={item.icon}
-                name={item.name}
-                qtyInCart={item.qtyInCart}
 
-                increaseQty={this.increaseQty}
-                decreaseQty={this.decreaseQty}
-                removeFromCart={this.removeFromCart}
-            />
-        ))
-      
+
         // THIS PAGE WILL ALSO SHOW THE TOTAL VALUE OF ITEMS IN THE USER'S CART
 
         // AT THE BOTTOM OF THIS PAGE THERE WILL BE A "CHECKOUT" BUTTON

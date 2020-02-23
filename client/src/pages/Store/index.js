@@ -18,21 +18,6 @@ const Store = () => {
                     }
                 }
 
-                // // this function adds items to the cart once the user clicks them
-                // function addToCart(item) {
-                //     // this function takes in the name or the id of the item being clicked
-
-                //     // check the cart in context
-
-                //         // if that item is already in the cart,
-                //         // increase the number of that item in the cart
-                //         // by one
-
-                //         // else, add that item to the cart with an amt of
-                //         // of one
-                //     context.addToCart(item)
-                // }
-
                 return (
                     <Wrapper>
                         {loadStore()}
@@ -42,7 +27,7 @@ const Store = () => {
                                     Store
                                     <div className="right">
                                         <a className="waves-effect waves-light btn-large">
-                                            <i className="fas fa-shopping-cart center"></i>
+                                            <i className="fas fa-store center"></i>
                                         </a>
                                         <a className="waves-effect waves-light btn-large">
                                             <i className="fas fa-cash-register center"></i>

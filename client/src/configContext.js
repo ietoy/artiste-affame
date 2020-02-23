@@ -41,7 +41,6 @@ class ConfigProvider extends Component {
         },
         addToCart: (item, cost) => {
             if (!this.state.cart[item]) {
-                
                 this.setState(state => ({
                     cart: {
                         ...state.cart,
@@ -55,10 +54,13 @@ class ConfigProvider extends Component {
                         ...state.cart,
                         [item]: state.cart[item] + 1,
                         cartCost: state.cart.cartCost + cost
-                    },
+                    }
                 }))
             }
-        }
+        },
+        increaseCartAmt: () => {},
+        decreaseCartAmt: () => {},
+        removeItem: () => {}
     }
 
     render() {
@@ -79,7 +81,10 @@ class ConfigProvider extends Component {
                 logout: this.state.logout,
                 loadInventory: this.state.loadInventory,
                 loadShownPaintings: this.state.loadShownPaintings,
-                addToCart: this.state.addToCart
+                addToCart: this.state.addToCart,
+                increaseCartAmt: this.state.increaseCartAmt,
+                decreaseCartAmt: this.state.decreaseCartAmt,
+                removeItem: this.state.removeItem
             }}>
                 {/*lets us see our children components  */}
                 {this.props.children}

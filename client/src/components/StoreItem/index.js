@@ -8,7 +8,7 @@ const StoreItem = (props) => {
                 <div className="card-image">
                     <img src={props.src} />
                     <span className="card-title">{props.name}</span>
-                    <a 
+                    <a
                         className="btn-floating btn-large waves-effect waves-light red right"
                         onClick={() => props.addToCart(props.id, props.cost)}
                     >
@@ -18,14 +18,14 @@ const StoreItem = (props) => {
                 </div>
                 <div className="card-content">
                     <div className="row">
-                    <div className="col l2">
-                        <i className="fas fa-dollar-sign">
-                            {props.cost}
-                        </i>
-                    </div>
-                    <div className="col l10">
-                        {props.description}
-                    </div>
+                        <div className="col l2">
+                            <i className="fas fa-dollar-sign">
+                                {props.cost}
+                            </i>
+                        </div>
+                        <div className="col l10">
+                            {props.description}
+                        </div>
                     </div>
                 </div>
             </div>
