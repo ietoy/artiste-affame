@@ -1,7 +1,5 @@
 import React from "react";
-
 import ShownPainting from "../../components/ShownPainting/index";
-import Wrapper from "../../components/Wrapper/index";
 import axios from "axios";
 import API from "../../utils/API";
 import Style from "./style.css";
@@ -10,7 +8,6 @@ import Style from "./style.css";
 // Players can offer likes to paintings made by other players, but only once per painting
 // This page will use the ShownPainting Component
 import Consumer from "../../configContext.js";
-///////aksdjfhl;awfdjhliadjwhf
 
 // WRITE handleLike FX THAT DOES THE FOLLOWING:
 //      ON CLICK OF THE LIKE BUTTON, LOOK AT THE PAINTING THAT WAS LIKED
@@ -38,7 +35,7 @@ const Gallery = () => {
                     })
                     }
                 function loadGallery() {
-                    // console.log(context.gallery)
+                    console.log(context.gallery)
                     if (context.gallery.length === 0) {
                         API.getGallery()
                             .then(res => {
@@ -47,32 +44,30 @@ const Gallery = () => {
                     }
                 }
                 return (
-                    <Wrapper>
-                        {cloudinaryGallery()}
-                        {loadGallery()}
-                        {/* <div className="container section"> */}
-                            <div className="center">
-                                <h1>Gallery</h1>
-                                <br />
-                                <hr />
-                            </div>
+                 <div>
 
-                            <div className="row galleryHolder">
-                                {context.gallery.map(painting => (
-                                    // console.log(painting);
+        {cloudinaryGallery()}
+                    {loadGallery()}
+                        <div className="center">
+                            <h1>Gallery</h1>
+                            <br />
+                            <hr />
+                        </div>
 
-                                    <ShownPainting
-                                        id={painting._id}
-                                        src={painting.src}
-                                        paintingName={painting.paintingName}
-                                        likes={painting.likes}
-                                    />
+                        <div className="row galleryHolder">
+                            {context.gallery.map(painting => (
 
-                                ))}
-                            </div>
-                        {/* </div> */}
+                                <ShownPainting
+                                    id={painting._id}
+                                    src={painting.src}
+                                    paintingName={painting.paintingName}
+                                    likes={painting.likes}
+                                />
+
+                            ))}
+                        </div>
+                         </div> 
                       
-                    </Wrapper>
                 )
             }}
         </Consumer>

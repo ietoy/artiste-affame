@@ -1,0 +1,34 @@
+.card-image{
+    width:228px !important;
+    height: 228px !important;
+    background-color: cornflowerblue;
+}
+img{
+    width:228px;
+    height: 228px;
+    background-color: cornflowerblue;
+}
+.card{
+    width:fit-content;
+    height:fit-content;
+    background-color: pink;
+    
+}
+.card-title{
+    text-align: center;
+
+}
+/* .card-content{
+text-align: center;
+} */
+.cartbutton{
+margin-bottom:10px;
+
+}
+.cost{
+margin:5px;
+}
+.description{
+    margin:5px;
+
+}

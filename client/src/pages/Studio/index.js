@@ -82,7 +82,6 @@ function Studio() {
                                     <ColorPalette changeColor={changeColor} />
 
                                 </div>
-{/* className="container col" */}
                                 <div  >
                                     <Canvas strokeColor={studioState.strokeColor} />
                                 </div>
@@ -95,10 +94,7 @@ function Studio() {
                            <h1>Log in to upload!</h1>
                              </Modal>
                             </div>
-                            {/* <Modal show={modalState.isOpen}
-                            onClose={toggleModalOff}>
-                           <h1>what the heck</h1>
-                             </Modal> */}
+                   
                      
                            
                         </Fragment>

@@ -1,8 +1,10 @@
-img{
-    width:100px;
-    height: 100px;
+.card-image{
+    width:200px;
+    height: 200px;
+    background-color: cornflowerblue;
 }
 .card{
-    width:100px;
-    height:100px;
+    width:fit-content;
+    height:fit-content;
+    background-color: crimson;
 }

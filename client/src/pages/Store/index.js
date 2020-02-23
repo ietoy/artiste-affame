@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Consumer from "../../configContext.js";
 import StoreItem from "../../components/StoreItem/index.js"
-import Wrapper from "../../components/Wrapper/index.js";
 import API from "../../utils/API.js";
-import { Link } from "react-router-dom";
-
+import Style from "./style.css";
 const Store = () => {
     return (
         <Consumer>
@@ -34,9 +32,8 @@ const Store = () => {
                 // }
 
                 return (
-                    <Wrapper>
+                    <div>
                         {loadStore()}
-                        <div className="container section">
                             <div className="center">
                                 <h1>
                                     Store
@@ -52,7 +49,7 @@ const Store = () => {
                                 <br />
                                 <hr />
                             </div>
-                            <div className="row">
+                            <div className="row itemholder">
                                 {context.marketplace_items.map(item => (
                                     <StoreItem
                                         id={item._id}
@@ -65,8 +62,8 @@ const Store = () => {
                                     />
                                 ))}
                             </div>
-                        </div>
-                    </Wrapper>
+
+                    </div>
                 )
             }}
         </Consumer>
