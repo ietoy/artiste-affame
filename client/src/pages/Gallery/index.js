@@ -1,7 +1,5 @@
 import React from "react";
-
 import ShownPainting from "../../components/ShownPainting/index";
-import Wrapper from "../../components/Wrapper/index";
 import axios from "axios";
 import API from "../../utils/API";
 import Style from "./style.css";

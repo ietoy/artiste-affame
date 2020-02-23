@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Consumer from "../../configContext.js";
 import StoreItem from "../../components/StoreItem/index.js"
-import Wrapper from "../../components/Wrapper/index.js";
 import API from "../../utils/API.js";
-import { Link } from "react-router-dom";
 import Style from "./style.css";
 const Store = () => {
     return (

@@ -7,4 +7,23 @@
     width:fit-content;
     height:fit-content;
     background-color: pink;
+    
+}
+.card-title{
+    text-align: center;
+
+}
+/* .card-content{
+text-align: center;
+} */
+.cartbutton{
+margin-bottom:10px;
+
+}
+.cost{
+margin:5px;
+}
+.description{
+    margin:5px;
+
 }
