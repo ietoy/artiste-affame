@@ -10,8 +10,6 @@ const ShownPainting = (props) => {
 
 
     return (
-
-
             <div className="card">
                 <div className="card-image">
                     <img src={props.src} />
@@ -26,7 +24,6 @@ const ShownPainting = (props) => {
                     <br />
                 </div>
             </div>
-
     )
 }
 

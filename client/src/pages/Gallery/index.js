@@ -10,7 +10,6 @@ import Style from "./style.css";
 // Players can offer likes to paintings made by other players, but only once per painting
 // This page will use the ShownPainting Component
 import Consumer from "../../configContext.js";
-///////aksdjfhl;awfdjhliadjwhf
 
 // WRITE handleLike FX THAT DOES THE FOLLOWING:
 //      ON CLICK OF THE LIKE BUTTON, LOOK AT THE PAINTING THAT WAS LIKED
