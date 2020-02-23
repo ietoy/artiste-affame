@@ -1,9 +1,10 @@
 import React from "react";
+
 import ShownPainting from "../../components/ShownPainting/index";
 import Wrapper from "../../components/Wrapper/index";
 import axios from "axios";
 import API from "../../utils/API";
-
+import Style from "./style.css";
 // import Cloudinary from "cloudinary";
 // This page shows all paintings currently on display in the Gallery.
 // Players can offer likes to paintings made by other players, but only once per painting
@@ -21,36 +22,21 @@ import Consumer from "../../configContext.js";
 // A PAINTING HAD AN addedLike VALUE OF "TRUE", INCREMENT THE LIKE VALUE OF
 // THAT PAINTINGS DOC OBJ BY 1
 
-// const curl = new (require( 'curl-request' ))();
-// curl https://<API_KEY>:<API_SECRET>@api.cloudinary.com/v1_1/<cloud_name>/resources/image
-// // curl.setHeaders([
-// //     ''
-// // ])
-// // .get('https://www.google.com')
-// // .then(({statusCode, body, headers}) => {
-// //     console.log(statusCode, body, headers)
-// // })
-// // .catch((e) => {
-// //     console.log(e);
-// // });
-// // const header = { 
-// //     // cloud_name: "artiste-defamme",
-// //     api_key: "878159185894491",
-// //     api_secret: "FhJy3Dc_yVACl6gaPFwLALrLjkg"
-// //   };
-const cheesey = () => {
-axios.get("https://878159185894491:FhJy3Dc_yVACl6gaPFwLALrLjkg@api.cloudinary.com/v1_1/artiste-defamme/resources/image").then(res => {
-    console.log(res);
-    return res;
-})
-}
-// cheesey();
+
+
 const Gallery = () => {
+  
    
     return (
 
         <Consumer>
             {context => {
+                const cloudinaryGallery = () => {
+                    axios.get("https://878159185894491:FhJy3Dc_yVACl6gaPFwLALrLjkg@api.cloudinary.com/v1_1/artiste-defamme/resources/image").then(res => {
+                        console.log("\n\n\n\n\n",res);
+                        return res;
+                    })
+                    }
                 function loadGallery() {
                     // console.log(context.gallery)
                     if (context.gallery.length === 0) {
@@ -62,20 +48,19 @@ const Gallery = () => {
                 }
                 return (
                     <Wrapper>
-                        {cheesey()}
+                        {cloudinaryGallery()}
                         {loadGallery()}
-                        <div className="container section">
+                        {/* <div className="container section"> */}
                             <div className="center">
                                 <h1>Gallery</h1>
                                 <br />
                                 <hr />
                             </div>
 
-                            <div className="row">
+                            <div className="row galleryHolder">
                                 {context.gallery.map(painting => (
                                     // console.log(painting);
 
-                                    // review this with team
                                     <ShownPainting
                                         id={painting._id}
                                         src={painting.src}
@@ -85,7 +70,8 @@ const Gallery = () => {
 
                                 ))}
                             </div>
-                        </div>
+                        {/* </div> */}
+                      
                     </Wrapper>
                 )
             }}
