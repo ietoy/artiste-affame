@@ -99,22 +99,31 @@ class ConfigProvider extends Component {
         },
 
         increaseCartAmt: (name) => {
-            console.log("one MORE " + name + " for you!");
+            // When called, this function finds the corresponding element in the cart array
+            // and increases the quantity by one
             this.state.cart.find(x => x.name === name).qty = this.state.cart.find(x => x.name === name).qty + 1;
-            console.log(this.state.cart);
-            // this.render()
+            // Then, we force this cartItem component to update
             this.forceUpdate();
         },
         decreaseCartAmt: (name) => {
-            console.log("one LESS " + name + " for you!");
+            // When called, this function finds the corresponding element in the cart array
+            // and decreases the quantity by one
             this.state.cart.find(x => x.name === name).qty = this.state.cart.find(x => x.name === name).qty - 1;
-            console.log(this.state.cart);
-            // this.render()
+            // Then, we force this cartItem component to update
             this.forceUpdate();
+            // If the qty of this cartItem is 0
+            // then we call the RemoveItem function on this element by passing its name.
             
         },
         removeItem: (name) => {
-            console.log("NO MORE " + name + " FOR YOU!")
+            // When the remove item button is clicked,
+            // we find the index of the item to be removed in our cart array
+            // where the clicked item name matches that of its place in the array
+            var itemToRemove = this.state.cart.findIndex(x => x.name === name);
+            // Then, using splice, we remove this object from the cart array
+            this.state.cart.splice(itemToRemove, 1);
+            // Finally, we force the element to update, removing it from the display
+            this.forceUpdate();
         },
         checkout: () => {
             console.log("you checked out!")
