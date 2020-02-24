@@ -16,7 +16,7 @@ const StoreItem = (props) => {
                     <div className="cartbutton">
                         <a
                             className="btn-floating btn-large waves-effect waves-light red right"
-                            onClick={() => props.addToCart(props.id, props.cost)}
+                            onClick={() => props.addToCart(props.name, props.src, props.cost)}
                         >
                             <i className="material-icons">add</i>
                         </a>

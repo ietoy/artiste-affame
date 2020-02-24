@@ -10,30 +10,33 @@ const CartItem = (props) => {
                 <img src={props.src} alt={props.name} />
             </div>
             <div className="card-title">
-                <h5> {props.name}: {props.cost} </h5>
+                <h5> {props.name}: ${props.cost} </h5>
             </div>
             <div className="card-content">
-                <a
-                    className="waves-effect waves-light btn"
-                    onClick={() => props.increaseAmt()}
-                >
-                    <i class="fas fa-plus-square"></i>
-                </a>
-                <div>
-                    {props.qty}
+                <div className="row">
+                    <a
+                        className="waves-effect waves-light btn col 3"
+                        onClick={() => props.increaseCartAmt(props.name)}
+                    >
+                        <i class="fas fa-plus-square"></i>
+                    </a>
+                    <div className="col 3">
+                        {props.qty}
+                    </div>
+                    <a
+                        className="waves-effect waves-light btn col 3"
+                        onClick={() => props.decreaseCartAmt(props.name)}
+                    >
+                        <i class="fas fa-minus-square"></i>
+                    </a>
+                    <a
+                        className="waves-effect waves-light btn right col 3"
+                        onClick={() => props.removeItem(props.name)}
+                    >
+                        <i class="fas fa-times-circle"></i>
+                    </a>
+
                 </div>
-                <a
-                    className="waves-effect waves-light btn"
-                    onClick={() => props.decreaseAmt()}
-                >
-                    <i class="fas fa-minus-square"></i>
-                </a>
-                <a
-                    className="waves-effect waves-light btn right"
-                    onClick={() => props.removeItem()}
-                >
-                    <i class="fas fa-times-circle"></i>
-                </a>
             </div>
         </div>
 
