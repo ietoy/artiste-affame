@@ -101,12 +101,16 @@ class ConfigProvider extends Component {
         increaseCartAmt: (name) => {
             console.log("one MORE " + name + " for you!");
             this.state.cart.find(x => x.name === name).qty = this.state.cart.find(x => x.name === name).qty + 1;
-            console.log(this.state.cart)
+            console.log(this.state.cart);
+            // this.render()
+            this.forceUpdate();
         },
         decreaseCartAmt: (name) => {
             console.log("one LESS " + name + " for you!");
             this.state.cart.find(x => x.name === name).qty = this.state.cart.find(x => x.name === name).qty - 1;
             console.log(this.state.cart);
+            // this.render()
+            this.forceUpdate();
             
         },
         removeItem: (name) => {
