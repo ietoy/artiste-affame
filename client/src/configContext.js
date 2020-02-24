@@ -112,6 +112,9 @@ class ConfigProvider extends Component {
             // Then, we force this cartItem component to update
             this.forceUpdate();
             // If the qty of this cartItem is 0
+            if (this.state.cart.find(x => x.name === name).qty === 0) {
+                this.state.removeItem(name)
+            }
             // then we call the RemoveItem function on this element by passing its name.
             
         },
