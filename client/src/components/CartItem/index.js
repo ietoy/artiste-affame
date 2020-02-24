@@ -1,33 +1,45 @@
 // IMPORT REACT
 import React from "react";
-
-// This component generates buttons that represent items in the users cart
-// These are viewable when the user looks at their cart while in the store
-// clicking a cart item button will decrement the amount in the cart or remove it from the cart.
-// maybe add buttons to increment, decrement, or remove?
-// RETURN TO THIS
+import Style from "./style.css";
 
 const CartItem = (props) => {
 
-    return(
-        <div>
-            
-            {/* ITEM ICON */}
-            <i className={props.icon}></i>
-            {/* ITEM NAME */}
-            <p> {props.name} </p>
-            {/* QTY IN CART */}
-            <p> {props.qtyInCart} </p>
+    return (
+        <div className="card hoverable">
+            <div className="card-image">
+                <img src={props.src} alt={props.name} />
+            </div>
+            <div className="card-title">
+                <h5> {props.name}: ${props.cost} </h5>
+            </div>
+            <div className="card-content">
+                <div className="row">
+                    <a
+                        className="waves-effect waves-light btn col 3"
+                        onClick={() => props.increaseCartAmt(props.name)}
+                    >
+                        <i class="fas fa-plus-square"></i>
+                    </a>
+                    <div className="col 3">
+                        {props.qty}
+                    </div>
+                    <a
+                        className="waves-effect waves-light btn col 3"
+                        onClick={() => props.decreaseCartAmt(props.name)}
+                    >
+                        <i class="fas fa-minus-square"></i>
+                    </a>
+                    <a
+                        className="waves-effect waves-light btn right col 3"
+                        onClick={() => props.removeItem(props.name)}
+                    >
+                        <i class="fas fa-times-circle"></i>
+                    </a>
 
-            {/* INCREASE QTY BTN */}
-            <button onClick={() => props.increaseQty} >+</button>
-            {/* DECREASE QTY BTN */}
-            <button onClick={() => props.decreaseQty} >-</button>
-            {/* REMOVE FROM CART BTN */}
-            <button onClick={() => props.removeFromCart}>X</button>
-            
+                </div>
+            </div>
         </div>
-    
+
     )
 }
 
