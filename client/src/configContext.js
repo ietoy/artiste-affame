@@ -67,13 +67,16 @@ class ConfigProvider extends Component {
             } else {
                 // FOUND ITEM SWITCH
                 var found = false;
-
                 // For each item in the cart
                 for (var i = 0; i < this.state.cart.length; i++) {
                     // if the clicked item matches the name of an item in the cart
                     if (this.state.cart[i].name === name) {
                         // Increase the quantity of this item by one
                         this.state.cart[i].qty = (this.state.cart[i].qty + 1)
+                        // update the carts cost
+                        this.setState(state => ({
+                            cartCost: state.cartCost + cost
+                        }))
                         // set found to true
                         found = true
                     }
@@ -94,29 +97,41 @@ class ConfigProvider extends Component {
                         // update the carts cost
                         cartCost: state.cartCost + cost
                     }));
+
                 }
+                console.log(this.state.cartCost)
             }
         },
 
-        increaseCartAmt: (name) => {
+        increaseCartAmt: (name, cost) => {
             // When called, this function finds the corresponding element in the cart array
             // and increases the quantity by one
             this.state.cart.find(x => x.name === name).qty = this.state.cart.find(x => x.name === name).qty + 1;
+            // We then update the cartCost by adding the cost of the item to thte total
+            this.setState(state => ({
+                cartCost: state.cartCost + cost
+            }))
             // Then, we force this cartItem component to update
             this.forceUpdate();
+            console.log(this.state.cartCost)
         },
-        decreaseCartAmt: (name) => {
+        decreaseCartAmt: (name, cost) => {
             // When called, this function finds the corresponding element in the cart array
             // and decreases the quantity by one
             this.state.cart.find(x => x.name === name).qty = this.state.cart.find(x => x.name === name).qty - 1;
+            // update the carts cost
+            this.setState(state => ({
+                cartCost: state.cartCost - cost
+            }))
             // Then, we force this cartItem component to update
             this.forceUpdate();
             // If the qty of this cartItem is 0
             if (this.state.cart.find(x => x.name === name).qty === 0) {
+                // then we call the RemoveItem function on this element by passing its name.
                 this.state.removeItem(name)
-            }
-            // then we call the RemoveItem function on this element by passing its name.
-            
+            };
+            console.log(this.state.cartCost)
+
         },
         removeItem: (name) => {
             // When the remove item button is clicked,

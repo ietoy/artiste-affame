@@ -14,7 +14,7 @@ const Cart = () => {
                     <div>
                         <div className="center">
                             <h1>
-                                Your Cart
+                                Cart Total: {context.cartCost}
                                 <div className="right">
                                     <Link to="/store">
                                         <a className="waves-effect waves-light btn-large">
