@@ -14,6 +14,7 @@ const Cart = () => {
                     <div>
                         <div className="center">
                             <h1>
+                                {/* figure out how to get cartCost to display here - iet */}
                                 Cart Total: {context.cartCost}
                                 <div className="right">
                                     <Link to="/store">
@@ -46,15 +47,6 @@ const Cart = () => {
                                     removeItem={context.removeItem}
                                 />
                             ))}
-                        </div>
-
-                        <div>
-                            <a
-                                className="waves-effect waves-light btn-large"
-                                onClick={() => context.updateCartCost()}
-                            >
-                                <i class="fas fa-thumbs-up center"></i>
-                            </a>
                         </div>
 
                     </div>
