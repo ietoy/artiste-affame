@@ -22,7 +22,7 @@ class ConfigProvider extends Component {
 
         // Login Functions
         login: (success, user) => {
-            console.log("LOGIN STATE", success, user);
+            // console.log("LOGIN STATE", success, user);
             if (success) {
                 this.setState({ currentUser: user, loggedIn: true });
             } else {
@@ -30,7 +30,7 @@ class ConfigProvider extends Component {
             }
         },
         logout: () => {
-            console.log("LOGGIN OUT");
+            // console.log("LOGGIN OUT");
             this.setState({ currentUser: "", loggedIn: false });
         },
 
@@ -94,7 +94,7 @@ class ConfigProvider extends Component {
                 this.state.updateCartCost();
             }
         },
-        increaseCartAmt: (name, cost) => {
+        increaseCartAmt: (name) => {
             // When called, this function finds the corresponding element in the cart array
             // and increases the quantity by one
             this.state.cart.find(x => x.name === name).qty = this.state.cart.find(x => x.name === name).qty + 1;
@@ -103,7 +103,7 @@ class ConfigProvider extends Component {
             // Then, we force this cartItem component to update
             this.forceUpdate();
         },
-        decreaseCartAmt: (name, cost) => {
+        decreaseCartAmt: (name) => {
             // When called, this function finds the corresponding element in the cart array
             // and decreases the quantity by one
             this.state.cart.find(x => x.name === name).qty = this.state.cart.find(x => x.name === name).qty - 1;
@@ -154,10 +154,13 @@ class ConfigProvider extends Component {
                     });
 
                 console.log(coins)
+
                 // #####################################################
                 // UPDATE INVENTORY THIS WAY TOO, MAY NEED TO UPDATE APIS
                 // #####################################################
 
+                this.state.cart = [];
+                this.state.cartCost = 0;
             } else {
                 // Otherwise, alert the user that they cannot afford the cart context
                 alert("You can't afford all that! Update your cart and try again.")
