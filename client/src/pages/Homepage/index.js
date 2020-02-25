@@ -3,7 +3,7 @@ import "./style.css";
 import Consumer from "../../configContext";
 import API from "../../utils/API";
 import DashBtn from "../../components/DashBtn"
-
+import Style from "./style.css";
 const Game = props => {
 
     const apiTest = () => {
@@ -86,6 +86,8 @@ const Game = props => {
 
     }
 
+    //add onclick to handle which card was clicked and connect accordingly
+
     useEffect(() => {
         console.log("LOADED!");
         //load user inventory
@@ -114,86 +116,74 @@ const Game = props => {
                     if (context.loggedIn) {
                         return (
 
-                            <div>
+                            <div id="profile">
 
-                                <div className="row">
-                                    <div className="col s12">
-                                        <div className="card card-border z-depth-2">
-                                            <div className="card-content">
-                                                <div className="row">
-                                                    <div className="col s2 pr-0 circle">
-                                                        <img className="responsive-img circle" src="https://cdn0.iconfinder.com/data/icons/avengers-end-game-1/256/iron_man-512.png" alt="" />
-                                                    </div>
-                                                    <div className="col s10">
-                                                        <h4>Welcome {context.currentUser.email}!</h4>
-                                                        <h6>Coins: {context.currentUser.coins}</h6>
-                                                    </div>
-                                                </div>
-                                                <hr />
-                                                <p>Unique Items Count: {context.currentUser.inventory.length}</p>
-                                                <p>Paintings Count: {context.currentUser.portfolio.length}</p>
-                                                <p>Member Since: {context.currentUser.createdAt}</p>
+                            <div className="login">
+                            <div className="card card-border z-depth-2">
+                                    <div className="card-content">
 
-                                            </div>
-                                        </div>
+                                        <img className="responsive-img circle" src="https://cdn0.iconfinder.com/data/icons/avengers-end-game-1/256/iron_man-512.png" alt="" />
+
+                                        <h4>Welcome {context.currentUser.email}!</h4>
+                                        <h6>Coins: {context.currentUser.coins}</h6>
+
                                     </div>
-                                </div>
-
-
-                                <div className="row">
-                                    <div className="col s6">
-                                        <DashBtn link="/shop" name="Store" image="https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg" />
-                                    </div>
-                                    <div className="col s6">
-                                        <DashBtn link="/inventory" name="Inventory" image="https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg" />
-                                    </div>
+                                    <hr />
+                                    <p>Unique Items Count: {context.currentUser.inventory.length}</p>
+                                    <p>Paintings Count: {context.currentUser.portfolio.length}</p>
+                                    <p>Member Since: {context.currentUser.createdAt}</p>
                                 </div>
                             </div>
+                              
 
+
+                                <div className="loginlinks">
+                                    <DashBtn link="/shop" name="Store" image="https://res.cloudinary.com/artiste-defamme/image/upload/v1582658654/stock/store_v9khdp.jpg" />
+
+                                    <DashBtn link="/inventory" name="Inventory" image="https://res.cloudinary.com/artiste-defamme/image/upload/v1582658447/stock/Inventory_mgvrr8.jpg" />
+                                </div>
+
+                            </div>
 
                         )
                     } else {
                         return (
+                            <div className="login">
 
-                            <div className="row">
-                                <div className="col s12">
-                                    <DashBtn link="/login" name="Login" image="https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg" />
-                                </div>
-
+                            <DashBtn link="/login" name="Login" image="https://res.cloudinary.com/artiste-defamme/image/upload/v1582657909/stock/login_ob7wtj.jpg" />
                             </div>
                         )
                     }
                 }
 
                 return (
-                    <div className="container">
-                        {loadUser()}
-                        {getDashboard()}
+                    <div>
+                           {loadUser()}
+                            {getDashboard()}
 
-                        <div className="row">
-                            <div className="col s6">
-                                <DashBtn link="/arcade" name={"Arcade"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
-                            </div>
-                            <div className="col s6">
-                                <DashBtn link="/studio" name={"Studio"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
-                            </div>
+                        <div className="notloggedin">
+                   
+                            <DashBtn link="/arcade" name={"Arcade"} image={"https://res.cloudinary.com/artiste-defamme/image/upload/v1582657910/stock/arcade_q2cpld.jpg"} />
+
+                            <DashBtn link="/studio" name={"Studio"} image={"https://res.cloudinary.com/artiste-defamme/image/upload/v1582657910/stock/studio_irz131.jpg"} />
+
+                            <DashBtn link="/gallery" name={"Gallery"} image={"https://res.cloudinary.com/artiste-defamme/image/upload/v1582657910/stock/gallery_rtdikq.jpg"} />
                         </div>
-                        <div className="row">
-                            <div className="col s12">
-                                <DashBtn link="/gallery" name={"Gallery"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
-                            </div>
-                        </div>
+
+
 
 
                     </div>
+
+
+
+
+
+
                 )
             }}
-
-
         </Consumer >
-
     )
-
 }
 
 

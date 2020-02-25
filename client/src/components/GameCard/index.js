@@ -14,9 +14,9 @@ const GameCard = (props) => {
         <div className="card">
             <div className="card-image">
                 <img src={props.game.image} />
-                <span className="card-title">{props.game.name}</span>
             </div>
             <div className="card-content">
+                <h3>{props.game.name}</h3>
                 <p>{props.game.description}</p>
             </div>
             <div className="card-action">
