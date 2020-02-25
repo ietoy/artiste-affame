@@ -1,15 +1,15 @@
 .card-image{
-    width:228px !important;
+    width:250px !important;
     height: 228px !important;
     background-color: cornflowerblue;
 }
 img{
-    width:228px;
+    width:250px;
     height: 228px;
     background-color: cornflowerblue;
 }
 .card{
-    width:fit-content;
+    width:250px !important;
     height:fit-content;
     background-color: pink;
     
@@ -27,8 +27,15 @@ margin-bottom:10px;
 }
 .cost{
 margin:5px;
+text-align: center;
+font-size: 30px;
 }
 .description{
     margin:5px;
+    text-align: center;
 
+}
+.card-content{
+    padding-top:10px !important;
+    padding-bottom: 10px !important;
 }

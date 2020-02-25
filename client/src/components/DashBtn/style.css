@@ -1,7 +1,37 @@
-.dashboardImg {
-    max-height: 200px;
+/* .notloggedin{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+@media only screen and (max-width: 800px) {
+.notloggedin{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
 }
 
-/* .dashCol {
-    margin-bottom: 10x;
+
+}
+@media only screen and (max-width: 500px) {
+.notloggedin{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+}
+
+
+} */
+/* .loggedin{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+}
+@media only screen and (max-width: 800px) {
+.loggedin{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+}
+
+
 } */
