@@ -89,7 +89,7 @@ function App() {
                     if (gameState.gameOver && context.loggedIn) {
                         console.log("COINS EARNED", gameState.coins);
                         context.addCoins(gameState.coins);
-                        API.updateCoins(context.currentUser)
+                        API.updateUser(context.currentUser)
                             .then(res => {
                                 console.log("UPDATE USER RES", res.data);
                             });
