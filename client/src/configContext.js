@@ -179,7 +179,7 @@ class ConfigProvider extends Component {
                 // update the state by deducting the cost from their coins
                 this.state.currentUser.coins -= cartCost;
                 // then update the database with this API call
-                API.updateCoins(this.state.currentUser)
+                API.updateUser(this.state.currentUser)
                     .then(res => {
                         console.log("UPDATE USER RES", res.data);
                     });
