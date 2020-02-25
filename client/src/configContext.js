@@ -178,20 +178,17 @@ class ConfigProvider extends Component {
                 console.log("you can afford that!");
                 // update the state by deducting the cost from their coins
                 this.state.currentUser.coins -= cartCost;
+                this.state.currentUser.inventory.push(this.state.cart);
                 // then update the database with this API call
                 API.updateUser(this.state.currentUser)
                     .then(res => {
                         console.log("UPDATE USER RES", res.data);
                     });
-
-                console.log(coins)
-
+                console.log(coins);
+                console.log(this.state.currentUser.inventory);
                 // #####################################################
                 // UPDATE INVENTORY THIS WAY TOO, MAY NEED TO UPDATE APIS
                 // #####################################################
-
-                this.state.cart = [];
-                this.state.cartCost = 0;
             } else {
                 // Otherwise, alert the user that they cannot afford the cart context
                 alert("You can't afford all that! Update your cart and try again.")
