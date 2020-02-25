@@ -180,7 +180,7 @@ class ConfigProvider extends Component {
                 this.state.currentUser.coins -= cartCost;
                 this.state.currentUser.inventory.push(this.state.cart);
                 // then update the database with this API call
-                API.updateCoins(this.state.currentUser)
+                API.updateUser(this.state.currentUser)
                     .then(res => {
                         console.log("UPDATE USER RES", res.data);
                     });
