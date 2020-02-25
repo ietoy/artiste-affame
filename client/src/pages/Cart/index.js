@@ -14,7 +14,7 @@ const Cart = () => {
                     <div>
                         <div className="center">
                             <h1>
-                                Your Cart
+                                Cart Total: {context.cartCost}
                                 <div className="right">
                                     <Link to="/store">
                                         <a className="waves-effect waves-light btn-large">
@@ -46,6 +46,15 @@ const Cart = () => {
                                     removeItem={context.removeItem}
                                 />
                             ))}
+                        </div>
+
+                        <div>
+                            <a
+                                className="waves-effect waves-light btn-large"
+                                onClick={() => context.updateCartCost()}
+                            >
+                                <i class="fas fa-thumbs-up center"></i>
+                            </a>
                         </div>
 
                     </div>

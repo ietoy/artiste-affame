@@ -59,15 +59,14 @@ class ConfigProvider extends Component {
                             cost: cost,
                             qty: 1
                         }
-                    ],
-                    // update the carts cost
-                    cartCost: state.cartCost + cost
+                    ]
                 }));
-            // If the cart is NOT empty
+                // then update the cart cost
+                this.state.updateCartCost();
+                // If the cart is NOT empty
             } else {
                 // FOUND ITEM SWITCH
                 var found = false;
-
                 // For each item in the cart
                 for (var i = 0; i < this.state.cart.length; i++) {
                     // if the clicked item matches the name of an item in the cart
@@ -90,33 +89,37 @@ class ConfigProvider extends Component {
                                 cost: cost,
                                 qty: 1
                             }
-                        ],
-                        // update the carts cost
-                        cartCost: state.cartCost + cost
+                        ]
                     }));
                 }
+                // finally, we update the cart cost
+                this.state.updateCartCost();
             }
+
         },
 
-        increaseCartAmt: (name) => {
+        increaseCartAmt: (name, cost) => {
             // When called, this function finds the corresponding element in the cart array
             // and increases the quantity by one
             this.state.cart.find(x => x.name === name).qty = this.state.cart.find(x => x.name === name).qty + 1;
+            // We then update the cartCost by running our updateCartCost function
+            this.state.updateCartCost();
             // Then, we force this cartItem component to update
             this.forceUpdate();
         },
-        decreaseCartAmt: (name) => {
+        decreaseCartAmt: (name, cost) => {
             // When called, this function finds the corresponding element in the cart array
             // and decreases the quantity by one
             this.state.cart.find(x => x.name === name).qty = this.state.cart.find(x => x.name === name).qty - 1;
-            // Then, we force this cartItem component to update
-            this.forceUpdate();
             // If the qty of this cartItem is 0
             if (this.state.cart.find(x => x.name === name).qty === 0) {
+                // then we call the RemoveItem function on this element by passing its name.
                 this.state.removeItem(name)
-            }
-            // then we call the RemoveItem function on this element by passing its name.
-            
+            };
+            // We then update the cartCost by running our updateCartCost function
+            this.state.updateCartCost();
+            // Then, we force this cartItem component to update
+            this.forceUpdate();
         },
         removeItem: (name) => {
             // When the remove item button is clicked,
@@ -125,9 +128,24 @@ class ConfigProvider extends Component {
             var itemToRemove = this.state.cart.findIndex(x => x.name === name);
             // Then, using splice, we remove this object from the cart array
             this.state.cart.splice(itemToRemove, 1);
+            // We then update the cartCost by running our updateCartCost function
+            this.state.updateCartCost();
             // Finally, we force the element to update, removing it from the display
             this.forceUpdate();
+            // update the carts cost
+            // updateCartCost FX GOES HERE WHEN COMPLETE
         },
+        updateCartCost: () => {
+            var newCartCost = 0;
+            for (var i = 0; i< this.state.cart.length; i++) {
+                newCartCost += (this.state.cart[i].cost * this.state.cart[i].qty)
+            };
+            this.setState(state => ({
+                cartCost: newCartCost
+            }))
+            console.log(this.state.cartCost)
+        },
+
         checkout: () => {
             console.log("you checked out!")
         },
@@ -174,6 +192,7 @@ class ConfigProvider extends Component {
                 increaseCartAmt: this.state.increaseCartAmt,
                 decreaseCartAmt: this.state.decreaseCartAmt,
                 removeItem: this.state.removeItem,
+                updateCartCost: this.state.updateCartCost,
                 checkout: this.state.checkout,
 
                 addCoins: this.state.addCoins,

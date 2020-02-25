@@ -16,7 +16,7 @@ const CartItem = (props) => {
                 <div className="row">
                     <a
                         className="waves-effect waves-light btn col 3"
-                        onClick={() => props.increaseCartAmt(props.name)}
+                        onClick={() => props.increaseCartAmt(props.name, props.cost)}
                     >
                         <i class="fas fa-plus-square"></i>
                     </a>
@@ -25,7 +25,7 @@ const CartItem = (props) => {
                     </div>
                     <a
                         className="waves-effect waves-light btn col 3"
-                        onClick={() => props.decreaseCartAmt(props.name)}
+                        onClick={() => props.decreaseCartAmt(props.name, props.cost)}
                     >
                         <i class="fas fa-minus-square"></i>
                     </a>
