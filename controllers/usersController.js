@@ -116,8 +116,14 @@ module.exports = {
     update: function (req, res) {
         console.log("UPDATE USER REQUEST");
         console.log("ID", req.params.id);
-        console.log("Coins", req.body.coins);
+        console.log("User", req.body);
         db.User.findOneAndUpdate({ _id: req.params.id }, { coins: req.body.coins })
+            .then(user => res.json(user))
+            .catch(err => {
+                console.log(err);
+                res.status(400).json(err);
+            });
+        db.User.findOneAndUpdate({ _id: req.params.id }, { inventory: req.body.inventory })
             .then(user => res.json(user))
             .catch(err => {
                 console.log(err);

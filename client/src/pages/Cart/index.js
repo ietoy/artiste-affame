@@ -11,8 +11,6 @@ const Cart = () => {
         <Consumer>
 
             {context => {
-
-                // {context.updateCartCost()}
                 return (
                     <div>
                         <div className="center">
