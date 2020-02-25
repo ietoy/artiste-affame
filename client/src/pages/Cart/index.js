@@ -48,6 +48,15 @@ const Cart = () => {
                             ))}
                         </div>
 
+                        <div>
+                            <a
+                                className="waves-effect waves-light btn-large"
+                                onClick={() => context.updateCartCost()}
+                            >
+                                <i class="fas fa-thumbs-up center"></i>
+                            </a>
+                        </div>
+
                     </div>
                 )
             }}
