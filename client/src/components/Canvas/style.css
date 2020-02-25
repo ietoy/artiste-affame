@@ -1,4 +1,10 @@
-canvas{
+#paintCanvas {
+  border: solid 3px black;
+  border-radius: 25px
+}
+
+
+/* canvas{
     width:500px;
     height:500px;
     margin-left: 3%;
@@ -29,4 +35,4 @@ canvas{
         margin-left:8%;
     }
       
-    }
+    } */
