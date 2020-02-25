@@ -76,19 +76,22 @@ function Studio() {
                 function saveCanvas() {
                     console.log("SAVING CANVAS");
                     var element = document.getElementById("paintCanvas");
-                    console.log("ELEMENT", element);
+                    // console.log("ELEMENT", element);
                     html2canvas(element, {
                         scrollX: -window.scrollX - 7,
                         scrollY: -window.scrollY
                     }).then(function (canvas) {
-                        console.log(canvas);
+                        // console.log(canvas);
                         src2 = canvas.toDataURL();
-                        API.addPainting({
+                        let painting = {
                             paintingName: "canvas",
                             painter: context.currentUser._id,
                             src: src2
-                        }, context.currentUser._id).then(res => {
+                        }
+                        API.addPainting(painting, context.currentUser._id).then(res => {
                             console.log("ADDING PAINTING", res.data);
+                            context.addPainting(res.data);
+
                         });
                         // document.body.appendChild(canvas);
                     });
@@ -118,9 +121,7 @@ function Studio() {
                             }
                             API.addPainting(painting, context.currentUser._id).then(res => {
                                 console.log("thisistheres", res)
-                            }).catch(err => {
-
-                            })
+                            });
                         })
                     }
                 }
@@ -137,6 +138,7 @@ function Studio() {
 
                             <div>
                                 <button onClick={saveCanvas}>SAVE CANVAS</button>
+
                             </div>
 
                             <div className="row">

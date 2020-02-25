@@ -40,6 +40,17 @@ class ConfigProvider extends Component {
             this.setState({ gallery: paintings });
             console.log(this.state.gallery);
         },
+        addPainting: (painting) => {
+            console.log("BEFORE", this.state.gallery);
+            this.setState(state => ({
+                gallery: [
+                    ...state.gallery,
+                    painting
+                ]
+            }));
+            console.log("AFTER", this.state.gallery);
+
+        },
         addToCart: (item, cost) => {
             if (!this.state.cart[item]) {
 
@@ -100,7 +111,8 @@ class ConfigProvider extends Component {
                 addToCart: this.state.addToCart,
                 addCoins: this.state.addCoins,
                 useItem: this.state.useItem,
-                loadUserInventory: this.state.loadUserInventory
+                loadUserInventory: this.state.loadUserInventory,
+                addPainting: this.state.addPainting
             }}>
                 {/*lets us see our children components  */}
                 {this.props.children}
