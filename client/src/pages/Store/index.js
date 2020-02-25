@@ -3,11 +3,10 @@ import Consumer from "../../configContext.js";
 
 // LINK for CART/STORE btn
 import { Link } from "react-router-dom";
-
 import StoreItem from "../../components/StoreItem/index.js"
+
 import API from "../../utils/API.js";
 import Style from "./style.css";
-
 
 const Store = () => {
     return (
@@ -58,7 +57,6 @@ const Store = () => {
                                 />
                             ))}
                         </div>
-
                     </div>
                 )
             }}

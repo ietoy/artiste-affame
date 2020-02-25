@@ -14,10 +14,8 @@ class ConfigProvider extends Component {
         loggedIn: false,
         currentUser: {},
         marketplace_items: [],
-
         cart: [],
         cartCost: 0,
-
         gallery: [],
         bet: 0,
         userInventory: [],
@@ -95,9 +93,7 @@ class ConfigProvider extends Component {
                 // finally, we update the cart cost
                 this.state.updateCartCost();
             }
-
         },
-
         increaseCartAmt: (name, cost) => {
             // When called, this function finds the corresponding element in the cart array
             // and increases the quantity by one
@@ -132,22 +128,40 @@ class ConfigProvider extends Component {
             this.state.updateCartCost();
             // Finally, we force the element to update, removing it from the display
             this.forceUpdate();
-            // update the carts cost
-            // updateCartCost FX GOES HERE WHEN COMPLETE
         },
         updateCartCost: () => {
             var newCartCost = 0;
-            for (var i = 0; i< this.state.cart.length; i++) {
+            for (var i = 0; i < this.state.cart.length; i++) {
                 newCartCost += (this.state.cart[i].cost * this.state.cart[i].qty)
             };
             this.setState(state => ({
                 cartCost: newCartCost
             }))
-            console.log(this.state.cartCost)
         },
 
         checkout: () => {
-            console.log("you checked out!")
+            var coins = this.state.currentUser.coins;
+            var cartCost = this.state.cartCost;
+            // if the user can afford the cart cost
+            if (cartCost <= coins) {
+                console.log("you can afford that!");
+                // update the state by deducting the cost from their coins
+                this.state.currentUser.coins -= cartCost;
+                // then update the database with this API call
+                API.updateCoins(this.state.currentUser)
+                    .then(res => {
+                        console.log("UPDATE USER RES", res.data);
+                    });
+
+                console.log(coins)
+                // #####################################################
+                // UPDATE INVENTORY THIS WAY TOO, MAY NEED TO UPDATE APIS
+                // #####################################################
+
+            } else {
+                // Otherwise, alert the user that they cannot afford the cart context
+                alert("You can't afford all that! Update your cart and try again.")
+            }
         },
         // End Cart Functions
 
@@ -155,6 +169,7 @@ class ConfigProvider extends Component {
         addCoins: (coins) => {
             this.state.currentUser.coins += coins;
         },
+
         useItem: (itemID) => {
             this.state.userInventory.forEach(item => {
                 if (item.item._id === itemID) {
@@ -194,6 +209,7 @@ class ConfigProvider extends Component {
                 removeItem: this.state.removeItem,
                 updateCartCost: this.state.updateCartCost,
                 checkout: this.state.checkout,
+                checkoutUpdate: this.state.checkoutUpdate,
 
                 addCoins: this.state.addCoins,
                 useItem: this.state.useItem,
