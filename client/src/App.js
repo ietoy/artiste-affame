@@ -18,7 +18,7 @@ import Login from "./pages/LogIn";
 import Inventory from "./pages/Inventory";
 import Arcade from "./pages/Arcade";
 import GameMemory from "./pages/GameMemory";
-
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
 
             {/* CART */}
             <Route exact path="/cart" component={Cart} />
-
+            <Route exact path="/settings" component={Settings}/>
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/inventory" component={Inventory} />
