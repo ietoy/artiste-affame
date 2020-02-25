@@ -35,11 +35,9 @@ const CartItem = (props) => {
                     >
                         <i class="fas fa-times-circle"></i>
                     </a>
-
                 </div>
             </div>
         </div>
-
     )
 }
 

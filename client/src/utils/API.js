@@ -25,7 +25,7 @@ export default {
     useItem: function (itemID, userID) {
         return axios.put("api/users/use/" + userID, itemID);
     },
-    updateCoins: function (user) {
+    updateUser: function (user) {
         console.log("API CALL TO UPDATE USER", user);
         return axios.put("/api/users/addcoins/" + user._id, user);
     },
