@@ -51,8 +51,8 @@ class Canvas extends Component {
     }
     componentDidMount() {
         // Here we set up the properties of the canvas element. 
-        this.canvas.width = 500;
-        this.canvas.height = 500;
+        this.canvas.width = this.props.width;
+        this.canvas.height = this.props.height;
         this.ctx = this.canvas.getContext('2d');
         this.ctx.lineJoin = 'round';
         this.ctx.lineCap = 'round';
@@ -62,6 +62,7 @@ class Canvas extends Component {
         return (
             <canvas
                 // We use the ref attribute to get direct access to the canvas element. 
+                id="paintCanvas"
                 className="border rounded border-dark paintCanvas"
                 ref={(ref) => (this.canvas = ref)}
                 style={{ background: 'white' }}
