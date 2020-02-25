@@ -6,6 +6,7 @@ function ColorPalette(props) {
 
         <div className="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
             <div className="btn-group mt-2" role="group" aria-label="Red group">
+                
                 <button type="button" className="btn" style={{ background: '#ff8a80' }} onClick={() => {
                     props.changeColor('#ff8a80');
                 }}></button>
