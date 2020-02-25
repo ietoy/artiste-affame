@@ -62,18 +62,25 @@ class ConfigProvider extends Component {
             // If the cart is empty
             if (this.state.cart.length === 0) {
                 // add the clicked item object to the cart
-                this.setState(state => ({
-                    cart: [
-                        {
-                            name: name,
-                            src: src,
-                            cost: cost,
-                            qty: 1
-                        }
-                    ]
-                }));
+                // this.setState(state => ({
+                //     cart: [
+                //         {
+                //             name: name,
+                //             src: src,
+                //             cost: cost,
+                //             qty: 1
+                //         }
+                //     ]
+                // }));
+                this.state.cart.push({
+                    name: name,
+                    src: src,
+                    cost: cost,
+                    qty: 1
+                });
                 // then update the cart cost
-                this.state.updateCartCost();
+                // this.state.updateCartCost();
+
                 // If the cart is NOT empty
             } else {
                 // FOUND ITEM SWITCH
@@ -91,21 +98,29 @@ class ConfigProvider extends Component {
                 // If an item with the same name as the clicked item is NOT FOUND in the cart
                 if (!found) {
                     // adds first instance of this item to the cart
-                    this.setState(state => ({
-                        cart: [
-                            ...state.cart,
-                            {
-                                name: name,
-                                src: src,
-                                cost: cost,
-                                qty: 1
-                            }
-                        ]
-                    }));
+                    this.state.cart.push({
+                        name: name,
+                        src: src,
+                        cost: cost,
+                        qty: 1
+                    });
+                    // this.setState(state => ({
+                    //     cart: [
+                    //         ...state.cart,
+                    // {
+                    //     name: name,
+                    //     src: src,
+                    //     cost: cost,
+                    //     qty: 1
+                    // }
+                    //     ]
+                    // }));
+
                 }
                 // finally, we update the cart cost
-                this.state.updateCartCost();
+                // this.state.updateCartCost();
             }
+            this.state.updateCartCost();
 
         },
 
@@ -147,14 +162,16 @@ class ConfigProvider extends Component {
             // updateCartCost FX GOES HERE WHEN COMPLETE
         },
         updateCartCost: () => {
+            console.log("CURRENT CART COST", this.state.cart, this.state.cartCost);
             var newCartCost = 0;
-            for (var i = 0; i< this.state.cart.length; i++) {
+            for (var i = 0; i < this.state.cart.length; i++) {
                 newCartCost += (this.state.cart[i].cost * this.state.cart[i].qty)
             };
             this.setState(state => ({
+                ...state,
                 cartCost: newCartCost
             }))
-            console.log(this.state.cartCost)
+            console.log("UPDATED CART COST", this.state.cart, this.state.cartCost);
         },
 
         checkout: () => {
@@ -193,6 +210,7 @@ class ConfigProvider extends Component {
                 gameEarnings: this.state.gameEarnings,
                 bet: this.state.bet,
                 userInventory: this.state.userInventory,
+                cartCost: this.state.cartCost,
 
                 // functions to send down
                 login: this.state.login,
