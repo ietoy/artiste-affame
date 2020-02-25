@@ -9,7 +9,10 @@ import CartItem from "../../components/CartItem/index.js";
 const Cart = () => {
     return (
         <Consumer>
+
             {context => {
+
+                // {context.updateCartCost()}
                 return (
                     <div>
                         <div className="center">
