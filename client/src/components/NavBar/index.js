@@ -51,6 +51,8 @@ const Navbar = props => {
         return (
     
           <nav>
+
+
             <nav>
               <div class="nav-wrapper">
                 <Link to="/" className="brand-logo">Artiste Defammé</Link>
