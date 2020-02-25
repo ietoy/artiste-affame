@@ -11,12 +11,20 @@ const Cart = () => {
         <Consumer>
 
             {context => {
+
+                function getTotal() {
+                    // context.updateCartCost();
+                    console.log("GETTING TOTaL", context.cartCost);
+                    return context.cartCost;
+                }
+
                 return (
                     <div>
                         <div className="center">
                             <h1>
-                                {/* figure out how to get cartCost to display here - iet */}
-                                Cart Total: {context.cartCost}
+
+                                Cart Total: {getTotal()}
+
                                 <div className="right">
                                     <Link to="/store">
                                         <a className="waves-effect waves-light btn-large">
@@ -37,7 +45,7 @@ const Cart = () => {
 
                         <div className="row itemholder">
                             {context.cart.map(item => (
-                                <CartItem 
+                                <CartItem
                                     // id={item._id}
                                     name={item.name}
                                     src={item.src}
