@@ -52,7 +52,7 @@ const Navbar = props => {
         return (
           <nav>
             <div className="nav-wrapper">
-              <Link to="/" className="brand-logo">Artiste Defammé</Link>
+              <Link to="/" className="brand-logo">Artiste Affamé</Link>
               {getNav()}
 
 

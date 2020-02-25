@@ -138,9 +138,9 @@ const Game = props => {
 
 
                                 <div className="loginlinks">
-                                    <DashBtn link="/shop" name="Store" image="https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg" />
+                                    <DashBtn link="/shop" name="Store" image="https://res.cloudinary.com/artiste-defamme/image/upload/v1582658654/stock/store_v9khdp.jpg" />
 
-                                    <DashBtn link="/inventory" name="Inventory" image="https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg" />
+                                    <DashBtn link="/inventory" name="Inventory" image="https://res.cloudinary.com/artiste-defamme/image/upload/v1582658447/stock/Inventory_mgvrr8.jpg" />
                                 </div>
 
                             </div>
@@ -150,7 +150,7 @@ const Game = props => {
                         return (
                             <div className="login">
 
-                                <DashBtn link="/login" name="Login" image="https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg" />
+                            <DashBtn link="/login" name="Login" image="https://res.cloudinary.com/artiste-defamme/image/upload/v1582657909/stock/login_ob7wtj.jpg" />
                             </div>
                         )
                     }
@@ -163,11 +163,11 @@ const Game = props => {
 
                         <div className="notloggedin">
                    
-                            <DashBtn link="/arcade" name={"Arcade"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
+                            <DashBtn link="/arcade" name={"Arcade"} image={"https://res.cloudinary.com/artiste-defamme/image/upload/v1582657910/stock/arcade_q2cpld.jpg"} />
 
-                            <DashBtn link="/studio" name={"Studio"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
+                            <DashBtn link="/studio" name={"Studio"} image={"https://res.cloudinary.com/artiste-defamme/image/upload/v1582657910/stock/studio_irz131.jpg"} />
 
-                            <DashBtn link="/gallery" name={"Gallery"} image={"https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/bigstock-A-surplus-or-oversupply-of-pro-38532283.jpg"} />
+                            <DashBtn link="/gallery" name={"Gallery"} image={"https://res.cloudinary.com/artiste-defamme/image/upload/v1582657910/stock/gallery_rtdikq.jpg"} />
                         </div>
 
 

@@ -51,7 +51,7 @@ let itemSeed = [
     description: "A round, for sharing or indulging",
     icon: "fas fa-wine-bottle left",
     cost: 5,
-    src: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582586374/Inventory/circustickets_ij3nqz.jpg"
+    src: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582586366/Inventory/beer_vevway.jpg"
   },
   {
     name: "A cigarette",
@@ -142,13 +142,6 @@ let itemSeed = [
     icon: "fas fa-wine-bottle left",
     cost: 10,
     src: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582586354/Inventory/groceries_rc6juc.jpg"
-  },
-  {
-    name: "Tickets to the theatre",
-    description: "Midsummer's Nigh Dream at your local cinema",
-    icon: "fas fa-wine-bottle left",
-    cost: 10,
-    src: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582586354/Inventory/theatre_n6outd.jpg"
   },
   {
     name: "Fruits",
