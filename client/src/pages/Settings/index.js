@@ -9,13 +9,19 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 
 const Settings = () => {
     useEffect(() => {
+       console.log(this);
         var elems = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems, {});
+        console.log(instances)
       }, []);
-    
+
 return(
 <Consumer>
 {context => {
+    const avatarchange = (e) => {
+        context.currentUser.avatarSRC = e.target.value;
+    API.updateUser(context.currentUser);
+    }
 return(<div>
 <div className="center">
 <h1>Settings</h1>
@@ -26,7 +32,7 @@ return(<div>
 <div className="row settingsHolder">
 <form>
 <div className="input-field">
-    <select className="icons">
+    <select className="icons" onChange={avatarchange} >
       <option value="" disabled>Pick your inner artist</option>
       <option value="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501287/Avatars/picasso_hrcsqc.jpg" data-icon="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501287/Avatars/picasso_hrcsqc.jpg">Picasso</option>
       <option value="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501275/Avatars/henri-matisse_cappwk.jpg" data-icon="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501275/Avatars/henri-matisse_cappwk.jpg">Henri Matisse</option>
