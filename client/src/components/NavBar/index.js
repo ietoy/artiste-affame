@@ -34,13 +34,15 @@ const Navbar = props => {
           }
           else {
             return (
-              <div>
-                <li> <Link to="/arcade">Arcade</Link></li>
+              <ul id="nav-mobile" className="right">
+                <li><Link to="/arcade">Arcade</Link></li>
+
                 <li><Link to="/store">Store</Link></li>
                 <li><Link to="/studio">Studio</Link></li>
                 <li><Link to="/gallery">Gallery</Link></li>
                 <li><Link to="/login" >Sign In</Link></li>
-              </div>
+              </ul>
+
             )
           }
         }

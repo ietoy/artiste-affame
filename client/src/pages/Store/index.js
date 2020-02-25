@@ -1,8 +1,14 @@
 import React from "react";
 import Consumer from "../../configContext.js";
+
+// LINK for CART/STORE btn
+import { Link } from "react-router-dom";
+
 import StoreItem from "../../components/StoreItem/index.js"
 import API from "../../utils/API.js";
 import Style from "./style.css";
+
+
 const Store = () => {
     return (
         <Consumer>
@@ -16,52 +22,42 @@ const Store = () => {
                     }
                 }
 
-                // // this function adds items to the cart once the user clicks them
-                // function addToCart(item) {
-                //     // this function takes in the name or the id of the item being clicked
-
-                //     // check the cart in context
-
-                //         // if that item is already in the cart,
-                //         // increase the number of that item in the cart
-                //         // by one
-
-                //         // else, add that item to the cart with an amt of
-                //         // of one
-                //     context.addToCart(item)
-                // }
-
                 return (
                     <div>
                         {loadStore()}
-                            <div className="center">
-                                <h1>
-                                    Store
+                        <div className="center">
+                            <h1>
+                                Store
                                     <div className="right">
+                                    <Link to="/cart">
                                         <a className="waves-effect waves-light btn-large">
                                             <i className="fas fa-shopping-cart center"></i>
                                         </a>
-                                        <a className="waves-effect waves-light btn-large">
-                                            <i className="fas fa-cash-register center"></i>
-                                        </a>
-                                    </div>
-                                </h1>
-                                <br />
-                                <hr />
-                            </div>
-                            <div className="row itemholder">
-                                {context.marketplace_items.map(item => (
-                                    <StoreItem
-                                        id={item._id}
-                                        name={item.name}
-                                        icon={item.icon}
-                                        src={item.src}
-                                        cost={item.cost}
-                                        description={item.description}
-                                        addToCart={context.addToCart}
-                                    />
-                                ))}
-                            </div>
+                                    </Link>
+                                    <a 
+                                        className="waves-effect waves-light btn-large"
+                                        onClick={() => context.checkout()}
+                                    >
+                                        <i className="fas fa-cash-register center"></i>
+                                    </a>
+                                </div>
+                            </h1>
+                            <br />
+                            <hr />
+                        </div>
+                        <div className="row itemholder">
+                            {context.marketplace_items.map(item => (
+                                <StoreItem
+                                    id={item._id}
+                                    name={item.name}
+                                    icon={item.icon}
+                                    src={item.src}
+                                    cost={item.cost}
+                                    description={item.description}
+                                    addToCart={context.addToCart}
+                                />
+                            ))}
+                        </div>
 
                     </div>
                 )
