@@ -19,7 +19,7 @@ import Inventory from "./pages/Inventory";
 import Arcade from "./pages/Arcade";
 import GameMemory from "./pages/GameMemory";
 import Portfolio from "./pages/Portfolio";
-// import GameDodge from "./pages/GameDodge"
+import GameDodge from "./pages/GameDodge";
 
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
             <Route exact path="/inventory" component={Inventory} />
             <Route exact path="/arcade" component={Arcade} />
             <Route exact path="/arcade/memory" component={GameMemory} />
-            {/* <Route exact path="/arcade/doge" component={GameDodge} /> */}
+            <Route exact path="/arcade/dodge" component={GameDodge} />
           </Wrapper>
         </Router>
       </ConfigProvider>
