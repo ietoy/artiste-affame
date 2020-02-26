@@ -67,7 +67,7 @@ const Game = props => {
 
 
                                 <div className="loginlinks">
-                                    <DashBtn link="/shop" name="Store" image="https://res.cloudinary.com/artiste-defamme/image/upload/v1582658654/stock/store_v9khdp.jpg" />
+                                    <DashBtn link="/store" name="Store" image="https://res.cloudinary.com/artiste-defamme/image/upload/v1582658654/stock/store_v9khdp.jpg" />
 
                                     <DashBtn link="/inventory" name="Inventory" image="https://res.cloudinary.com/artiste-defamme/image/upload/v1582658447/stock/Inventory_mgvrr8.jpg" />
                                     <DashBtn link="/portfolio" name="Portfolio" image="https://res.cloudinary.com/artiste-defamme/image/upload/v1582658447/stock/Inventory_mgvrr8.jpg" />
