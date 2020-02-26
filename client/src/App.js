@@ -22,7 +22,7 @@ import GameMemory from "./pages/GameMemory";
 import Settings from "./pages/Settings";
 
 import Portfolio from "./pages/Portfolio";
-import GameDodge from "./pages/GameDodge";
+import GameGuessNumber from "./pages/GameGuessNumber";
 
 
 
@@ -48,7 +48,7 @@ function App() {
             <Route exact path="/inventory" component={Inventory} />
             <Route exact path="/arcade" component={Arcade} />
             <Route exact path="/arcade/memory" component={GameMemory} />
-            <Route exact path="/arcade/dodge" component={GameDodge} />
+            <Route exact path="/arcade/guess" component={GameGuessNumber} />
           </Wrapper>
         </Router>
       </ConfigProvider>

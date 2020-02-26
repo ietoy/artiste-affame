@@ -25,10 +25,10 @@ const Arcade = () => {
                             <div className="col s6">
                                 <GameCard game={
                                     {
-                                        name: "OtherGame",
-                                        link: "/arcade/dodge",
+                                        name: "Guess #",
+                                        link: "/arcade/guess",
                                         image: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582659082/stock/2ndgame_kvou5q.png",
-                                        description: "Game Number 2"
+                                        description: "Guess random #"
                                     }}></GameCard>
                             </div>
                         </div>
