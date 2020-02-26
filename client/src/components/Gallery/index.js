@@ -14,7 +14,7 @@ function Gallery() {
         something.somethingelse.map(painting => (
             <ShownPainting
                 src={painting.src}
-                paintingName={painting.paintingName}
+             
                 painter={painting.painter}
                 likes={painting.likes}
                 handleLike={this.handleLike}

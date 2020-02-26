@@ -1,11 +1,11 @@
 import React from "react";
-
+import Style from "./style.css";
 const PortfolioPainting = ({ painting, sell }) => {
 
     function getStatus() {
         if (painting.galleryShowing) {
             return (
-                <button onClick={() => sell(painting)} className="waves-effect waves-light btn">
+                <button onClick={() => sell(painting)} className="waves-effect waves-light " id="paintingcard">
                     <i className="material-icons left">attach_money</i>
                     Sell
                 </button>
@@ -14,19 +14,18 @@ const PortfolioPainting = ({ painting, sell }) => {
     }
 
     return (
-        <div className="card">
+        <div className="card" >
             <div className="card-image">
                 <img src={painting.src} />
             </div>
             <div className="card-content">
-                <h5 className="left">
-                    {painting.paintingName}
-                </h5>
+               
                 <h6 className="right">
                     {painting.likes}
+                    {getStatus()}
                 </h6>
                 <br />
-                {getStatus()}
+                
             </div>
         </div>
     )
