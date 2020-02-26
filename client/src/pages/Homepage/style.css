@@ -24,7 +24,8 @@
 .login{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    justify-items: center;  
+    justify-items: center; 
+    width: auto; 
 }
 .loginlinks{
     display: grid;
@@ -38,4 +39,8 @@
         justify-items: center;
     }
     
+}
+#logincard{
+    width: 500px !important;
+    text-align: center;
 }

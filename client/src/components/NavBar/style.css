@@ -4,6 +4,9 @@
 
 
 }
+.right{
+  text-shadow: none;
+}
 /* @media only screen and (max-width: 800px) {
     .nav-mobile{
         margin-left: 100px;
@@ -17,3 +20,6 @@
    
     
   } */
+  nav{
+    background-color: #870103 !important;
+  }

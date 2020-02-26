@@ -45,14 +45,16 @@ const Game = props => {
 
                             <div id="profile">
 
-                                <div className="login">
-                                    <div className="card card-border z-depth-2">
-                                        <div className="card-content">
 
-                                            <img className="responsive-img circle" src="https://cdn0.iconfinder.com/data/icons/avengers-end-game-1/256/iron_man-512.png" alt="" />
+                            <div className="login">
+                            <div className="card card-border z-depth-2" id="logincard">
+                                    <div className="card-content">
 
-                                            <h4>Welcome {context.currentUser.email}!</h4>
-                                            <h6>Coins: {context.currentUser.coins}</h6>
+                                        <img className="responsive-img circle" src={context.currentUser.avatarSRC}alt="" />
+
+                                        <h4>Welcome {context.currentUser.username}!</h4>
+                                        <h6>Coins: {context.currentUser.coins}</h6>
+
 
                                         </div>
                                         <hr />

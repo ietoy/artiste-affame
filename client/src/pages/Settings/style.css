@@ -1,0 +1,13 @@
+form{
+    width: 50%;
+    height: fit-content;
+    text-shadow: none;
+
+}
+/* img{
+    width: 50px !important;
+} */
+.dropdown-content li img{
+    width: 50px !important;
+    height: 50px !important;
+}

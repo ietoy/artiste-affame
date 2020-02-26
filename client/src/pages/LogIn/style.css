@@ -1,0 +1,24 @@
+/* .btn{
+    background-color: #870103 !important;
+  } */
+  .btn-large{
+    border-radius: 3px;
+  }
+#inputPass:focus {
+    border-bottom: 1px solid red !important;
+    box-shadow: 0 1px 0 0 red !important;
+    color: red !important;
+      }
+      #inputPass:focus +label {
+        color: red;
+      }
+      #inputPass:focus -i {
+        color: red;
+      }
+    #inputPass:focus +.active{
+        color: red;
+      }
+      .active{
+        color:pink !important;
+  
+      }

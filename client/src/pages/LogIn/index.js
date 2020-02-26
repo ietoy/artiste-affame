@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import API from "../../utils/API";
 import Consumer from "../../configContext.js";
 import { useHistory } from "react-router-dom";
-
+import Style from "./style.css";
 
 const LogIn = () => {
   const emailRef = useRef();
@@ -95,12 +95,12 @@ const LogIn = () => {
                 </div>
                 <div className="row">
                   <div
-                    className="btn waves-effect waves-light col s2"
+                    className="btn-large waves-effect waves-light col s2"
                     // function in this class
                     onClick={() => signup()}>Signup<i className="material-icons right">send</i>
                   </div>
                   <div
-                    className="btn waves-effect waves-light col s2 offset-s1"
+                    className="btn-large waves-effect waves-light col s2 offset-s1"
                     // function in this class
                     onClick={() => login()}>Login<i className="material-icons right">send</i>
                   </div>
