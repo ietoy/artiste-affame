@@ -117,6 +117,7 @@ module.exports = {
         console.log("UPDATE USER REQUEST");
         console.log("ID", req.params.id);
         console.log("User", req.body);
+
         console.log("Coins", req.body.coins);
         db.User.findOneAndReplace({ _id: req.params.id }, req.body)
             .then(user => res.json(user))

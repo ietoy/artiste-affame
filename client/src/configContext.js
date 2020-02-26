@@ -19,6 +19,7 @@ class ConfigProvider extends Component {
         gallery: [],
         bet: 0,
         userInventory: [],
+        portfolio: [],
 
         // Login Functions
         login: (success, user) => {
@@ -39,46 +40,62 @@ class ConfigProvider extends Component {
             this.setState({ marketplace_items: inventory });
         },
         loadShownPaintings: (paintings) => {
-            console.log("Loading the gallery...");
+            console.log("Loading the gallery...", paintings);
             this.setState({ gallery: paintings });
             console.log(this.state.gallery);
         },
         addPainting: (painting) => {
-            console.log("BEFORE", this.state.gallery);
             this.setState(state => ({
                 gallery: [
                     ...state.gallery,
                     painting
+                ],
+                portfolio: [
+                    ...state.portfolio,
+                    painting
                 ]
             }));
-            console.log("AFTER", this.state.gallery);
+        },
+        sellPainting: (painting) => {
+            // console.log("Painting", painting);
+            // console.log("Gallery Before", this.state.gallery);
+            // console.log("Portfolio Before", this.state.portfolio);
+
+            this.state.currentUser.coins += painting.likes;
+            this.state.gallery.map((paint, index, object) => {
+                if (paint._id === painting._id) {
+                    object.splice(index, 1);
+                }
+            });
+            this.state.portfolio.map(paint => {
+                if (paint._id === painting._id) {
+                    paint.galleryShowing = false;
+                }
+            });
+
+            this.setState(this.state);
+            // console.log("Gallery After", this.state.gallery);
+            // console.log("Portfolio After", this.state.portfolio);
+            // portfolio
+            // gallery
+
 
         },
-
         // Cart Functions
-        addToCart: (name, src, cost) => {
+        addToCart: (item) => {
             // If the cart is empty
             if (this.state.cart.length === 0) {
                 // add the clicked item object to the cart
-                // this.setState(state => ({
-                //     cart: [
-                //         {
-                //             name: name,
-                //             src: src,
-                //             cost: cost,
-                //             qty: 1
-                //         }
-                //     ]
-                // }));
                 this.state.cart.push({
-                    name: name,
-                    src: src,
-                    cost: cost,
+                    _id: item._id,
+                    name: item.name,
+                    src: item.src,
+                    cost: item.cost,
+                    description: item.description,
                     qty: 1
                 });
                 // then update the cart cost
-                // this.state.updateCartCost();
-
+                this.state.updateCartCost();
                 // If the cart is NOT empty
             } else {
                 // FOUND ITEM SWITCH
@@ -86,7 +103,7 @@ class ConfigProvider extends Component {
                 // For each item in the cart
                 for (var i = 0; i < this.state.cart.length; i++) {
                     // if the clicked item matches the name of an item in the cart
-                    if (this.state.cart[i].name === name) {
+                    if (this.state.cart[i].name === item.name) {
                         // Increase the quantity of this item by one
                         this.state.cart[i].qty = (this.state.cart[i].qty + 1)
                         // set found to true
@@ -97,30 +114,18 @@ class ConfigProvider extends Component {
                 if (!found) {
                     // adds first instance of this item to the cart
                     this.state.cart.push({
-                        name: name,
-                        src: src,
-                        cost: cost,
+                        _id: item._id,
+                        name: item.name,
+                        src: item.src,
+                        cost: item.cost,
+                        description: item.description,
                         qty: 1
                     });
-                    // this.setState(state => ({
-                    //     cart: [
-                    //         ...state.cart,
-                    // {
-                    //     name: name,
-                    //     src: src,
-                    //     cost: cost,
-                    //     qty: 1
-                    // }
-                    //     ]
-                    // }));
-
                 }
                 // finally, we update the cart cost
                 // this.state.updateCartCost();
             }
             this.state.updateCartCost();
-
-
         },
         increaseCartAmt: (name) => {
             // When called, this function finds the corresponding element in the cart array
@@ -158,7 +163,7 @@ class ConfigProvider extends Component {
             this.forceUpdate();
         },
         updateCartCost: () => {
-            console.log("CURRENT CART COST", this.state.cart, this.state.cartCost);
+            // console.log("CURRENT CART COST", this.state.cart, this.state.cartCost);
             var newCartCost = 0;
             for (var i = 0; i < this.state.cart.length; i++) {
                 newCartCost += (this.state.cart[i].cost * this.state.cart[i].qty)
@@ -167,9 +172,7 @@ class ConfigProvider extends Component {
                 ...state,
                 cartCost: newCartCost
             }))
-
         },
-
         checkout: () => {
             var coins = this.state.currentUser.coins;
             var cartCost = this.state.cartCost;
@@ -177,18 +180,45 @@ class ConfigProvider extends Component {
             if (cartCost <= coins) {
                 console.log("you can afford that!");
                 // update the state by deducting the cost from their coins
+
+                var userInventory = this.state.currentUser.inventory;
+
+                this.state.cart.forEach(item => {
+                    var found = false;
+                    for (var i = 0; i < userInventory.length && !found; i++) {
+                        if (item._id == userInventory[i]._id) {
+                            userInventory[i].amount += item.qty;
+                            found = true;
+                            this.state.loadUserInventory({
+                                _id: item._id,
+                                name: item.name,
+                                description: item.description,
+                                src: item.src,
+                                cost: item.cost,
+                            }, userInventory[i].amount);
+                        }
+                    }
+                    if (!found) {
+                        userInventory.push({ _id: item._id, amount: item.qty });
+                        this.state.loadUserInventory({
+                            _id: item._id,
+                            name: item.name,
+                            description: item.description,
+                            src: item.src,
+                            cost: item.cost,
+                        }, item.qty);
+                    }
+                });
+                // console.log("USER INVENTORY AFTER ADDING ITEMS");
+                // console.log(userInventory);
+                this.state.currentUser.inventory = userInventory;
+
                 this.state.currentUser.coins -= cartCost;
                 // then update the database with this API call
                 API.updateUser(this.state.currentUser)
                     .then(res => {
-                        console.log("UPDATE USER RES", res.data);
+                        // console.log("UPDATE USER RES", res.data);
                     });
-
-                console.log(coins)
-
-                // #####################################################
-                // UPDATE INVENTORY THIS WAY TOO, MAY NEED TO UPDATE APIS
-                // #####################################################
 
                 this.state.cart = [];
                 this.state.cartCost = 0;
@@ -205,16 +235,49 @@ class ConfigProvider extends Component {
         },
 
         useItem: (itemID) => {
-            this.state.userInventory.forEach(item => {
+            this.state.userInventory.forEach((item, index, object) => {
                 if (item.item._id === itemID) {
-                    item.amount--;
+                    if (item.amount === 1) {
+                        object.splice(index, 1);
+                    } else {
+                        item.amount--;
+                    }
+                }
+            });
+            this.state.currentUser.inventory.forEach((item, index, object) => {
+                if (item._id === itemID) {
+                    if (item.amount === 1) {
+                        object.splice(index, 1);
+                    } else {
+                        item.amount--;
+                    }
                 }
             });
             this.setState(this.state);
             console.log("STATE", this.state);
         },
         loadUserInventory: (itemObj, amt) => {
-            this.state.userInventory.push({ item: itemObj, amount: amt })
+            // console.log("STATE USER INVENTORY", this.state.userInventory);
+            // console.log("UPDATING WITH", itemObj, amt);
+            var found = false;
+            this.state.userInventory.forEach(item => {
+                if (itemObj._id == item.item._id) {
+                    // item.amount += amt;
+                    item.amount = amt;
+                    found = true;
+                }
+            });
+            if (!found) {
+                this.state.userInventory.push({ item: itemObj, amount: amt });
+            }
+            // this.state.userInventory.push({ item: itemObj, amount: amt })
+        },
+        loadPortfolio: (portfolio) => {
+            // console.log("INCOMING PORTFOLIO", portfolio);
+            this.setState({
+                ...this.state,
+                portfolio: portfolio
+            });
         }
     }
 
@@ -232,12 +295,14 @@ class ConfigProvider extends Component {
                 bet: this.state.bet,
                 userInventory: this.state.userInventory,
                 cartCost: this.state.cartCost,
+                portfolio: this.state.portfolio,
 
                 // functions to send down
                 login: this.state.login,
                 logout: this.state.logout,
                 loadInventory: this.state.loadInventory,
                 loadShownPaintings: this.state.loadShownPaintings,
+                addLike: this.state.addLike,
                 addToCart: this.state.addToCart,
                 increaseCartAmt: this.state.increaseCartAmt,
                 decreaseCartAmt: this.state.decreaseCartAmt,
@@ -249,7 +314,9 @@ class ConfigProvider extends Component {
                 addCoins: this.state.addCoins,
                 useItem: this.state.useItem,
                 loadUserInventory: this.state.loadUserInventory,
-                addPainting: this.state.addPainting
+                addPainting: this.state.addPainting,
+                loadPortfolio: this.state.loadPortfolio,
+                sellPainting: this.state.sellPainting
 
             }}>
                 {/*lets us see our children components  */}

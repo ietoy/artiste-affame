@@ -47,12 +47,13 @@ const Store = () => {
                         <div className="row itemholder">
                             {context.marketplace_items.map(item => (
                                 <StoreItem
-                                    id={item._id}
-                                    name={item.name}
-                                    icon={item.icon}
-                                    src={item.src}
-                                    cost={item.cost}
-                                    description={item.description}
+                                    item={item}
+                                    // id={item._id}
+                                    // name={item.name}
+                                    // icon={item.icon}
+                                    // src={item.src}
+                                    // cost={item.cost}
+                                    // description={item.description}
                                     addToCart={context.addToCart}
                                 />
                             ))}

@@ -24,7 +24,7 @@ const LogIn = () => {
             //if credentials are correct, update state with user
             if (res.data.success) {
               loginSuccess = true;
-              console.log("LOGIN RES", res);
+              // console.log("LOGIN RES", res);
               context.login(loginSuccess, res.data.user);
               history.push("/");
             }
@@ -43,7 +43,7 @@ const LogIn = () => {
             password: passRef.current.value
           }).then(res => {
             //if input is valid, user is now signed up and logged in
-            console.log("SIGNUP RES", res);
+            // console.log("SIGNUP RES", res);
             loginSuccess = true;
             //context login page
             context.login(true, res.data);
