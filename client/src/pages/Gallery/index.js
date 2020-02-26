@@ -10,38 +10,14 @@ import Style from "./style.css";
 import Consumer from "../../configContext.js";
 
 class Gallery extends Component {
-
-
     state = {
         btnActive: true,
         btnID: ""
     }
 
-    // componentDidMount() {
-    //     this.setState({
-    //         btnActive: true
-    //     }) 
-    // }
-
-    disableLikeBtn = (id) => {
-        console.log("disable this like btn");
-        // console.log(btnDisabled)
-        // this.className += "disabled"
-
-        
-
-        this.setState({
-            btnID: id,
-            btnActive: false
-        })
-
-    }
-
     likePainting = (id) => {
-        console.log("You liked painting #" + id);
+        // console.log("You liked painting #" + id);
         API.addLike(id);
-        this.disableLikeBtn(id);
-        // console.log(event.target)
     }
 
     render() {
@@ -93,8 +69,7 @@ class Gallery extends Component {
                 }}
             </Consumer>
         )
-    }
-    
-    }
+    }    
+}
     
 export default Gallery;

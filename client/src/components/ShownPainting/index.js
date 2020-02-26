@@ -1,25 +1,7 @@
 import React from "react";
-import "./style.css"
+import "./style.css";
+
 const ShownPainting = (props) => {
-
-// class ShownPainting extends Component {
-
-// }
-
-    console.log(props)
-
-
-    let btnActive;
-
-    if (props.btnActive) {
-        console.log("If condition!")
-        btnActive = "waves-effect waves-light btn "
-    } else {
-        console.log("Else condition!")
-        btnActive = "waves-effect waves-light btn disabled"
-    }
-
-
     return (
         <div className="card">
             <div className="card-image">
@@ -33,7 +15,7 @@ const ShownPainting = (props) => {
                     {props.likes}
                     <a
                         id={props.id}
-                        className={btnActive}
+                        className="waves-effect waves-light btn"
                         onClick={() => {
                             props.likePainting(props.id); 
                         }}
