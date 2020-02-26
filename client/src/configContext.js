@@ -40,16 +40,18 @@ class ConfigProvider extends Component {
             this.setState({ marketplace_items: inventory });
         },
         updateLike: (id) => {
-            // finds painting in gallery
-            for (var i = 0; i < this.state.gallery.length; i++) {
-                if(this.state.gallery[i]._id === id) {
-                    this.state.gallery[i].likes += 1;
-                }
-            }
+
             // finds painting in your portfolio if present
             for (var i = 0; i < this.state.portfolio.length; i++) {
                 if(this.state.portfolio[i]._id === id) {
                     this.state.portfolio[i].likes += 1;
+                }
+            }
+            // finds painting in gallery
+            for (var i = 0; i < this.state.gallery.length; i++) {
+                if(this.state.gallery[i]._id === id) {
+                    this.state.gallery[i].likes += 1;
+                    // console.log(this.state.gallery[i]._id)
                 }
             }
             this.setState(this.state);
