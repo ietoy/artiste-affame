@@ -1,9 +1,6 @@
 import React from "react";
-import ShownPainting from "../../components/ShownPainting/index";
-import axios from "axios";
+import PortfolioPainting from "../../components/PortfolioPainting/index";
 import API from "../../utils/API";
-// import "./style.css";
-// import Cloudinary from "cloudinary";
 
 import Consumer from "../../configContext.js";
 
@@ -12,6 +9,12 @@ const Portfolio = () => {
         <Consumer>
             {context => {
 
+                function sell(painting) {
+                    console.log("SELLING", painting);
+                    context.sellPainting(painting);
+                    // API.updateUser(context.currenUser)
+                        // .then(res => console.log(res));
+                }
 
                 return (
 
@@ -25,12 +28,10 @@ const Portfolio = () => {
                         </div>
                         <div className="row galleryHolder">
                             {context.portfolio.map(painting => (
-                                <ShownPainting
-                                    key = {painting._id}
-                                    id={painting._id}
-                                    src={painting.src}
-                                    paintingName={painting.paintingName}
-                                    likes={painting.likes}
+                                <PortfolioPainting
+                                    key={painting._id}
+                                    painting={painting}
+                                    sell={sell}
                                 />
                             ))}
                         </div>

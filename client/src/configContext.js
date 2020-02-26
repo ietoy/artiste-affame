@@ -40,12 +40,11 @@ class ConfigProvider extends Component {
             this.setState({ marketplace_items: inventory });
         },
         loadShownPaintings: (paintings) => {
-            console.log("Loading the gallery...");
+            console.log("Loading the gallery...", paintings);
             this.setState({ gallery: paintings });
             console.log(this.state.gallery);
         },
         addPainting: (painting) => {
-            console.log("BEFORE ADDING", this.state.gallery);
             this.setState(state => ({
                 gallery: [
                     ...state.gallery,
@@ -56,10 +55,32 @@ class ConfigProvider extends Component {
                     painting
                 ]
             }));
-            console.log("AFTER ADDING", this.state.gallery);
+        },
+        sellPainting: (painting) => {
+            console.log("Painting", painting);
+            console.log("Gallery Before", this.state.gallery);
+            console.log("Portfolio Before", this.state.portfolio);
+
+            this.state.currentUser.coins += painting.likes;
+            this.state.gallery.map((paint, index, object) => {
+                if (paint._id === painting._id) {
+                    object.splice(index, 1);
+                }
+            });
+            this.state.portfolio.map(paint => {
+                if (paint._id === painting._id) {
+                    paint.galleryShowing = false;
+                }
+            });
+
+            this.setState(this.state);
+            console.log("Gallery After", this.state.gallery);
+            console.log("Portfolio After", this.state.portfolio);
+            // portfolio
+            // gallery
+
 
         },
-
         // Cart Functions
         addToCart: (item) => {
             // If the cart is empty
@@ -282,7 +303,7 @@ class ConfigProvider extends Component {
             // this.state.userInventory.push({ item: itemObj, amount: amt })
         },
         loadPortfolio: (portfolio) => {
-            console.log("INCOMING PORTFOLIO", portfolio);
+            // console.log("INCOMING PORTFOLIO", portfolio);
             this.setState({
                 ...this.state,
                 portfolio: portfolio
@@ -323,7 +344,8 @@ class ConfigProvider extends Component {
                 useItem: this.state.useItem,
                 loadUserInventory: this.state.loadUserInventory,
                 addPainting: this.state.addPainting,
-                loadPortfolio: this.state.loadPortfolio
+                loadPortfolio: this.state.loadPortfolio,
+                sellPainting: this.state.sellPainting
 
             }}>
                 {/*lets us see our children components  */}

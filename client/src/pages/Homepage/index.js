@@ -32,7 +32,7 @@ const Game = props => {
                         //load user portfolio
                         API.getPortfolio(context.currentUser._id)
                             .then(portfolio => {
-                                console.log("GETTING PORTFOLIO", portfolio);
+                                // console.log("GETTING PORTFOLIO", portfolio);
                                 context.loadPortfolio(portfolio.data);
                             });
 
