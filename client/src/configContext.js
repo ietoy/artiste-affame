@@ -53,10 +53,7 @@ class ConfigProvider extends Component {
             }));
             console.log("AFTER", this.state.gallery);
         },
-        addLike: (paintingID) => {
-            console.log(paintingID)
-        },
-
+    
 
 
         // Cart Functions
