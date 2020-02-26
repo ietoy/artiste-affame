@@ -48,12 +48,6 @@ const Store = () => {
                             {context.marketplace_items.map(item => (
                                 <StoreItem
                                     item={item}
-                                    // id={item._id}
-                                    // name={item.name}
-                                    // icon={item.icon}
-                                    // src={item.src}
-                                    // cost={item.cost}
-                                    // description={item.description}
                                     addToCart={context.addToCart}
                                 />
                             ))}

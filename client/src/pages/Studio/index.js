@@ -183,16 +183,6 @@ function Studio() {
 
                         </Fragment>
 
-                        {/* <div className="savediv">
-                            <button className="redbutton" onClick={saveCanvas}>SAVE CANVAS</button>
-
-                        </div>
-                        <div class="inputdiv">
-                            <h2>Upload your art here!</h2>
-                            <input name="file" type="file" class="cloudinary-fileupload" data-cloudinary-field="image_id"
-                                onChange={changeHandler}></input>
-                        </div> */}
-
                         {getButtons()}
 
                     </div>

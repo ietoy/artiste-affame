@@ -42,7 +42,6 @@ class ConfigProvider extends Component {
         loadShownPaintings: (paintings) => {
             console.log("Loading the gallery...", paintings);
             this.setState({ gallery: paintings });
-            console.log(this.state.gallery);
         },
         addPainting: (painting) => {
             this.setState(state => ({
@@ -57,9 +56,6 @@ class ConfigProvider extends Component {
             }));
         },
         sellPainting: (painting) => {
-            console.log("Painting", painting);
-            console.log("Gallery Before", this.state.gallery);
-            console.log("Portfolio Before", this.state.portfolio);
 
             this.state.currentUser.coins += painting.likes;
             this.state.gallery.map((paint, index, object) => {
@@ -74,10 +70,6 @@ class ConfigProvider extends Component {
             });
 
             this.setState(this.state);
-            console.log("Gallery After", this.state.gallery);
-            console.log("Portfolio After", this.state.portfolio);
-            // portfolio
-            // gallery
 
         },
         // Cart Functions
@@ -254,7 +246,7 @@ class ConfigProvider extends Component {
                 }
             });
             this.setState(this.state);
-            console.log("STATE", this.state);
+            // console.log("STATE", this.state);
         },
         loadUserInventory: (itemObj, amt) => {
             // console.log("STATE USER INVENTORY", this.state.userInventory);
