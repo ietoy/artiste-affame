@@ -52,24 +52,18 @@ class ConfigProvider extends Component {
                 ]
             }));
             console.log("AFTER", this.state.gallery);
-
         },
+        addLike: (paintingID) => {
+            console.log(paintingID)
+        },
+
+
 
         // Cart Functions
         addToCart: (name, src, cost) => {
             // If the cart is empty
             if (this.state.cart.length === 0) {
                 // add the clicked item object to the cart
-                // this.setState(state => ({
-                //     cart: [
-                //         {
-                //             name: name,
-                //             src: src,
-                //             cost: cost,
-                //             qty: 1
-                //         }
-                //     ]
-                // }));
                 this.state.cart.push({
                     name: name,
                     src: src,
@@ -77,8 +71,7 @@ class ConfigProvider extends Component {
                     qty: 1
                 });
                 // then update the cart cost
-                // this.state.updateCartCost();
-
+                this.state.updateCartCost();
                 // If the cart is NOT empty
             } else {
                 // FOUND ITEM SWITCH
@@ -102,25 +95,11 @@ class ConfigProvider extends Component {
                         cost: cost,
                         qty: 1
                     });
-                    // this.setState(state => ({
-                    //     cart: [
-                    //         ...state.cart,
-                    // {
-                    //     name: name,
-                    //     src: src,
-                    //     cost: cost,
-                    //     qty: 1
-                    // }
-                    //     ]
-                    // }));
-
                 }
                 // finally, we update the cart cost
                 // this.state.updateCartCost();
             }
             this.state.updateCartCost();
-
-
         },
         increaseCartAmt: (name) => {
             // When called, this function finds the corresponding element in the cart array
@@ -167,9 +146,7 @@ class ConfigProvider extends Component {
                 ...state,
                 cartCost: newCartCost
             }))
-
         },
-
         checkout: () => {
             var coins = this.state.currentUser.coins;
             var cartCost = this.state.cartCost;
@@ -186,9 +163,6 @@ class ConfigProvider extends Component {
                     });
                 console.log(coins);
                 console.log(this.state.currentUser.inventory);
-                // #####################################################
-                // UPDATE INVENTORY THIS WAY TOO, MAY NEED TO UPDATE APIS
-                // #####################################################
             } else {
                 // Otherwise, alert the user that they cannot afford the cart context
                 alert("You can't afford all that! Update your cart and try again.")
@@ -235,6 +209,7 @@ class ConfigProvider extends Component {
                 logout: this.state.logout,
                 loadInventory: this.state.loadInventory,
                 loadShownPaintings: this.state.loadShownPaintings,
+                addLike: this.state.addLike,
                 addToCart: this.state.addToCart,
                 increaseCartAmt: this.state.increaseCartAmt,
                 decreaseCartAmt: this.state.decreaseCartAmt,

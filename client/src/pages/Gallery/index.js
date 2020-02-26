@@ -30,13 +30,19 @@ const Gallery = () => {
                             })
                     }
                 }
+
+                function likePainting(id) {
+                    console.log("You liked painting #" + id);
+                    // context.addLike(id);
+
+                    API.addLike(id)
+                        
+                }
+
                 return (
-
-                 <div>
-
-        {/* {cloudinaryGallery()} */}
-                    {loadGallery()}
-
+                    <div>
+                        {/* {cloudinaryGallery()} */}
+                        {loadGallery()}
                         <div className="center">
                             <h1>Gallery</h1>
                             <br />
@@ -49,6 +55,7 @@ const Gallery = () => {
                                     src={painting.src}
                                     paintingName={painting.paintingName}
                                     likes={painting.likes}
+                                    likePainting={likePainting}
                                 />
                             ))}
                         </div>
