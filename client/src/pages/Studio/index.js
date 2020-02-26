@@ -132,14 +132,10 @@ function Studio() {
 
 
 
-                    <div className="grey lighten-2 studioContainer">
+                    <div className="studioContainer">
                         <Fragment>
                             <h3 className="display-4" style={{ textAlign: 'center' }}> <i className="fas fa-brush"></i> Express yourself <i className="fas fa-brush"></i></h3>
 
-                            <div>
-                                <button onClick={saveCanvas}>SAVE CANVAS</button>
-
-                            </div>
 
                             <div className="row">
 
@@ -166,6 +162,10 @@ function Studio() {
 
                         </Fragment>
 
+                        <div className="savediv">
+                                <button className="redbutton" onClick={saveCanvas}>SAVE CANVAS</button>
+
+                            </div>
                         <div class="inputdiv">
                             <h2>Upload your art here!</h2>
                             <input name="file" type="file" class="cloudinary-fileupload" data-cloudinary-field="image_id"

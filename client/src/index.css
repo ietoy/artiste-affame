@@ -5,8 +5,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+  background-image: url("./images/102671.jpg");
+  background-image: url("./images/6673361.jpg");
+  text-shadow: 2px 2px 0px black;
+ color:#FFFFFF;
 
+}
+img{
+  width:248px !important;
+}
+.card{
+  border-radius: 10px;
+  border: 1px solid #870103;
+  
+}
+/* #root{
+  background-image: url("/images/102671.jpg");
+} */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

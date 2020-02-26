@@ -7,6 +7,10 @@
     height:100px;
     width:100px;
 } */
+.studioContainer{
+    background-color:  #870103 !important;
+    border-radius: 10px;
+}
 h3{
 padding-top: 2.5%;
 padding-bottom: 2.5%;
@@ -14,17 +18,23 @@ padding-bottom: 2.5%;
 .inputdiv{
     /* background-color: aqua; */
     text-align: center;
-    
-
+}
+.savediv{
+    text-align: center;
 }
 input{
-    background-color: orange;
     margin-bottom: 20px;
+    background-color: lightgray !important;
+    text-align: center;
+    border-radius: 3px;
+    
 }
 /* .grey{
     z-index: 0;
 } */
-
+.redbutton{
+    background-color: lightgray;
+}
 .color-guide{  
      margin-bottom: 20px;    
 }
@@ -60,4 +70,10 @@ input{
         /* background-color:orange ; */
     /* } */
     
+  }
+  label{
+    padding-left:10px;
+  }
+  .input-field:focus{
+color: red !important;
   }

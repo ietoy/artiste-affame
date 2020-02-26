@@ -14,7 +14,12 @@ const Settings = () => {
         var instances = M.FormSelect.init(elems, {});
         console.log(instances)
       }, []);
-
+      useEffect(() => {
+        var username = document.querySelectorAll("#username");
+        console.log(username);
+        var instances = M.updateTextFields();
+        console.log(instances);
+       }, []);
 return(
 <Consumer>
 {context => {
@@ -22,16 +27,22 @@ return(
         context.currentUser.avatarSRC = e.target.value;
     API.updateUser(context.currentUser);
     }
+    const usernamechange = (e) => {
+        context.currentUser.username = e.target.value;
+    API.updateUser(context.currentUser);
+    }
 return(<div>
 <div className="center">
 <h1>Settings</h1>
 <br />
+<h5>Update your avatar or your username! Your changes are initialized immediately no need to save or submit!</h5>
 <hr />
 </div>
 
 <div className="row settingsHolder">
 <form>
 <div className="input-field">
+
     <select className="icons" onChange={avatarchange} >
       <option value="" disabled>Pick your inner artist</option>
       <option value="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501287/Avatars/picasso_hrcsqc.jpg" data-icon="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501287/Avatars/picasso_hrcsqc.jpg">Picasso</option>
@@ -45,11 +56,18 @@ return(<div>
       <option value="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501256/Avatars/cezanne_gxj66o.jpg" data-icon="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501256/Avatars/cezanne_gxj66o.jpg">Paul Cezanne</option>
       <option value="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501254/Avatars/renoir_uk1pug.jpg" data-icon="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501254/Avatars/renoir_uk1pug.jpg">Perre-Auguste Renoir</option>
       <option value="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501253/Avatars/okeefe_ldzrgr.jpg" data-icon="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501253/Avatars/okeefe_ldzrgr.jpg">Perre-Auguste Renoir</option>
-
     </select>
     <label>Change your avatar!</label>
   </div>
+  <br></br>
+  <div className="input-field row">
+          <input placeholder="New Username:New You" id="username" type="text" className="validate" onChange={usernamechange}></input>
+          <label >Update your username!</label>
+</div>
+
+
 </form>
+
 
 </div>
 </div>)
