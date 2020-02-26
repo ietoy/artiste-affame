@@ -101,11 +101,13 @@ const Game = props => {
 
                 function loadUser() {
                     //Load user Inventory to state upon login
-                    if (!context.inventory && context.loggedIn) {
+                    if (context.loggedIn) {
+                        // context.userInventory = context.currentUser.inventory;
                         context.currentUser.inventory.forEach(item => {
+                            // console.log("ITEM FROM CONTEXT",item);
                             API.getItem(item._id)
                                 .then(res => {
-                                    console.log("ITEM RECEIVED", res);
+                                    // console.log("ITEM RECEIVED FROM API", res.data);
                                     context.loadUserInventory(res.data, item.amount);
                                 });
                         });

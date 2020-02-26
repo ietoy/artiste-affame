@@ -56,7 +56,7 @@ class ConfigProvider extends Component {
         },
 
         // Cart Functions
-        addToCart: (name, src, cost) => {
+        addToCart: (item) => {
             // If the cart is empty
             if (this.state.cart.length === 0) {
                 // add the clicked item object to the cart
@@ -71,9 +71,11 @@ class ConfigProvider extends Component {
                 //     ]
                 // }));
                 this.state.cart.push({
-                    name: name,
-                    src: src,
-                    cost: cost,
+                    _id: item._id,
+                    name: item.name,
+                    src: item.src,
+                    cost: item.cost,
+                    description: item.description,
                     qty: 1
                 });
                 // then update the cart cost
@@ -86,7 +88,7 @@ class ConfigProvider extends Component {
                 // For each item in the cart
                 for (var i = 0; i < this.state.cart.length; i++) {
                     // if the clicked item matches the name of an item in the cart
-                    if (this.state.cart[i].name === name) {
+                    if (this.state.cart[i].name === item.name) {
                         // Increase the quantity of this item by one
                         this.state.cart[i].qty = (this.state.cart[i].qty + 1)
                         // set found to true
@@ -97,9 +99,11 @@ class ConfigProvider extends Component {
                 if (!found) {
                     // adds first instance of this item to the cart
                     this.state.cart.push({
-                        name: name,
-                        src: src,
-                        cost: cost,
+                        _id: item._id,
+                        name: item.name,
+                        src: item.src,
+                        cost: item.cost,
+                        description: item.description,
                         qty: 1
                     });
                     // this.setState(state => ({
@@ -158,7 +162,7 @@ class ConfigProvider extends Component {
             this.forceUpdate();
         },
         updateCartCost: () => {
-            console.log("CURRENT CART COST", this.state.cart, this.state.cartCost);
+            // console.log("CURRENT CART COST", this.state.cart, this.state.cartCost);
             var newCartCost = 0;
             for (var i = 0; i < this.state.cart.length; i++) {
                 newCartCost += (this.state.cart[i].cost * this.state.cart[i].qty)
@@ -177,18 +181,51 @@ class ConfigProvider extends Component {
             if (cartCost <= coins) {
                 console.log("you can afford that!");
                 // update the state by deducting the cost from their coins
+
+                var userInventory = this.state.currentUser.inventory;
+
+                this.state.cart.forEach(item => {
+                    var found = false;
+                    for (var i = 0; i < userInventory.length && !found; i++) {
+                        if (item._id == userInventory[i]._id) {
+                            userInventory[i].amount += item.qty;
+                            found = true;
+                            this.state.loadUserInventory({
+                                _id: item._id,
+                                name: item.name,
+                                description: item.description,
+                                src: item.src,
+                                cost: item.cost,
+                            }, userInventory[i].amount);
+                        }
+                    }
+                    if (!found) {
+                        userInventory.push({ _id: item._id, amount: item.qty });
+                        this.state.loadUserInventory({
+                            _id: item._id,
+                            name: item.name,
+                            description: item.description,
+                            src: item.src,
+                            cost: item.cost,
+                        }, item.qty);
+                    }
+                });
+                // console.log("USER INVENTORY AFTER ADDING ITEMS");
+                // console.log(userInventory);
+                this.state.currentUser.inventory = userInventory;
+
                 this.state.currentUser.coins -= cartCost;
-                this.state.currentUser.inventory.push(this.state.cart);
                 // then update the database with this API call
                 API.updateUser(this.state.currentUser)
                     .then(res => {
-                        console.log("UPDATE USER RES", res.data);
+                        // console.log("UPDATE USER RES", res.data);
                     });
-                console.log(coins);
-                console.log(this.state.currentUser.inventory);
+
                 // #####################################################
                 // UPDATE INVENTORY THIS WAY TOO, MAY NEED TO UPDATE APIS
                 // #####################################################
+                this.state.cart = [];
+                this.state.cartCost = 0;
             } else {
                 // Otherwise, alert the user that they cannot afford the cart context
                 alert("You can't afford all that! Update your cart and try again.")
@@ -202,16 +239,42 @@ class ConfigProvider extends Component {
         },
 
         useItem: (itemID) => {
-            this.state.userInventory.forEach(item => {
+            this.state.userInventory.forEach((item, index, object) => {
                 if (item.item._id === itemID) {
-                    item.amount--;
+                    if (item.amount === 1) {
+                        object.splice(index, 1);
+                    } else {
+                        item.amount--;
+                    }
+                }
+            });
+            this.state.currentUser.inventory.forEach((item, index, object) => {
+                if (item._id === itemID) {
+                    if (item.amount === 1) {
+                        object.splice(index, 1);
+                    } else {
+                        item.amount--;
+                    }
                 }
             });
             this.setState(this.state);
             console.log("STATE", this.state);
         },
         loadUserInventory: (itemObj, amt) => {
-            this.state.userInventory.push({ item: itemObj, amount: amt })
+            // console.log("STATE USER INVENTORY", this.state.userInventory);
+            // console.log("UPDATING WITH", itemObj, amt);
+            var found = false;
+            this.state.userInventory.forEach(item => {
+                if (itemObj._id == item.item._id) {
+                    // item.amount += amt;
+                    item.amount = amt;
+                    found = true;
+                }
+            });
+            if (!found) {
+                this.state.userInventory.push({ item: itemObj, amount: amt });
+            }
+            // this.state.userInventory.push({ item: itemObj, amount: amt })
         }
     }
 

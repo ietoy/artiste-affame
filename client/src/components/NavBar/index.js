@@ -50,16 +50,16 @@ const Navbar = props => {
           <nav>
 
             <nav>
-              <div class="nav-wrapper">
+              <div className="nav-wrapper">
                 <Link to="/" className="brand-logo">Artiste Defammé</Link>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
+                <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                <ul className="right hide-on-med-and-down">
                   {getNav()}
                 </ul>
               </div>
             </nav>
 
-            <ul class="sidenav" id="mobile-demo">
+            <ul className="sidenav" id="mobile-demo">
               {getNav()}
             </ul>
 
