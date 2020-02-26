@@ -26,17 +26,13 @@ const Cart = () => {
                                 Cart Total: {getTotal()}
 
                                 <div className="right">
-                                    <Link to="/store">
-                                        <a className="waves-effect waves-light btn-large">
-                                            <i className="fas fa-store center"></i>
-                                        </a>
+                                    <Link className="waves-effect waves-light btn-large" to="/store">
+                                        <i className="fas fa-store center"></i>
                                     </Link>
-                                    <a
-                                        className="waves-effect waves-light btn-large"
-                                        onClick={() => context.checkout()}
-                                    >
+                                    <Link className="waves-effect waves-light btn-large"
+                                        onClick={() => context.checkout()} to="/inventory">
                                         <i className="fas fa-cash-register center"></i>
-                                    </a>
+                                    </Link>
                                 </div>
                             </h1>
                             <br />
