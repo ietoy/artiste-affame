@@ -79,7 +79,6 @@ class ConfigProvider extends Component {
             // portfolio
             // gallery
 
-
         },
         // Cart Functions
         addToCart: (item) => {
@@ -212,16 +211,17 @@ class ConfigProvider extends Component {
                 // console.log("USER INVENTORY AFTER ADDING ITEMS");
                 // console.log(userInventory);
                 this.state.currentUser.inventory = userInventory;
-
                 this.state.currentUser.coins -= cartCost;
                 // then update the database with this API call
                 API.updateUser(this.state.currentUser)
                     .then(res => {
-                        // console.log("UPDATE USER RES", res.data);
+                        this.setState({
+                            cart: [],
+                            cartCost: 0
+                        })
                     });
 
-                this.state.cart = [];
-                this.state.cartCost = 0;
+                
             } else {
                 // Otherwise, alert the user that they cannot afford the cart context
                 alert("You can't afford all that! Update your cart and try again.")
