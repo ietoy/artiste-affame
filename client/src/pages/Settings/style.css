@@ -2,7 +2,11 @@ form{
     width: 50%;
     height: fit-content;
     text-shadow: none;
-
+    margin-top: 20px;
+}
+label{
+    font-size: 30px !important;
+  
 }
 /* img{
     width: 50px !important;
@@ -24,18 +28,38 @@ form{
 #avatar{
     text-shadow: 1px 1px 0px black;
     color:#FFFFFF;
+    margin-bottom:-50px;
 }
+/* #avatarchoices{
+    margin:100px;
+} */
 .dropdown-content li>span{
     color: black !important;
 }
 input[type=email]{
     background-color: #F6F5F2 !important;
+
 }
 input[type=password]{
+
+
     background-color: #F6F5F2 !important;
  
 }
 input[type=text]{
+
+
     background-color: #F6F5F2 !important;
 
+}
+
+.select-wrapper input.select-dropdown{
+margin: 50px 50px 50px 0px;
+width: 100%;
+}
+#avatar{
+    margin-top: -40px!important;
+}
+#usernamelabel{
+    margin-top: -40px ;
 }
