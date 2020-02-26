@@ -57,9 +57,9 @@ class ConfigProvider extends Component {
             }));
         },
         sellPainting: (painting) => {
-            console.log("Painting", painting);
-            console.log("Gallery Before", this.state.gallery);
-            console.log("Portfolio Before", this.state.portfolio);
+            // console.log("Painting", painting);
+            // console.log("Gallery Before", this.state.gallery);
+            // console.log("Portfolio Before", this.state.portfolio);
 
             this.state.currentUser.coins += painting.likes;
             this.state.gallery.map((paint, index, object) => {
@@ -74,8 +74,8 @@ class ConfigProvider extends Component {
             });
 
             this.setState(this.state);
-            console.log("Gallery After", this.state.gallery);
-            console.log("Portfolio After", this.state.portfolio);
+            // console.log("Gallery After", this.state.gallery);
+            // console.log("Portfolio After", this.state.portfolio);
             // portfolio
             // gallery
 

@@ -10,10 +10,14 @@ const Portfolio = () => {
             {context => {
 
                 function sell(painting) {
-                    console.log("SELLING", painting);
+                    // console.log("SELLING", painting);
                     context.sellPainting(painting);
-                    // API.updateUser(context.currenUser)
-                        // .then(res => console.log(res));
+                    API.updateUser(context.currentUser)
+                        .then(res => {
+                            painting.galleryShowing = false;
+                            API.updatePainting(painting);
+                            console.log(res);
+                        });
                 }
 
                 return (

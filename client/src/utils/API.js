@@ -49,6 +49,9 @@ export default {
     addPainting: function (painting, userID) {
         return axios.post("api/paintings/add/" + userID, painting);
     },
+    updatePainting: function (painting) {
+        return axios.put("api/paintings/" + painting._id, painting);
+    },
     //@param => userID
     //@return => array of paintings that belong to the user
     getPortfolio(userID) {
