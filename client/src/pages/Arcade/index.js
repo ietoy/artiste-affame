@@ -26,7 +26,7 @@ const Arcade = () => {
                                 <GameCard game={
                                     {
                                         name: "OtherGame",
-                                        link: "/arcade",
+                                        link: "/arcade/dodge",
                                         image: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582659082/stock/2ndgame_kvou5q.png",
                                         description: "Game Number 2"
                                     }}></GameCard>

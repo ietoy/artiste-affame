@@ -36,5 +36,10 @@ module.exports = {
         db.Painting.find({ galleryShowing: true })
             .then(paintings => res.json(paintings))
             .catch(err => console.log(err));
+    },
+    getPortfolio: function (req, res) {
+        db.Painting.find({ painter: req.params.id })
+            .then(paintings => res.json(paintings))
+            .catch(err => console.log(err));
     }
 };

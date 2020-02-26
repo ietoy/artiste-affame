@@ -125,11 +125,5 @@ module.exports = {
                 console.log(err);
                 res.status(400).json(err);
             });
-        db.User.findOneAndUpdate({ _id: req.params.id }, { inventory: req.body.inventory })
-            .then(user => res.json(user))
-            .catch(err => {
-                console.log(err);
-                res.status(400).json(err);
-            });
     }
 };
