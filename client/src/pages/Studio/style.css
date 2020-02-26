@@ -74,6 +74,3 @@ input{
   label{
     padding-left:10px;
   }
-  .input-field:focus{
-color: red !important;
-  }

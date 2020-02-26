@@ -57,7 +57,7 @@ return(<div>
       <option value="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501254/Avatars/renoir_uk1pug.jpg" data-icon="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501254/Avatars/renoir_uk1pug.jpg">Perre-Auguste Renoir</option>
       <option value="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501253/Avatars/okeefe_ldzrgr.jpg" data-icon="https://res.cloudinary.com/artiste-defamme/image/upload/v1582501253/Avatars/okeefe_ldzrgr.jpg">Perre-Auguste Renoir</option>
     </select>
-    <label>Change your avatar!</label>
+    <label id="avatar">Change your avatar!</label>
   </div>
   <br></br>
   <div className="input-field row">

@@ -4,21 +4,27 @@
   .btn-large{
     border-radius: 3px;
   }
-#inputPass:focus {
-    border-bottom: 1px solid red !important;
-    box-shadow: 0 1px 0 0 red !important;
-    color: red !important;
+  #inputPass:focus {
+    border-bottom: 1px solid #870103 !important;
+    box-shadow: 0 1px 0 0 #870103 !important;
+    /* color: #870103 !important; */
       }
-      #inputPass:focus +label {
-        color: red;
-      }
-      #inputPass:focus -i {
-        color: red;
-      }
-    #inputPass:focus +.active{
-        color: red;
-      }
+      /* #inputPass:focus +label {
+        color: #870103;
+      } */
+      /* #inputPass:focus -i {
+        color: #870103;
+      } */
+    /* #inputPass:focus +.active{
+        color: #870103;
+      } */
       .active{
-        color:pink !important;
-  
+        text-shadow: 1px 1px 0px black !important;
+        color:white !important;
+        font-weight: 500px;
       }
+      #inputEmail:focus {
+        border-bottom: 1px solid #870103 !important;
+        box-shadow: 0 1px 0 0 #870103 !important;
+        /* color: #870103 !important; */
+          }

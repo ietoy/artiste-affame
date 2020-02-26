@@ -11,3 +11,20 @@ form{
     width: 50px !important;
     height: 50px !important;
 }
+.dropdown-trigger:focus{
+    border-bottom: 1px solid #870103 !important;
+    box-shadow: 0 1px 0 0 #870103 !important;
+   
+}
+#username:focus{
+    border-bottom: 1px solid #870103 !important;
+    box-shadow: 0 1px 0 0 #870103 !important;
+
+}
+#avatar{
+    text-shadow: 1px 1px 0px black;
+    color:#FFFFFF;
+}
+.dropdown-content li>span{
+    color: black !important;
+}

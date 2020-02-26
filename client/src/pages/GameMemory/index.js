@@ -105,18 +105,18 @@ function App() {
                                 <h2>Test your memory skills</h2>
                                 <div className="row">
 
-                                    <label>Select you theme</label>
+                                    <label className="themelabel">Select your theme</label>
                                     <select className="browser-default" onChange={search}>
                                         <option value=""></option>
-                                        <option value="theoffice">The Office</option>
-                                        <option value="brooklynninenine">Brooklyn Nine Nine</option>
-                                        <option value="parksandrec">Parks and Recreation</option>
-                                        <option value="rickandmorty">Rick And Morty</option>
-                                        <option value="supernatural">Supernatural</option>
+                                        <option value="vangogh">Van Gogh</option>
+                                        <option value="fridakahlo">Frida Kahlo</option>
+                                        <option value="bobross">Bob Ross</option>
+                                        <option value="michaelangelo">Michael Angelo</option>
+                                        <option value="rickandmorty">Rick and Morty</option>
                                     </select>
                                 </div>
                                 <div className="row">
-                                    <button onClick={startGame} className="btn btn-warning btn-lg" role="button">
+                                    <button onClick={startGame} className="btn-large btn-warning btn-lg" role="button">
                                         Get Playing <i className="fas fa-gamepad"></i>
                                     </button>
                                 </div>
