@@ -221,11 +221,9 @@ class ConfigProvider extends Component {
                         // console.log("UPDATE USER RES", res.data);
                     });
 
-
                 // #####################################################
                 // UPDATE INVENTORY THIS WAY TOO, MAY NEED TO UPDATE APIS
                 // #####################################################
-
                 this.state.cart = [];
                 this.state.cartCost = 0;
             } else {

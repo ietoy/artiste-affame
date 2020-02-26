@@ -9,6 +9,7 @@ import CartItem from "../../components/CartItem/index.js";
 const Cart = () => {
     return (
         <Consumer>
+
             {context => {
 
                 function getTotal() {
