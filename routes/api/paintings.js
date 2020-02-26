@@ -6,6 +6,9 @@ router.route("/gallery")
 
 router.route("/add/:id")
     .post(paintingsController.create)
+
+router.route("/portfolio/:id")
+    .get(paintingsController.getPortfolio)
         // get user id from global state
         // add this to new painting obj
         // send new painting object to paintings

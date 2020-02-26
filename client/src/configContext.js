@@ -19,6 +19,7 @@ class ConfigProvider extends Component {
         gallery: [],
         bet: 0,
         userInventory: [],
+        portfolio: [],
 
         // Login Functions
         login: (success, user) => {
@@ -44,14 +45,18 @@ class ConfigProvider extends Component {
             console.log(this.state.gallery);
         },
         addPainting: (painting) => {
-            console.log("BEFORE", this.state.gallery);
+            console.log("BEFORE ADDING", this.state.gallery);
             this.setState(state => ({
                 gallery: [
                     ...state.gallery,
                     painting
+                ],
+                portfolio: [
+                    ...state.portfolio,
+                    painting
                 ]
             }));
-            console.log("AFTER", this.state.gallery);
+            console.log("AFTER ADDING", this.state.gallery);
 
         },
 
@@ -275,6 +280,13 @@ class ConfigProvider extends Component {
                 this.state.userInventory.push({ item: itemObj, amount: amt });
             }
             // this.state.userInventory.push({ item: itemObj, amount: amt })
+        },
+        loadPortfolio: (portfolio) => {
+            console.log("INCOMING PORTFOLIO", portfolio);
+            this.setState({
+                ...this.state,
+                portfolio: portfolio
+            });
         }
     }
 
@@ -292,6 +304,7 @@ class ConfigProvider extends Component {
                 bet: this.state.bet,
                 userInventory: this.state.userInventory,
                 cartCost: this.state.cartCost,
+                portfolio: this.state.portfolio,
 
                 // functions to send down
                 login: this.state.login,
@@ -309,7 +322,8 @@ class ConfigProvider extends Component {
                 addCoins: this.state.addCoins,
                 useItem: this.state.useItem,
                 loadUserInventory: this.state.loadUserInventory,
-                addPainting: this.state.addPainting
+                addPainting: this.state.addPainting,
+                loadPortfolio: this.state.loadPortfolio
 
             }}>
                 {/*lets us see our children components  */}

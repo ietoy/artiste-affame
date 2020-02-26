@@ -48,6 +48,11 @@ export default {
     //@return => paiting object
     addPainting: function (painting, userID) {
         return axios.post("api/paintings/add/" + userID, painting);
+    },
+    //@param => userID
+    //@return => array of paintings that belong to the user
+    getPortfolio(userID) {
+        return axios.get("api/paintings/portfolio/" + userID);
     }
     // isAuth: function (_id) {
     //     return axios.get("api/users/" + _id);

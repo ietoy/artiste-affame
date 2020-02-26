@@ -28,6 +28,7 @@ const Navbar = props => {
                 <li><Link to="/store">Store</Link></li>
                 <li><Link to="/studio">Studio</Link></li>
                 <li><Link to="/gallery">Gallery</Link></li>
+                <li><Link to="/portfolio">Portfolio</Link></li>
                 <li><Link to="/" onClick={() => context.logout()}>Sign Out</Link></li>
               </div>
             )

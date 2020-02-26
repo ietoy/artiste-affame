@@ -18,6 +18,8 @@ import Login from "./pages/LogIn";
 import Inventory from "./pages/Inventory";
 import Arcade from "./pages/Arcade";
 import GameMemory from "./pages/GameMemory";
+import Portfolio from "./pages/Portfolio";
+// import GameDodge from "./pages/GameDodge"
 
 
 function App() {
@@ -31,14 +33,14 @@ function App() {
             <Route exact path="/studio" component={Studio} />
             <Route exact path="/store" component={Store} />
 
-            {/* CART */}
             <Route exact path="/cart" component={Cart} />
-
+            <Route exact path="/portfolio" component={Portfolio} />
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/inventory" component={Inventory} />
             <Route exact path="/arcade" component={Arcade} />
             <Route exact path="/arcade/memory" component={GameMemory} />
+            {/* <Route exact path="/arcade/doge" component={GameDodge} /> */}
           </Wrapper>
         </Router>
       </ConfigProvider>
