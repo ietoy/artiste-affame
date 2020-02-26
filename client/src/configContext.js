@@ -39,6 +39,21 @@ class ConfigProvider extends Component {
         loadInventory: (inventory) => {
             this.setState({ marketplace_items: inventory });
         },
+        updateLike: (id) => {
+            // finds painting in gallery
+            for (var i = 0; i < this.state.gallery.length; i++) {
+                if(this.state.gallery[i]._id === id) {
+                    this.state.gallery[i].likes += 1;
+                }
+            }
+            // finds painting in your portfolio if present
+            for (var i = 0; i < this.state.portfolio.length; i++) {
+                if(this.state.portfolio[i]._id === id) {
+                    this.state.portfolio[i].likes += 1;
+                }
+            }
+            this.setState(this.state);
+        },
         loadShownPaintings: (paintings) => {
             console.log("Loading the gallery...", paintings);
             this.setState({ gallery: paintings });
@@ -293,6 +308,7 @@ class ConfigProvider extends Component {
                 login: this.state.login,
                 logout: this.state.logout,
                 loadInventory: this.state.loadInventory,
+                updateLike: this.state.updateLike,
                 loadShownPaintings: this.state.loadShownPaintings,
                 addLike: this.state.addLike,
                 addToCart: this.state.addToCart,

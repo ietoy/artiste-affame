@@ -15,10 +15,7 @@ class Gallery extends Component {
         btnID: ""
     }
 
-    likePainting = (id) => {
-        // console.log("You liked painting #" + id);
-        API.addLike(id);
-    }
+   
 
     render() {
         return (
@@ -33,13 +30,18 @@ class Gallery extends Component {
                     //     }
     
                     function loadGallery () {
-                        console.log(context.gallery)
                         if (context.gallery.length === 0) {
                             API.getGallery()
                                 .then(res => {
                                     context.loadShownPaintings(res.data);
                                 })
                         }
+                    }
+
+                    function likePainting(id) {
+                        // console.log("You liked painting #" + id);
+                        API.addLike(id);
+                        context.updateLike(id);
                     }
     
                     return (
@@ -58,7 +60,7 @@ class Gallery extends Component {
                                         src={painting.src}
                                         paintingName={painting.paintingName}
                                         likes={painting.likes}
-                                        likePainting={this.likePainting}
+                                        likePainting={likePainting}
                                         btnActive={this.state.btnActive}
                                         btnID={this.state.btnID}
                                     />
