@@ -56,7 +56,13 @@ export default {
     //@return => array of paintings that belong to the user
     getPortfolio(userID) {
         return axios.get("api/paintings/portfolio/" + userID);
+    },
+    // THIS FUNCTION WILL UPDATE THE PAINTING DOC WITH A LIKE FROM THE USER
+    addLike: function (paintingID) {
+        console.log(paintingID);
+        return axios.put("api/paintings/like/" + paintingID)
     }
+
     // isAuth: function (_id) {
     //     return axios.get("api/users/" + _id);
     // }
