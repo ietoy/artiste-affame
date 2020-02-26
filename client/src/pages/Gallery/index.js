@@ -15,21 +15,21 @@ class Gallery extends Component {
         btnID: ""
     }
 
-   
+
 
     render() {
         return (
             <Consumer>
                 {context => {
-    
+
                     // const cloudinaryGallery = () => {
                     //     axios.get("https://878159185894491:FhJy3Dc_yVACl6gaPFwLALrLjkg@api.cloudinary.com/v1_1/artiste-defamme/gallery/resources/image").then(res => {
                     //         console.log("\n\n\n\n\n",res);
                     //         return res;
                     //     })
                     //     }
-    
-                    function loadGallery () {
+
+                    function loadGallery() {
                         if (context.gallery.length === 0) {
                             API.getGallery()
                                 .then(res => {
@@ -42,8 +42,9 @@ class Gallery extends Component {
                         // console.log("You liked painting #" + id);
                         API.addLike(id);
                         context.updateLike(id);
+
                     }
-    
+
                     return (
                         <div>
                             {/* {cloudinaryGallery()} */}
@@ -71,7 +72,7 @@ class Gallery extends Component {
                 }}
             </Consumer>
         )
-    }    
+    }
 }
-    
+
 export default Gallery;
