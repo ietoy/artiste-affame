@@ -221,12 +221,12 @@ db.Item.create(itemSeed)
     process.exit(1);
   });
 
-// db.Painting.create(paintingSeed)
-// .then(data => {
-// console.log("eggs",data)
-// })
-// .catch(err => {
-//   console.error(err);
-//   process.exit(1);
-// });
+db.Painting.create(paintingSeed)
+.then(data => {
+console.log("eggs",data)
+})
+.catch(err => {
+  console.error(err);
+  process.exit(1);
+});
 
