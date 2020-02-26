@@ -26,7 +26,7 @@ router.route("/:id")
 
 // NEW ROUTE FOR UPDATING LIKES -iet
 router.route("/like/:id")
-    .put(paintingsController.update)
+    .put(paintingsController.like)
     
 
 
