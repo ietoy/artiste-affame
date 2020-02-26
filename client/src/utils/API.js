@@ -59,7 +59,7 @@ export default {
     },
     // THIS FUNCTION WILL UPDATE THE PAINTING DOC WITH A LIKE FROM THE USER
     addLike: function (paintingID) {
-        console.log(paintingID);
+        // console.log(paintingID);
         return axios.put("api/paintings/like/" + paintingID)
     }
 
