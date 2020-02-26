@@ -22,19 +22,18 @@ padding-bottom: 2.5%;
 .savediv{
     text-align: center;
 }
-input{
+input[type=file]{
     margin-bottom: 20px;
-    background-color: lightgray !important;
+    /* background-color: lightgray !important; */
     text-align: center;
     border-radius: 3px;
+    background-color: #F44335;
     
 }
 /* .grey{
     z-index: 0;
 } */
-.redbutton{
-    background-color: lightgray;
-}
+
 .color-guide{  
      margin-bottom: 20px;    
 }

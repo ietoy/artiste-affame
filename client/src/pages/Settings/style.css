@@ -28,3 +28,14 @@ form{
 .dropdown-content li>span{
     color: black !important;
 }
+input[type=email]{
+    background-color: #F6F5F2 !important;
+}
+input[type=password]{
+    background-color: #F6F5F2 !important;
+ 
+}
+input[type=text]{
+    background-color: #F6F5F2 !important;
+
+}

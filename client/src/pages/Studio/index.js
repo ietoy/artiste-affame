@@ -151,12 +151,7 @@ function Studio() {
 
                             </div>
                             {/* must pass these two props or it wont work, the children can make it unique, must go in fragment i think... */}
-                            <div >
-                                <Modal show={modalState.isOpen}
-                                    onClose={toggleModalOff}>
-                                    <h1>Log in to upload!</h1>
-                                </Modal>
-                            </div>
+                       
 
 
 
@@ -165,6 +160,12 @@ function Studio() {
                         <div className="savediv">
                                 <button className="redbutton" onClick={saveCanvas}>SAVE CANVAS</button>
 
+                            </div>
+                            <div >
+                                <Modal show={modalState.isOpen}
+                                    onClose={toggleModalOff}>
+                                    <h1>Log in to upload!</h1>
+                                </Modal>
                             </div>
                         <div class="inputdiv">
                             <h2>Upload your art here!</h2>

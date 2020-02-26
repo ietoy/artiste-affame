@@ -28,3 +28,9 @@
         box-shadow: 0 1px 0 0 #870103 !important;
         /* color: #870103 !important; */
           }
+          .card-title{
+            padding-top: 10px !important;
+          }
+          .s12 .row .btn-large{
+            background-color: #870103;
+          }

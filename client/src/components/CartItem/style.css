@@ -11,10 +11,14 @@ img{
 .card{
     width:fit-content;
     height:fit-content;
-    background-color: pink;
+ 
     
 }
 .card-title{
     text-align: center;
 
+}
+.card-content .row .btn{
+    color:white;
+    background-color: #F44335;
 }

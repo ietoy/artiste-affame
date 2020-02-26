@@ -1,10 +1,14 @@
 .card-image{
     width:200px;
     height: 200px;
-    background-color: cornflowerblue;
 }
 .card{
     width:fit-content;
     height:fit-content;
-    background-color: crimson;
+
+}
+.card .card-content .right .btn{
+    margin-left: 20px;
+    color:white;
+    background-color: #F44335;
 }

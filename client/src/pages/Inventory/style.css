@@ -1,10 +1,10 @@
-.itemholder{
+.inventoryHolder{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
 }
 @media only screen and (max-width: 800px) {
-.itemholder{
+.inventoryHolder{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
@@ -13,18 +13,9 @@
 
 }
 @media only screen and (max-width: 500px) {
-.itemholder{
+.inventoryHolder{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     justify-items: center;
 }
-
-
-}
-.center .right .btn-large{
-    background-color: #870103 !important;
-margin: 10px;
-}
-#redbutton{
-    background-color: red;
 }

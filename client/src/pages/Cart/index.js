@@ -5,7 +5,7 @@ import Consumer from "../../configContext.js";
 // LINK for CART/STORE btn
 import { Link } from "react-router-dom";
 import CartItem from "../../components/CartItem/index.js";
-
+import Style from "./style.css";
 const Cart = () => {
     return (
         <Consumer>
@@ -26,8 +26,8 @@ const Cart = () => {
                                 Cart Total: {getTotal()}
 
                                 <div className="right">
-                                    <Link className="waves-effect waves-light btn-large" to="/store">
-                                        <i className="fas fa-store center"></i>
+                                    <Link className="waves-effect waves-light btn-large"  to="/store">
+                                        <i className="fas fa-store center" ></i>
                                     </Link>
                                     <Link className="waves-effect waves-light btn-large"
                                         onClick={() => context.checkout()} to="/inventory">
