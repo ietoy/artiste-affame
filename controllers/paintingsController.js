@@ -21,10 +21,17 @@ module.exports = {
     //update Painting
     update: function (req, res) {
         // finds the painting with the matching id and increment its likes value by 1
-        db.Painting.findOneAndUpdate({ _id: req.params.id }, {$inc: {likes: 1}})
+        db.Painting.findOneAndUpdate({ _id: req.params.id }, req.body)
             .then(painting => res.json(painting))
             .catch(err => res.status(422).json(err));
     },
+    like: function (req, res) {
+        // finds the painting with the matching id and increment its likes value by 1
+        db.Painting.findOneAndUpdate({ _id: req.params.id }, { $inc: { likes: 1 } })
+            .then(painting => res.json(painting))
+            .catch(err => res.status(422).json(err));
+    },
+
     //remove Painting
     remove: function (req, res) {
         db.Painting.findById({ _id: req.params.id })
