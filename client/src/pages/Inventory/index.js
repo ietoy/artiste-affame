@@ -3,7 +3,7 @@ import React from "react";
 import Consumer from "../../configContext.js";
 import InventoryItem from "../../components/InventoryItem/index.js";
 import API from "../../utils/API";
-
+import Style from "./style.css";
 // This page will display items currently in the users inventory
 // When the user clicks on a USABLE item, they will consume 1 of that item
 
@@ -34,14 +34,31 @@ const Inventory = () => {
 
                 function getItems() {
                     return (
-                        context.userInventory.map(item => (
+                        <div>
+                               <div className="center">
+                                <h1>Inventory</h1>
+                                <br />
+                                <hr />
+                            </div>
+                            <div className="inventoryHolder">
+                            {context.userInventory.map(item => (
                             <InventoryItem
                                 key={item.item._id}
                                 item={item.item}
                                 amount={item.amount}
                                 useItem={useItem} 
                             />
-                        ))
+                        ))}
+                            </div>
+                        </div>
+                        // context.userInventory.map(item => (
+                        //     <InventoryItem
+                        //         key={item.item._id}
+                        //         item={item.item}
+                        //         amount={item.amount}
+                        //         useItem={useItem} 
+                        //     />
+                        // ))
                     )
                 }
 

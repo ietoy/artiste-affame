@@ -12,7 +12,7 @@ if( !this.props.show){
         <div className="modelito" >
     
        {this.props.children}
-            <button onClick={this.props.onClose}>
+            <button classname="orange"onClick={this.props.onClose}>
               Close
             </button>
          

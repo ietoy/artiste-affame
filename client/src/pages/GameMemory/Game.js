@@ -26,7 +26,7 @@ function Game({ gameState, click, resetGame, loggedIn }) {
                         <h2 className="display-4 mb-3">GAME OVER!! You Scored {gameState.coins} points!</h2>
                         <div className="row">
 
-                            <button onClick={resetGame} className="btn btn-warning btn-lg" role="button">
+                            <button onClick={resetGame} className="btn-large btn-warning btn-lg" role="button">
                                 Play Again <i className="fas fa-gamepad"></i>
                             </button>
                         </div>
