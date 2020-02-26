@@ -77,6 +77,7 @@ function Studio() {
                     console.log("SAVING CANVAS");
                     var element = document.getElementById("paintCanvas");
                     // console.log("ELEMENT", element);
+                    // if (context.loggedIn) {
                     html2canvas(element, {
                         scrollX: -window.scrollX - 7,
                         scrollY: -window.scrollY
@@ -95,6 +96,26 @@ function Studio() {
                         });
                         // document.body.appendChild(canvas);
                     });
+                    // }
+                }
+
+                function getButtons() {
+                    if (context.loggedIn) {
+                        return (
+                            <div>
+                                <div className="savediv">
+                                    <button className="redbutton" onClick={saveCanvas}>SAVE CANVAS</button>
+
+                                </div>
+                                <div class="inputdiv">
+                                    <h2>Upload your art here!</h2>
+                                    <input name="file" type="file" class="cloudinary-fileupload" data-cloudinary-field="image_id"
+                                        onChange={changeHandler}></input>
+                                </div>
+                            </div>
+
+                        );
+                    }
                 }
 
                 function changeHandler(event) {
@@ -157,22 +178,9 @@ function Studio() {
 
                         </Fragment>
 
-                        <div className="savediv">
-                                <button className="redbutton" onClick={saveCanvas}>SAVE CANVAS</button>
 
-                            </div>
-                            <div >
-                                <Modal show={modalState.isOpen}
-                                    onClose={toggleModalOff}>
-                                    <h1>Log in to upload!</h1>
-                                </Modal>
-                            </div>
-                        <div class="inputdiv">
-                            <h2>Upload your art here!</h2>
-                            <input name="file" type="file" class="cloudinary-fileupload" data-cloudinary-field="image_id"
-                                onChange={changeHandler}></input>
-                        </div>
 
+                        {getButtons()}
 
                     </div>
 

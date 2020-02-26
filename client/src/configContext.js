@@ -39,10 +39,24 @@ class ConfigProvider extends Component {
         loadInventory: (inventory) => {
             this.setState({ marketplace_items: inventory });
         },
+        updateLike: (id) => {
+            // finds painting in gallery
+            for (var i = 0; i < this.state.gallery.length; i++) {
+                if(this.state.gallery[i]._id === id) {
+                    this.state.gallery[i].likes += 1;
+                }
+            }
+            // finds painting in your portfolio if present
+            for (var i = 0; i < this.state.portfolio.length; i++) {
+                if(this.state.portfolio[i]._id === id) {
+                    this.state.portfolio[i].likes += 1;
+                }
+            }
+            this.setState(this.state);
+        },
         loadShownPaintings: (paintings) => {
             console.log("Loading the gallery...", paintings);
             this.setState({ gallery: paintings });
-            console.log(this.state.gallery);
         },
         addPainting: (painting) => {
             this.setState(state => ({
@@ -57,9 +71,6 @@ class ConfigProvider extends Component {
             }));
         },
         sellPainting: (painting) => {
-            // console.log("Painting", painting);
-            // console.log("Gallery Before", this.state.gallery);
-            // console.log("Portfolio Before", this.state.portfolio);
 
             this.state.currentUser.coins += painting.likes;
             this.state.gallery.map((paint, index, object) => {
@@ -74,10 +85,6 @@ class ConfigProvider extends Component {
             });
 
             this.setState(this.state);
-            // console.log("Gallery After", this.state.gallery);
-            // console.log("Portfolio After", this.state.portfolio);
-            // portfolio
-            // gallery
 
         },
         // Cart Functions
@@ -254,7 +261,7 @@ class ConfigProvider extends Component {
                 }
             });
             this.setState(this.state);
-            console.log("STATE", this.state);
+            // console.log("STATE", this.state);
         },
         loadUserInventory: (itemObj, amt) => {
             // console.log("STATE USER INVENTORY", this.state.userInventory);
@@ -301,6 +308,7 @@ class ConfigProvider extends Component {
                 login: this.state.login,
                 logout: this.state.logout,
                 loadInventory: this.state.loadInventory,
+                updateLike: this.state.updateLike,
                 loadShownPaintings: this.state.loadShownPaintings,
                 addLike: this.state.addLike,
                 addToCart: this.state.addToCart,

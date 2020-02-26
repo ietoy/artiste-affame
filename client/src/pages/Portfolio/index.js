@@ -10,7 +10,7 @@ const Portfolio = () => {
             {context => {
 
                 function sell(painting) {
-                    // console.log("SELLING", painting);
+                    console.log("SELLING", painting);
                     context.sellPainting(painting);
                     API.updateUser(context.currentUser)
                         .then(res => {
