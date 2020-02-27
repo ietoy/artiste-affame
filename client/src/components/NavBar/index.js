@@ -56,7 +56,7 @@ const Navbar = props => {
 
             <nav>
               <div className="nav-wrapper">
-                <Link to="/" className="brand-logo">Artiste Defammé</Link>
+                <Link to="/" className="brand-logo">Artiste Affammé</Link>
                 <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                 <ul className="right hide-on-med-and-down">
                   {getNav()}

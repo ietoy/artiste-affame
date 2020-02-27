@@ -2,11 +2,6 @@
   .btn-large{
     border-radius: 3px;
   }
-  #inputPass:focus {
-    border-bottom: 1px solid #870103 !important;
-    box-shadow: 0 1px 0 0 #870103 !important;
-    margin-top: -40px !important;
-      }
 
       .active{
         text-shadow: 1px 1px 0px black !important;
@@ -14,20 +9,26 @@
         font-weight: 500px;
         
       }
-      #inputEmail:focus {
-        border-bottom: 1px solid #870103 !important;
-        box-shadow: 0 1px 0 0 #870103 !important;
-        
-          }
+
           .card-title{
             padding-top: 10px !important;
           }
           .btn-large{
             background-color: #870103;
           }
+          .btn-large:focus{
+            background-color: #F44335 !important;
+          }
+          .btn-large:hover{
+            background-color: #F44335 !important;
+          }
           .input-field.col .prefix ~ label{
             color: white;
             text-shadow: 1px 1px 0px black !important;
 
 margin: -50px 0px -50px 50px;
+}
+input:focus{
+  border-bottom: 1px solid #870103 !important;
+  box-shadow: 0 1px 0 0 #870103 !important;
 }
