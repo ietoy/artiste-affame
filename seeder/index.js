@@ -4,10 +4,8 @@ let mongoose = require("mongoose");
 let db = require("../models");
 
 //connecting to our db that we named in our server file
-mongoose.connect("mongodb://localhost/artistdefamme", {
-  useNewUrlParser: true,
-  useFindAndModify: false
-});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/artistdefamme", { useNewUrlParser: true, useFindAndModify: false });
+
 //seed variable to be sent
 let userSeed = [
   {
