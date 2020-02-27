@@ -58,9 +58,8 @@ const Game = props => {
 
                                         </div>
                                         <hr />
-                                        <p>Unique Items Count: {context.currentUser.inventory.length}</p>
+                                        <p>Items Count: {context.currentUser.inventory.length}</p>
                                         <p>Paintings Count: {context.currentUser.portfolio.length}</p>
-                                        <p>Member Since: {context.currentUser.createdAt}</p>
                                     </div>
                                 </div>
 
