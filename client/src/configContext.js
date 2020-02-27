@@ -46,6 +46,7 @@ class ConfigProvider extends Component {
             // console.log("gallery", this.state.gallery);
 
             // finds painting in your portfolio if present
+
             // for (var i = 0; i < this.state.portfolio.length; i++) {
             //     if (this.state.portfolio[i]._id === id) {
             //         console.log("FOUND IN PORTFOLIO", this.state.portfolio[i]);
@@ -60,6 +61,7 @@ class ConfigProvider extends Component {
                     // console.log(this.state.gallery[i]._id)
                 }
             }
+            
             this.setState(this.state);
         },
         loadShownPaintings: (paintings) => {
