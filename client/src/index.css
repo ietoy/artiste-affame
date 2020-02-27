@@ -9,6 +9,7 @@ body {
   background-image: url("./images/6673361.jpg");
   text-shadow: 2px 2px 0px black;
  color:#FFFFFF;
+ overscroll-behavior: none;
 
 }
 img{
@@ -25,4 +26,8 @@ img{
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+html{
+  overscroll-behavior: none;
+
 }
