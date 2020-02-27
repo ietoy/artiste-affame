@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import Consumer from "../../configContext.js";
 import API from "../../utils/API"
-
+import Style from "./style.css";
 
 
 function App() {
@@ -61,7 +61,7 @@ function App() {
                         return (
                             <div>
                                 <h1>Guess a number between 15 and 20</h1>
-                                <input ref={guessRef}></input>
+                                <input type="text"ref={guessRef}></input>
 
                                 <div
                                     className="btn-large waves-effect waves-light col s2 offset-s1"
@@ -88,7 +88,7 @@ function App() {
                                     <h2 className="display-4 mb-3">GAME OVER!! You Scored {gameState.coins} points!</h2>
                                     <div className="row">
 
-                                        <button onClick={resetGame} className="btn btn-warning btn-lg" role="button">
+                                        <button onClick={resetGame} className="btn-large btn-warning btn-lg" role="button">
                                             Play Again <i className="fas fa-gamepad"></i>
                                         </button>
                                     </div>

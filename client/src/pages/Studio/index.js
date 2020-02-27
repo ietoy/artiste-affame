@@ -4,7 +4,7 @@ import ColorPalette from '../../components/ColorPalette';
 import Consumer from '../../configContext';
 import API from '../../utils/API';
 import axios from 'axios';
-import Modal from "../../components/Modal";
+// import Modal from "../../components/Modal";
 import "./style.css";
 import html2canvas from 'html2canvas';
 
@@ -55,7 +55,7 @@ function Studio() {
         });
         // console.log("STUDIO STATE", studioState);
     }
-    //need these for modal functionality
+    // need these for modal functionality
     const toggleModalOn = () => {
         setModalState({ isOpen: true });
     }

@@ -41,7 +41,7 @@ return(<div>
 
 <div className="row settingsHolder">
 <form>
-<div className="input-field">
+<div className="input-field" id="avatarchoices">
 
     <select className="icons" onChange={avatarchange} >
       <option value="" disabled>Pick your inner artist</option>
@@ -62,7 +62,7 @@ return(<div>
   <br></br>
   <div className="input-field row">
           <input placeholder="New Username:New You" id="username" type="text" className="validate" onChange={usernamechange}></input>
-          <label >Update your username!</label>
+          <label id="usernamelabel" >Update your username!</label>
 </div>
 
 

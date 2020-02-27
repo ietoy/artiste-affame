@@ -30,18 +30,11 @@ let itemSeed = [
     cost: 7,
     src: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582649638/Inventory/vincent-van-goghs-ear-prints_czxnun.jpg"
   },
-  // {
-  //   name: "Monet's Water lilly",
-  //   description: "Breathtaking",
-  //   icon: "fas fa-paint-brush left",
-  //   cost: 100,
-  //   src: "./images/lilies.jpg"
-  // },
   {
     name: "Hotel Room",
-    description: "Nutritious & Delicious!",
+    description: "A cozy getaway",
     icon: "fas fas fa-cheese left",
-    cost: 20,
+    cost: 30,
     src: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582586435/Inventory/hotelroom_bskdcs.jpg"
   },
   {
@@ -76,12 +69,12 @@ let itemSeed = [
     name: "A Car",
     description: "A classic VW bug",
     icon: "fas fa-wine-bottle left",
-    cost: 5,
+    cost: 200,
     src: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582586372/Inventory/car_rd0jyx.jpg"
   },
   {
     name: "Absinthe",
-    description: "Hang with the green fairy!",
+    description: "Relax with the green fairy!",
     icon: "fas fa-wine-bottle left",
     cost: 5,
     src: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582586371/Inventory/absinthe_ydp2v3.jpg"
@@ -90,7 +83,7 @@ let itemSeed = [
     name: "Penthouse",
     description: "A penthouse with an art studio inside",
     icon: "fas fa-wine-bottle left",
-    cost: 500,
+    cost: 550,
     src: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582586368/Inventory/gothamtower_mkrkfu.jpg"
   },
   {
@@ -124,7 +117,7 @@ let itemSeed = [
     name: "Tickets to the theatre",
     description: "Midsummer's Night Dream at your local cinema",
     icon: "fas fa-wine-bottle left",
-    cost: 10,
+    cost: 15,
     src: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582586354/Inventory/theatre_n6outd.jpg"
   },
    {
@@ -145,7 +138,7 @@ let itemSeed = [
     name: "Fruits",
     description: "For painting or for snacking!",
     icon: "fas fa-wine-bottle left",
-    cost: 10,
+    cost: 6,
     src: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582586401/Inventory/apples-pears-lemons-and-grapes-1887.jpg_Large_awednt.jpg"
   },
   {
@@ -159,7 +152,7 @@ let itemSeed = [
     name: "Retire",
     description: "Retire the brush",
     icon: "fas fa-wine-bottle left",
-    cost: 1000,
+    cost: 2000,
     src: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582586354/Inventory/vacation_home_kyn5gi.jpg"
   },
   {
@@ -219,12 +212,12 @@ db.Item.create(itemSeed)
     process.exit(1);
   });
 
-db.Painting.create(paintingSeed)
-.then(data => {
-console.log("eggs",data)
-})
-.catch(err => {
-  console.error(err);
-  process.exit(1);
-});
+// db.Painting.create(paintingSeed)
+// .then(data => {
+// console.log("eggs",data)
+// })
+// .catch(err => {
+//   console.error(err);
+//   process.exit(1);
+// });
 

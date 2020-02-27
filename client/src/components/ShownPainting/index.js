@@ -8,9 +8,7 @@ const ShownPainting = (props) => {
                 <img src={props.src} />
             </div>
             <div className="card-content">
-                <h5 className="left">
-                    {props.paintingName}
-                </h5>
+             
                 <h6 className="right">
                     {props.likes}
                     <a

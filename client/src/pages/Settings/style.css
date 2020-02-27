@@ -2,11 +2,13 @@ form{
     width: 50%;
     height: fit-content;
     text-shadow: none;
-
+    margin-top: 20px;
 }
-/* img{
-    width: 50px !important;
-} */
+label{
+    font-size: 30px !important;
+  
+}
+
 .dropdown-content li img{
     width: 50px !important;
     height: 50px !important;
@@ -21,21 +23,40 @@ form{
     box-shadow: 0 1px 0 0 #870103 !important;
 
 }
-#avatar{
-    text-shadow: 1px 1px 0px black;
-    color:#FFFFFF;
-}
+
 .dropdown-content li>span{
     color: black !important;
 }
 input[type=email]{
     background-color: #F6F5F2 !important;
+
 }
 input[type=password]{
+
+
     background-color: #F6F5F2 !important;
  
 }
 input[type=text]{
+
+
     background-color: #F6F5F2 !important;
+
+}
+
+.select-wrapper input.select-dropdown{
+margin: 50px 50px 50px 0px;
+width: 100%;
+}
+#avatar{
+    margin-top: -40px!important;
+    color: white;
+    text-shadow: 1px 1px 0px black !important;
+
+}
+#usernamelabel{
+    margin-top: -40px ;
+    color: white;
+    text-shadow: 1px 1px 0px black !important;
 
 }

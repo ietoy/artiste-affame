@@ -27,7 +27,7 @@ const Arcade = () => {
                                     {
                                         name: "Guess #",
                                         link: "/arcade/guess",
-                                        image: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582659082/stock/2ndgame_kvou5q.png",
+                                        image: "https://res.cloudinary.com/artiste-defamme/image/upload/v1582755826/stock/brain2_n6v4eg.jpg",
                                         description: "Guess random #"
                                     }}></GameCard>
                             </div>
