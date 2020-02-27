@@ -15,8 +15,6 @@ class Gallery extends Component {
         btnID: ""
     }
 
-   
-
     render() {
         return (
             <Consumer>

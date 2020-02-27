@@ -43,17 +43,18 @@ class ConfigProvider extends Component {
 
             // finds painting in your portfolio if present
             for (var i = 0; i < this.state.portfolio.length; i++) {
-                if(this.state.portfolio[i]._id === id) {
+                if (this.state.portfolio[i]._id === id) {
                     this.state.portfolio[i].likes += 1;
                 }
             }
             // finds painting in gallery
             for (var i = 0; i < this.state.gallery.length; i++) {
-                if(this.state.gallery[i]._id === id) {
+                if (this.state.gallery[i]._id === id) {
                     this.state.gallery[i].likes += 1;
                     // console.log(this.state.gallery[i]._id)
                 }
             }
+            
             this.setState(this.state);
         },
         loadShownPaintings: (paintings) => {
@@ -230,7 +231,7 @@ class ConfigProvider extends Component {
                         })
                     });
 
-                
+
             } else {
                 // Otherwise, alert the user that they cannot afford the cart context
                 alert("You can't afford all that! Update your cart and try again.")
