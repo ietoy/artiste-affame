@@ -12,31 +12,9 @@ Immerse into the live of a renaissance artist. Play games in the arcade or test 
 
 ![Site](client/public/images/readme/arcade.png)
 
+3. Studio
 
-3. 
-
-![Site](assets/images/.png)
-
-## Code Snippets
-
-
-1. 
-
-```javascript
-
-
-    
-```
-* Description:
-
-
-2. 
-
-```javascript
-
-
-```
-* Description:
+![Site](client/public/images/readme/studio.png)
 
 ## Available Scripts for cloned repos
 
