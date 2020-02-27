@@ -8,9 +8,7 @@ label{
     font-size: 30px !important;
   
 }
-/* img{
-    width: 50px !important;
-} */
+
 .dropdown-content li img{
     width: 50px !important;
     height: 50px !important;
@@ -25,14 +23,7 @@ label{
     box-shadow: 0 1px 0 0 #870103 !important;
 
 }
-#avatar{
-    text-shadow: 1px 1px 0px black;
-    color:#FFFFFF;
-    margin-bottom:-50px;
-}
-/* #avatarchoices{
-    margin:100px;
-} */
+
 .dropdown-content li>span{
     color: black !important;
 }
@@ -59,7 +50,13 @@ width: 100%;
 }
 #avatar{
     margin-top: -40px!important;
+    color: white;
+    text-shadow: 1px 1px 0px black !important;
+
 }
 #usernamelabel{
     margin-top: -40px ;
+    color: white;
+    text-shadow: 1px 1px 0px black !important;
+
 }

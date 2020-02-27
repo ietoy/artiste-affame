@@ -1,32 +1,23 @@
-/* .btn{
-    background-color: #870103 !important;
-  } */
+
   .btn-large{
     border-radius: 3px;
   }
   #inputPass:focus {
     border-bottom: 1px solid #870103 !important;
     box-shadow: 0 1px 0 0 #870103 !important;
-    /* color: #870103 !important; */
+    margin-top: -40px !important;
       }
-      /* #inputPass:focus +label {
-        color: #870103;
-      } */
-      /* #inputPass:focus -i {
-        color: #870103;
-      } */
-    /* #inputPass:focus +.active{
-        color: #870103;
-      } */
+
       .active{
         text-shadow: 1px 1px 0px black !important;
         color:white !important;
         font-weight: 500px;
+        
       }
       #inputEmail:focus {
         border-bottom: 1px solid #870103 !important;
         box-shadow: 0 1px 0 0 #870103 !important;
-        /* color: #870103 !important; */
+        
           }
           .card-title{
             padding-top: 10px !important;
@@ -34,3 +25,9 @@
           .btn-large{
             background-color: #870103;
           }
+          .input-field.col .prefix ~ label{
+            color: white;
+            text-shadow: 1px 1px 0px black !important;
+
+margin: -50px 0px -50px 50px;
+}
